@@ -1,0 +1,2229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixku.mysql2kafka.dao.als7db.BusinessContractMapper">
+  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContract">
+    <id column="SERIALNO" jdbcType="VARCHAR" property="serialno" />
+    <result column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="BUSINESSTYPE" jdbcType="VARCHAR" property="businesstype" />
+    <result column="BANKCODE" jdbcType="VARCHAR" property="bankcode" />
+    <result column="BANKCARD" jdbcType="VARCHAR" property="bankcard" />
+    <result column="BANKCARDPHONE" jdbcType="VARCHAR" property="bankcardphone" />
+    <result column="SHOPSN" jdbcType="VARCHAR" property="shopsn" />
+    <result column="CUSTOMERSERVICE" jdbcType="VARCHAR" property="customerservice" />
+    <result column="SALERSN" jdbcType="VARCHAR" property="salersn" />
+    <result column="SALECENTERSN" jdbcType="VARCHAR" property="salecentersn" />
+    <result column="APPLYTERM" jdbcType="VARCHAR" property="applyterm" />
+    <result column="MONTHREPAY" jdbcType="DECIMAL" property="monthrepay" />
+    <result column="BUSINESSSUM" jdbcType="DECIMAL" property="businesssum" />
+    <result column="IMSI" jdbcType="VARCHAR" property="imsi" />
+    <result column="PHONEOS" jdbcType="VARCHAR" property="phoneos" />
+    <result column="GPSLOCATION" jdbcType="VARCHAR" property="gpslocation" />
+    <result column="ORDERSN" jdbcType="VARCHAR" property="ordersn" />
+    <result column="APPROVETERM" jdbcType="VARCHAR" property="approveterm" />
+    <result column="APPLYSUM" jdbcType="DECIMAL" property="applysum" />
+    <result column="APPROVETIME" jdbcType="VARCHAR" property="approvetime" />
+    <result column="CONTRACTDATE" jdbcType="VARCHAR" property="contractdate" />
+    <result column="CONFIRMTIME" jdbcType="VARCHAR" property="confirmtime" />
+    <result column="PAYDATE" jdbcType="VARCHAR" property="paydate" />
+    <result column="RETURNTYPE" jdbcType="VARCHAR" property="returntype" />
+    <result column="contractstatus" jdbcType="VARCHAR" property="contractstatus" />
+    <result column="applystatus" jdbcType="VARCHAR" property="applystatus" />
+    <result column="orderBeginTime" jdbcType="VARCHAR" property="orderbegintime" />
+    <result column="orderEndTime" jdbcType="VARCHAR" property="orderendtime" />
+    <result column="approvedate" jdbcType="VARCHAR" property="approvedate" />
+    <result column="finishdate" jdbcType="VARCHAR" property="finishdate" />
+    <result column="businessrate" jdbcType="DECIMAL" property="businessrate" />
+    <result column="TOTALRATE" jdbcType="DECIMAL" property="totalrate" />
+    <result column="finerate" jdbcType="DECIMAL" property="finerate" />
+    <result column="aheadscale" jdbcType="DECIMAL" property="aheadscale" />
+    <result column="targetstatus" jdbcType="VARCHAR" property="targetstatus" />
+    <result column="APPROVESUM" jdbcType="DECIMAL" property="approvesum" />
+    <result column="PUTOUTDATE" jdbcType="VARCHAR" property="putoutdate" />
+    <result column="MATURITYDATE" jdbcType="VARCHAR" property="maturitydate" />
+    <result column="AHENDRATE" jdbcType="VARCHAR" property="ahendrate" />
+    <result column="isPutOut" jdbcType="VARCHAR" property="isputout" />
+    <result column="isFullDeal" jdbcType="VARCHAR" property="isfulldeal" />
+    <result column="approvenumber" jdbcType="VARCHAR" property="approvenumber" />
+    <result column="applymonthrepay" jdbcType="DECIMAL" property="applymonthrepay" />
+    <result column="skuId" jdbcType="VARCHAR" property="skuid" />
+    <result column="loanuse" jdbcType="VARCHAR" property="loanuse" />
+    <result column="FUNDCHANNEL" jdbcType="VARCHAR" property="fundchannel" />
+    <result column="accountno" jdbcType="VARCHAR" property="accountno" />
+    <result column="accountbank" jdbcType="VARCHAR" property="accountbank" />
+    <result column="bank_id" jdbcType="VARCHAR" property="bankId" />
+    <result column="relevancebankno" jdbcType="VARCHAR" property="relevancebankno" />
+    <result column="accountaddress" jdbcType="VARCHAR" property="accountaddress" />
+    <result column="accountnet" jdbcType="VARCHAR" property="accountnet" />
+    <result column="fuyouaccount" jdbcType="VARCHAR" property="fuyouaccount" />
+    <result column="payway" jdbcType="VARCHAR" property="payway" />
+    <result column="isFamily" jdbcType="VARCHAR" property="isfamily" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="loanusedesc" jdbcType="VARCHAR" property="loanusedesc" />
+    <result column="sourcedesc" jdbcType="VARCHAR" property="sourcedesc" />
+    <result column="citycode" jdbcType="VARCHAR" property="citycode" />
+    <result column="areacode" jdbcType="VARCHAR" property="areacode" />
+    <result column="bankkind" jdbcType="VARCHAR" property="bankkind" />
+    <result column="MANAGERATE" jdbcType="DECIMAL" property="managerate" />
+    <result column="SERVERRATE" jdbcType="DECIMAL" property="serverrate" />
+    <result column="INSURANCERATE" jdbcType="DECIMAL" property="insurancerate" />
+    <result column="SERVERFEE" jdbcType="DECIMAL" property="serverfee" />
+    <result column="loanfeerate" jdbcType="DECIMAL" property="loanfeerate" />
+    <result column="consultfeerate" jdbcType="DECIMAL" property="consultfeerate" />
+    <result column="guaranteefeerate" jdbcType="DECIMAL" property="guaranteefeerate" />
+    <result column="payfeerate" jdbcType="DECIMAL" property="payfeerate" />
+    <result column="CONSULTRATE" jdbcType="DECIMAL" property="consultrate" />
+    <result column="CHECKRATE" jdbcType="DECIMAL" property="checkrate" />
+    <result column="AHENDTERM" jdbcType="VARCHAR" property="ahendterm" />
+    <result column="putoutsum" jdbcType="DECIMAL" property="putoutsum" />
+    <result column="rate" jdbcType="DECIMAL" property="rate" />
+    <result column="dealid" jdbcType="VARCHAR" property="dealid" />
+    <result column="TEAMLEADER" jdbcType="VARCHAR" property="teamleader" />
+    <result column="OUTDATARESUELT" jdbcType="VARCHAR" property="outdataresuelt" />
+    <result column="REFUSEMAINRESON" jdbcType="VARCHAR" property="refusemainreson" />
+    <result column="team_leader" jdbcType="VARCHAR" property="teamLeader" />
+    <result column="send_target_time" jdbcType="VARCHAR" property="sendTargetTime" />
+    <result column="SUMSERVICEFEE" jdbcType="DECIMAL" property="sumservicefee" />
+    <result column="SUMCERTIDMANAGEFEE" jdbcType="DECIMAL" property="sumcertidmanagefee" />
+    <result column="pbc_report_id" jdbcType="INTEGER" property="pbcReportId" />
+    <result column="pbc_report_time" jdbcType="VARCHAR" property="pbcReportTime" />
+    <result column="updatetimestamp" jdbcType="TIMESTAMP" property="updatetimestamp" />
+    <result column="send_target_user" jdbcType="VARCHAR" property="sendTargetUser" />
+    <result column="send_target_username" jdbcType="VARCHAR" property="sendTargetUsername" />
+    <result column="credit_amount" jdbcType="DECIMAL" property="creditAmount" />
+    <result column="credit_point" jdbcType="VARCHAR" property="creditPoint" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="INNERDESCRIPTION" jdbcType="VARCHAR" property="innerdescription" />
+    <result column="afine_rate2" jdbcType="DECIMAL" property="afineRate2" />
+    <result column="RESOURCE_DES" jdbcType="VARCHAR" property="resourceDes" />
+    <result column="EXTERNAL_RESOURCE_DES" jdbcType="VARCHAR" property="externalResourceDes" />
+    <result column="MATCH_DES" jdbcType="VARCHAR" property="matchDes" />
+    <result column="income_transaction_des" jdbcType="VARCHAR" property="incomeTransactionDes" />
+    <result column="productcategory" jdbcType="VARCHAR" property="productcategory" />
+    <result column="platformfee" jdbcType="DECIMAL" property="platformfee" />
+    <result column="totalfee" jdbcType="DECIMAL" property="totalfee" />
+    <result column="paymentfee" jdbcType="DECIMAL" property="paymentfee" />
+    <result column="consultservicefee" jdbcType="DECIMAL" property="consultservicefee" />
+    <result column="issending" jdbcType="VARCHAR" property="issending" />
+    <result column="finerate2" jdbcType="DECIMAL" property="finerate2" />
+    <result column="CHANNEL" jdbcType="VARCHAR" property="channel" />
+    <result column="union_consultation_fee" jdbcType="DECIMAL" property="unionConsultationFee" />
+    <result column="customer_source_channel" jdbcType="VARCHAR" property="customerSourceChannel" />
+    <result column="phonescore" jdbcType="VARCHAR" property="phonescore" />
+    <result column="phonescorelevel" jdbcType="VARCHAR" property="phonescorelevel" />
+    <result column="term_unit" jdbcType="VARCHAR" property="termUnit" />
+    <result column="platform_rate_one" jdbcType="DECIMAL" property="platformRateOne" />
+    <result column="platform_rate_two" jdbcType="DECIMAL" property="platformRateTwo" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="fallback" jdbcType="VARCHAR" property="fallback" />
+    <result column="auto_finish" jdbcType="VARCHAR" property="autoFinish" />
+    <result column="bind_card_time" jdbcType="VARCHAR" property="bindCardTime" />
+    <result column="face_recognition" jdbcType="VARCHAR" property="faceRecognition" />
+    <result column="carrieroperator" jdbcType="INTEGER" property="carrieroperator" />
+    <result column="scorpio" jdbcType="VARCHAR" property="scorpio" />
+    <result column="scorpioTaskId" jdbcType="VARCHAR" property="scorpiotaskid" />
+    <result column="putout_offline" jdbcType="INTEGER" property="putoutOffline" />
+    <result column="coupon_ids" jdbcType="VARCHAR" property="couponIds" />
+    <result column="intention_id" jdbcType="VARCHAR" property="intentionId" />
+    <result column="salesman_no" jdbcType="VARCHAR" property="salesmanNo" />
+    <result column="salesman_name" jdbcType="VARCHAR" property="salesmanName" />
+    <result column="putout_version" jdbcType="VARCHAR" property="putoutVersion" />
+    <result column="is_record_completion" jdbcType="VARCHAR" property="isRecordCompletion" />
+    <result column="video_flag" jdbcType="VARCHAR" property="videoFlag" />
+    <result column="video_flag1" jdbcType="VARCHAR" property="videoFlag1" />
+    <result column="credit_score" jdbcType="VARCHAR" property="creditScore" />
+    <result column="is_open_url" jdbcType="VARCHAR" property="isOpenUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SERIALNO, CUSTOMERID, BUSINESSTYPE, BANKCODE, BANKCARD, BANKCARDPHONE, SHOPSN, CUSTOMERSERVICE, 
+    SALERSN, SALECENTERSN, APPLYTERM, MONTHREPAY, BUSINESSSUM, IMSI, PHONEOS, GPSLOCATION, 
+    ORDERSN, APPROVETERM, APPLYSUM, APPROVETIME, CONTRACTDATE, CONFIRMTIME, PAYDATE, 
+    RETURNTYPE, contractstatus, applystatus, orderBeginTime, orderEndTime, approvedate, 
+    finishdate, businessrate, TOTALRATE, finerate, aheadscale, targetstatus, APPROVESUM, 
+    PUTOUTDATE, MATURITYDATE, AHENDRATE, isPutOut, isFullDeal, approvenumber, applymonthrepay, 
+    skuId, loanuse, FUNDCHANNEL, accountno, accountbank, bank_id, relevancebankno, accountaddress, 
+    accountnet, fuyouaccount, payway, isFamily, SOURCE, loanusedesc, sourcedesc, citycode, 
+    areacode, bankkind, MANAGERATE, SERVERRATE, INSURANCERATE, SERVERFEE, loanfeerate, 
+    consultfeerate, guaranteefeerate, payfeerate, CONSULTRATE, CHECKRATE, AHENDTERM, 
+    putoutsum, rate, dealid, TEAMLEADER, OUTDATARESUELT, REFUSEMAINRESON, team_leader, 
+    send_target_time, SUMSERVICEFEE, SUMCERTIDMANAGEFEE, pbc_report_id, pbc_report_time, 
+    updatetimestamp, send_target_user, send_target_username, credit_amount, credit_point, 
+    token, INNERDESCRIPTION, afine_rate2, RESOURCE_DES, EXTERNAL_RESOURCE_DES, MATCH_DES, 
+    income_transaction_des, productcategory, platformfee, totalfee, paymentfee, consultservicefee, 
+    issending, finerate2, CHANNEL, union_consultation_fee, customer_source_channel, phonescore, 
+    phonescorelevel, term_unit, platform_rate_one, platform_rate_two, update_user, create_user, 
+    create_time, fallback, auto_finish, bind_card_time, face_recognition, carrieroperator, 
+    scorpio, scorpioTaskId, putout_offline, coupon_ids, intention_id, salesman_no, salesman_name, 
+    putout_version, is_record_completion, video_flag, video_flag1, credit_score, is_open_url
+  </sql>
+  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContractExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from business_contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from business_contract
+    where SERIALNO = #{serialno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from business_contract
+    where SERIALNO = #{serialno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContractExample">
+    delete from business_contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContract">
+    insert into business_contract (SERIALNO, CUSTOMERID, BUSINESSTYPE, 
+      BANKCODE, BANKCARD, BANKCARDPHONE, 
+      SHOPSN, CUSTOMERSERVICE, SALERSN, 
+      SALECENTERSN, APPLYTERM, MONTHREPAY, 
+      BUSINESSSUM, IMSI, PHONEOS, 
+      GPSLOCATION, ORDERSN, APPROVETERM, 
+      APPLYSUM, APPROVETIME, CONTRACTDATE, 
+      CONFIRMTIME, PAYDATE, RETURNTYPE, 
+      contractstatus, applystatus, orderBeginTime, 
+      orderEndTime, approvedate, finishdate, 
+      businessrate, TOTALRATE, finerate, 
+      aheadscale, targetstatus, APPROVESUM, 
+      PUTOUTDATE, MATURITYDATE, AHENDRATE, 
+      isPutOut, isFullDeal, approvenumber, 
+      applymonthrepay, skuId, loanuse, 
+      FUNDCHANNEL, accountno, accountbank, 
+      bank_id, relevancebankno, accountaddress, 
+      accountnet, fuyouaccount, payway, 
+      isFamily, SOURCE, loanusedesc, 
+      sourcedesc, citycode, areacode, 
+      bankkind, MANAGERATE, SERVERRATE, 
+      INSURANCERATE, SERVERFEE, loanfeerate, 
+      consultfeerate, guaranteefeerate, payfeerate, 
+      CONSULTRATE, CHECKRATE, AHENDTERM, 
+      putoutsum, rate, dealid, 
+      TEAMLEADER, OUTDATARESUELT, REFUSEMAINRESON, 
+      team_leader, send_target_time, SUMSERVICEFEE, 
+      SUMCERTIDMANAGEFEE, pbc_report_id, pbc_report_time, 
+      updatetimestamp, send_target_user, send_target_username, 
+      credit_amount, credit_point, token, 
+      INNERDESCRIPTION, afine_rate2, RESOURCE_DES, 
+      EXTERNAL_RESOURCE_DES, MATCH_DES, income_transaction_des, 
+      productcategory, platformfee, totalfee, 
+      paymentfee, consultservicefee, issending, 
+      finerate2, CHANNEL, union_consultation_fee, 
+      customer_source_channel, phonescore, phonescorelevel, 
+      term_unit, platform_rate_one, platform_rate_two, 
+      update_user, create_user, create_time, 
+      fallback, auto_finish, bind_card_time, 
+      face_recognition, carrieroperator, scorpio, 
+      scorpioTaskId, putout_offline, coupon_ids, 
+      intention_id, salesman_no, salesman_name, 
+      putout_version, is_record_completion, video_flag, 
+      video_flag1, credit_score, is_open_url
+      )
+    values (#{serialno,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{businesstype,jdbcType=VARCHAR}, 
+      #{bankcode,jdbcType=VARCHAR}, #{bankcard,jdbcType=VARCHAR}, #{bankcardphone,jdbcType=VARCHAR}, 
+      #{shopsn,jdbcType=VARCHAR}, #{customerservice,jdbcType=VARCHAR}, #{salersn,jdbcType=VARCHAR}, 
+      #{salecentersn,jdbcType=VARCHAR}, #{applyterm,jdbcType=VARCHAR}, #{monthrepay,jdbcType=DECIMAL}, 
+      #{businesssum,jdbcType=DECIMAL}, #{imsi,jdbcType=VARCHAR}, #{phoneos,jdbcType=VARCHAR}, 
+      #{gpslocation,jdbcType=VARCHAR}, #{ordersn,jdbcType=VARCHAR}, #{approveterm,jdbcType=VARCHAR}, 
+      #{applysum,jdbcType=DECIMAL}, #{approvetime,jdbcType=VARCHAR}, #{contractdate,jdbcType=VARCHAR}, 
+      #{confirmtime,jdbcType=VARCHAR}, #{paydate,jdbcType=VARCHAR}, #{returntype,jdbcType=VARCHAR}, 
+      #{contractstatus,jdbcType=VARCHAR}, #{applystatus,jdbcType=VARCHAR}, #{orderbegintime,jdbcType=VARCHAR}, 
+      #{orderendtime,jdbcType=VARCHAR}, #{approvedate,jdbcType=VARCHAR}, #{finishdate,jdbcType=VARCHAR}, 
+      #{businessrate,jdbcType=DECIMAL}, #{totalrate,jdbcType=DECIMAL}, #{finerate,jdbcType=DECIMAL}, 
+      #{aheadscale,jdbcType=DECIMAL}, #{targetstatus,jdbcType=VARCHAR}, #{approvesum,jdbcType=DECIMAL}, 
+      #{putoutdate,jdbcType=VARCHAR}, #{maturitydate,jdbcType=VARCHAR}, #{ahendrate,jdbcType=VARCHAR}, 
+      #{isputout,jdbcType=VARCHAR}, #{isfulldeal,jdbcType=VARCHAR}, #{approvenumber,jdbcType=VARCHAR}, 
+      #{applymonthrepay,jdbcType=DECIMAL}, #{skuid,jdbcType=VARCHAR}, #{loanuse,jdbcType=VARCHAR}, 
+      #{fundchannel,jdbcType=VARCHAR}, #{accountno,jdbcType=VARCHAR}, #{accountbank,jdbcType=VARCHAR}, 
+      #{bankId,jdbcType=VARCHAR}, #{relevancebankno,jdbcType=VARCHAR}, #{accountaddress,jdbcType=VARCHAR}, 
+      #{accountnet,jdbcType=VARCHAR}, #{fuyouaccount,jdbcType=VARCHAR}, #{payway,jdbcType=VARCHAR}, 
+      #{isfamily,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{loanusedesc,jdbcType=VARCHAR}, 
+      #{sourcedesc,jdbcType=VARCHAR}, #{citycode,jdbcType=VARCHAR}, #{areacode,jdbcType=VARCHAR}, 
+      #{bankkind,jdbcType=VARCHAR}, #{managerate,jdbcType=DECIMAL}, #{serverrate,jdbcType=DECIMAL}, 
+      #{insurancerate,jdbcType=DECIMAL}, #{serverfee,jdbcType=DECIMAL}, #{loanfeerate,jdbcType=DECIMAL}, 
+      #{consultfeerate,jdbcType=DECIMAL}, #{guaranteefeerate,jdbcType=DECIMAL}, #{payfeerate,jdbcType=DECIMAL}, 
+      #{consultrate,jdbcType=DECIMAL}, #{checkrate,jdbcType=DECIMAL}, #{ahendterm,jdbcType=VARCHAR}, 
+      #{putoutsum,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{dealid,jdbcType=VARCHAR}, 
+      #{teamleader,jdbcType=VARCHAR}, #{outdataresuelt,jdbcType=VARCHAR}, #{refusemainreson,jdbcType=VARCHAR}, 
+      #{teamLeader,jdbcType=VARCHAR}, #{sendTargetTime,jdbcType=VARCHAR}, #{sumservicefee,jdbcType=DECIMAL}, 
+      #{sumcertidmanagefee,jdbcType=DECIMAL}, #{pbcReportId,jdbcType=INTEGER}, #{pbcReportTime,jdbcType=VARCHAR}, 
+      #{updatetimestamp,jdbcType=TIMESTAMP}, #{sendTargetUser,jdbcType=VARCHAR}, #{sendTargetUsername,jdbcType=VARCHAR}, 
+      #{creditAmount,jdbcType=DECIMAL}, #{creditPoint,jdbcType=VARCHAR}, #{token,jdbcType=VARCHAR}, 
+      #{innerdescription,jdbcType=VARCHAR}, #{afineRate2,jdbcType=DECIMAL}, #{resourceDes,jdbcType=VARCHAR}, 
+      #{externalResourceDes,jdbcType=VARCHAR}, #{matchDes,jdbcType=VARCHAR}, #{incomeTransactionDes,jdbcType=VARCHAR}, 
+      #{productcategory,jdbcType=VARCHAR}, #{platformfee,jdbcType=DECIMAL}, #{totalfee,jdbcType=DECIMAL}, 
+      #{paymentfee,jdbcType=DECIMAL}, #{consultservicefee,jdbcType=DECIMAL}, #{issending,jdbcType=VARCHAR}, 
+      #{finerate2,jdbcType=DECIMAL}, #{channel,jdbcType=VARCHAR}, #{unionConsultationFee,jdbcType=DECIMAL}, 
+      #{customerSourceChannel,jdbcType=VARCHAR}, #{phonescore,jdbcType=VARCHAR}, #{phonescorelevel,jdbcType=VARCHAR}, 
+      #{termUnit,jdbcType=VARCHAR}, #{platformRateOne,jdbcType=DECIMAL}, #{platformRateTwo,jdbcType=DECIMAL}, 
+      #{updateUser,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{fallback,jdbcType=VARCHAR}, #{autoFinish,jdbcType=VARCHAR}, #{bindCardTime,jdbcType=VARCHAR}, 
+      #{faceRecognition,jdbcType=VARCHAR}, #{carrieroperator,jdbcType=INTEGER}, #{scorpio,jdbcType=VARCHAR}, 
+      #{scorpiotaskid,jdbcType=VARCHAR}, #{putoutOffline,jdbcType=INTEGER}, #{couponIds,jdbcType=VARCHAR}, 
+      #{intentionId,jdbcType=VARCHAR}, #{salesmanNo,jdbcType=VARCHAR}, #{salesmanName,jdbcType=VARCHAR}, 
+      #{putoutVersion,jdbcType=VARCHAR}, #{isRecordCompletion,jdbcType=VARCHAR}, #{videoFlag,jdbcType=VARCHAR}, 
+      #{videoFlag1,jdbcType=VARCHAR}, #{creditScore,jdbcType=VARCHAR}, #{isOpenUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContract">
+    insert into business_contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        SERIALNO,
+      </if>
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="businesstype != null">
+        BUSINESSTYPE,
+      </if>
+      <if test="bankcode != null">
+        BANKCODE,
+      </if>
+      <if test="bankcard != null">
+        BANKCARD,
+      </if>
+      <if test="bankcardphone != null">
+        BANKCARDPHONE,
+      </if>
+      <if test="shopsn != null">
+        SHOPSN,
+      </if>
+      <if test="customerservice != null">
+        CUSTOMERSERVICE,
+      </if>
+      <if test="salersn != null">
+        SALERSN,
+      </if>
+      <if test="salecentersn != null">
+        SALECENTERSN,
+      </if>
+      <if test="applyterm != null">
+        APPLYTERM,
+      </if>
+      <if test="monthrepay != null">
+        MONTHREPAY,
+      </if>
+      <if test="businesssum != null">
+        BUSINESSSUM,
+      </if>
+      <if test="imsi != null">
+        IMSI,
+      </if>
+      <if test="phoneos != null">
+        PHONEOS,
+      </if>
+      <if test="gpslocation != null">
+        GPSLOCATION,
+      </if>
+      <if test="ordersn != null">
+        ORDERSN,
+      </if>
+      <if test="approveterm != null">
+        APPROVETERM,
+      </if>
+      <if test="applysum != null">
+        APPLYSUM,
+      </if>
+      <if test="approvetime != null">
+        APPROVETIME,
+      </if>
+      <if test="contractdate != null">
+        CONTRACTDATE,
+      </if>
+      <if test="confirmtime != null">
+        CONFIRMTIME,
+      </if>
+      <if test="paydate != null">
+        PAYDATE,
+      </if>
+      <if test="returntype != null">
+        RETURNTYPE,
+      </if>
+      <if test="contractstatus != null">
+        contractstatus,
+      </if>
+      <if test="applystatus != null">
+        applystatus,
+      </if>
+      <if test="orderbegintime != null">
+        orderBeginTime,
+      </if>
+      <if test="orderendtime != null">
+        orderEndTime,
+      </if>
+      <if test="approvedate != null">
+        approvedate,
+      </if>
+      <if test="finishdate != null">
+        finishdate,
+      </if>
+      <if test="businessrate != null">
+        businessrate,
+      </if>
+      <if test="totalrate != null">
+        TOTALRATE,
+      </if>
+      <if test="finerate != null">
+        finerate,
+      </if>
+      <if test="aheadscale != null">
+        aheadscale,
+      </if>
+      <if test="targetstatus != null">
+        targetstatus,
+      </if>
+      <if test="approvesum != null">
+        APPROVESUM,
+      </if>
+      <if test="putoutdate != null">
+        PUTOUTDATE,
+      </if>
+      <if test="maturitydate != null">
+        MATURITYDATE,
+      </if>
+      <if test="ahendrate != null">
+        AHENDRATE,
+      </if>
+      <if test="isputout != null">
+        isPutOut,
+      </if>
+      <if test="isfulldeal != null">
+        isFullDeal,
+      </if>
+      <if test="approvenumber != null">
+        approvenumber,
+      </if>
+      <if test="applymonthrepay != null">
+        applymonthrepay,
+      </if>
+      <if test="skuid != null">
+        skuId,
+      </if>
+      <if test="loanuse != null">
+        loanuse,
+      </if>
+      <if test="fundchannel != null">
+        FUNDCHANNEL,
+      </if>
+      <if test="accountno != null">
+        accountno,
+      </if>
+      <if test="accountbank != null">
+        accountbank,
+      </if>
+      <if test="bankId != null">
+        bank_id,
+      </if>
+      <if test="relevancebankno != null">
+        relevancebankno,
+      </if>
+      <if test="accountaddress != null">
+        accountaddress,
+      </if>
+      <if test="accountnet != null">
+        accountnet,
+      </if>
+      <if test="fuyouaccount != null">
+        fuyouaccount,
+      </if>
+      <if test="payway != null">
+        payway,
+      </if>
+      <if test="isfamily != null">
+        isFamily,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="loanusedesc != null">
+        loanusedesc,
+      </if>
+      <if test="sourcedesc != null">
+        sourcedesc,
+      </if>
+      <if test="citycode != null">
+        citycode,
+      </if>
+      <if test="areacode != null">
+        areacode,
+      </if>
+      <if test="bankkind != null">
+        bankkind,
+      </if>
+      <if test="managerate != null">
+        MANAGERATE,
+      </if>
+      <if test="serverrate != null">
+        SERVERRATE,
+      </if>
+      <if test="insurancerate != null">
+        INSURANCERATE,
+      </if>
+      <if test="serverfee != null">
+        SERVERFEE,
+      </if>
+      <if test="loanfeerate != null">
+        loanfeerate,
+      </if>
+      <if test="consultfeerate != null">
+        consultfeerate,
+      </if>
+      <if test="guaranteefeerate != null">
+        guaranteefeerate,
+      </if>
+      <if test="payfeerate != null">
+        payfeerate,
+      </if>
+      <if test="consultrate != null">
+        CONSULTRATE,
+      </if>
+      <if test="checkrate != null">
+        CHECKRATE,
+      </if>
+      <if test="ahendterm != null">
+        AHENDTERM,
+      </if>
+      <if test="putoutsum != null">
+        putoutsum,
+      </if>
+      <if test="rate != null">
+        rate,
+      </if>
+      <if test="dealid != null">
+        dealid,
+      </if>
+      <if test="teamleader != null">
+        TEAMLEADER,
+      </if>
+      <if test="outdataresuelt != null">
+        OUTDATARESUELT,
+      </if>
+      <if test="refusemainreson != null">
+        REFUSEMAINRESON,
+      </if>
+      <if test="teamLeader != null">
+        team_leader,
+      </if>
+      <if test="sendTargetTime != null">
+        send_target_time,
+      </if>
+      <if test="sumservicefee != null">
+        SUMSERVICEFEE,
+      </if>
+      <if test="sumcertidmanagefee != null">
+        SUMCERTIDMANAGEFEE,
+      </if>
+      <if test="pbcReportId != null">
+        pbc_report_id,
+      </if>
+      <if test="pbcReportTime != null">
+        pbc_report_time,
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp,
+      </if>
+      <if test="sendTargetUser != null">
+        send_target_user,
+      </if>
+      <if test="sendTargetUsername != null">
+        send_target_username,
+      </if>
+      <if test="creditAmount != null">
+        credit_amount,
+      </if>
+      <if test="creditPoint != null">
+        credit_point,
+      </if>
+      <if test="token != null">
+        token,
+      </if>
+      <if test="innerdescription != null">
+        INNERDESCRIPTION,
+      </if>
+      <if test="afineRate2 != null">
+        afine_rate2,
+      </if>
+      <if test="resourceDes != null">
+        RESOURCE_DES,
+      </if>
+      <if test="externalResourceDes != null">
+        EXTERNAL_RESOURCE_DES,
+      </if>
+      <if test="matchDes != null">
+        MATCH_DES,
+      </if>
+      <if test="incomeTransactionDes != null">
+        income_transaction_des,
+      </if>
+      <if test="productcategory != null">
+        productcategory,
+      </if>
+      <if test="platformfee != null">
+        platformfee,
+      </if>
+      <if test="totalfee != null">
+        totalfee,
+      </if>
+      <if test="paymentfee != null">
+        paymentfee,
+      </if>
+      <if test="consultservicefee != null">
+        consultservicefee,
+      </if>
+      <if test="issending != null">
+        issending,
+      </if>
+      <if test="finerate2 != null">
+        finerate2,
+      </if>
+      <if test="channel != null">
+        CHANNEL,
+      </if>
+      <if test="unionConsultationFee != null">
+        union_consultation_fee,
+      </if>
+      <if test="customerSourceChannel != null">
+        customer_source_channel,
+      </if>
+      <if test="phonescore != null">
+        phonescore,
+      </if>
+      <if test="phonescorelevel != null">
+        phonescorelevel,
+      </if>
+      <if test="termUnit != null">
+        term_unit,
+      </if>
+      <if test="platformRateOne != null">
+        platform_rate_one,
+      </if>
+      <if test="platformRateTwo != null">
+        platform_rate_two,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="fallback != null">
+        fallback,
+      </if>
+      <if test="autoFinish != null">
+        auto_finish,
+      </if>
+      <if test="bindCardTime != null">
+        bind_card_time,
+      </if>
+      <if test="faceRecognition != null">
+        face_recognition,
+      </if>
+      <if test="carrieroperator != null">
+        carrieroperator,
+      </if>
+      <if test="scorpio != null">
+        scorpio,
+      </if>
+      <if test="scorpiotaskid != null">
+        scorpioTaskId,
+      </if>
+      <if test="putoutOffline != null">
+        putout_offline,
+      </if>
+      <if test="couponIds != null">
+        coupon_ids,
+      </if>
+      <if test="intentionId != null">
+        intention_id,
+      </if>
+      <if test="salesmanNo != null">
+        salesman_no,
+      </if>
+      <if test="salesmanName != null">
+        salesman_name,
+      </if>
+      <if test="putoutVersion != null">
+        putout_version,
+      </if>
+      <if test="isRecordCompletion != null">
+        is_record_completion,
+      </if>
+      <if test="videoFlag != null">
+        video_flag,
+      </if>
+      <if test="videoFlag1 != null">
+        video_flag1,
+      </if>
+      <if test="creditScore != null">
+        credit_score,
+      </if>
+      <if test="isOpenUrl != null">
+        is_open_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcode != null">
+        #{bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcardphone != null">
+        #{bankcardphone,jdbcType=VARCHAR},
+      </if>
+      <if test="shopsn != null">
+        #{shopsn,jdbcType=VARCHAR},
+      </if>
+      <if test="customerservice != null">
+        #{customerservice,jdbcType=VARCHAR},
+      </if>
+      <if test="salersn != null">
+        #{salersn,jdbcType=VARCHAR},
+      </if>
+      <if test="salecentersn != null">
+        #{salecentersn,jdbcType=VARCHAR},
+      </if>
+      <if test="applyterm != null">
+        #{applyterm,jdbcType=VARCHAR},
+      </if>
+      <if test="monthrepay != null">
+        #{monthrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="businesssum != null">
+        #{businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="imsi != null">
+        #{imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneos != null">
+        #{phoneos,jdbcType=VARCHAR},
+      </if>
+      <if test="gpslocation != null">
+        #{gpslocation,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersn != null">
+        #{ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="approveterm != null">
+        #{approveterm,jdbcType=VARCHAR},
+      </if>
+      <if test="applysum != null">
+        #{applysum,jdbcType=DECIMAL},
+      </if>
+      <if test="approvetime != null">
+        #{approvetime,jdbcType=VARCHAR},
+      </if>
+      <if test="contractdate != null">
+        #{contractdate,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmtime != null">
+        #{confirmtime,jdbcType=VARCHAR},
+      </if>
+      <if test="paydate != null">
+        #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="returntype != null">
+        #{returntype,jdbcType=VARCHAR},
+      </if>
+      <if test="contractstatus != null">
+        #{contractstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applystatus != null">
+        #{applystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orderbegintime != null">
+        #{orderbegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderendtime != null">
+        #{orderendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="approvedate != null">
+        #{approvedate,jdbcType=VARCHAR},
+      </if>
+      <if test="finishdate != null">
+        #{finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessrate != null">
+        #{businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="totalrate != null">
+        #{totalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="finerate != null">
+        #{finerate,jdbcType=DECIMAL},
+      </if>
+      <if test="aheadscale != null">
+        #{aheadscale,jdbcType=DECIMAL},
+      </if>
+      <if test="targetstatus != null">
+        #{targetstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approvesum != null">
+        #{approvesum,jdbcType=DECIMAL},
+      </if>
+      <if test="putoutdate != null">
+        #{putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="maturitydate != null">
+        #{maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="ahendrate != null">
+        #{ahendrate,jdbcType=VARCHAR},
+      </if>
+      <if test="isputout != null">
+        #{isputout,jdbcType=VARCHAR},
+      </if>
+      <if test="isfulldeal != null">
+        #{isfulldeal,jdbcType=VARCHAR},
+      </if>
+      <if test="approvenumber != null">
+        #{approvenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="applymonthrepay != null">
+        #{applymonthrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="skuid != null">
+        #{skuid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanuse != null">
+        #{loanuse,jdbcType=VARCHAR},
+      </if>
+      <if test="fundchannel != null">
+        #{fundchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null">
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountbank != null">
+        #{accountbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null">
+        #{bankId,jdbcType=VARCHAR},
+      </if>
+      <if test="relevancebankno != null">
+        #{relevancebankno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountaddress != null">
+        #{accountaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnet != null">
+        #{accountnet,jdbcType=VARCHAR},
+      </if>
+      <if test="fuyouaccount != null">
+        #{fuyouaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payway != null">
+        #{payway,jdbcType=VARCHAR},
+      </if>
+      <if test="isfamily != null">
+        #{isfamily,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="loanusedesc != null">
+        #{loanusedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcedesc != null">
+        #{sourcedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="citycode != null">
+        #{citycode,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null">
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankkind != null">
+        #{bankkind,jdbcType=VARCHAR},
+      </if>
+      <if test="managerate != null">
+        #{managerate,jdbcType=DECIMAL},
+      </if>
+      <if test="serverrate != null">
+        #{serverrate,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancerate != null">
+        #{insurancerate,jdbcType=DECIMAL},
+      </if>
+      <if test="serverfee != null">
+        #{serverfee,jdbcType=DECIMAL},
+      </if>
+      <if test="loanfeerate != null">
+        #{loanfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="consultfeerate != null">
+        #{consultfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="guaranteefeerate != null">
+        #{guaranteefeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="payfeerate != null">
+        #{payfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="consultrate != null">
+        #{consultrate,jdbcType=DECIMAL},
+      </if>
+      <if test="checkrate != null">
+        #{checkrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ahendterm != null">
+        #{ahendterm,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutsum != null">
+        #{putoutsum,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="dealid != null">
+        #{dealid,jdbcType=VARCHAR},
+      </if>
+      <if test="teamleader != null">
+        #{teamleader,jdbcType=VARCHAR},
+      </if>
+      <if test="outdataresuelt != null">
+        #{outdataresuelt,jdbcType=VARCHAR},
+      </if>
+      <if test="refusemainreson != null">
+        #{refusemainreson,jdbcType=VARCHAR},
+      </if>
+      <if test="teamLeader != null">
+        #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTargetTime != null">
+        #{sendTargetTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sumservicefee != null">
+        #{sumservicefee,jdbcType=DECIMAL},
+      </if>
+      <if test="sumcertidmanagefee != null">
+        #{sumcertidmanagefee,jdbcType=DECIMAL},
+      </if>
+      <if test="pbcReportId != null">
+        #{pbcReportId,jdbcType=INTEGER},
+      </if>
+      <if test="pbcReportTime != null">
+        #{pbcReportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetimestamp != null">
+        #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendTargetUser != null">
+        #{sendTargetUser,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTargetUsername != null">
+        #{sendTargetUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="creditAmount != null">
+        #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="creditPoint != null">
+        #{creditPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null">
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="innerdescription != null">
+        #{innerdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="afineRate2 != null">
+        #{afineRate2,jdbcType=DECIMAL},
+      </if>
+      <if test="resourceDes != null">
+        #{resourceDes,jdbcType=VARCHAR},
+      </if>
+      <if test="externalResourceDes != null">
+        #{externalResourceDes,jdbcType=VARCHAR},
+      </if>
+      <if test="matchDes != null">
+        #{matchDes,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeTransactionDes != null">
+        #{incomeTransactionDes,jdbcType=VARCHAR},
+      </if>
+      <if test="productcategory != null">
+        #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="platformfee != null">
+        #{platformfee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalfee != null">
+        #{totalfee,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentfee != null">
+        #{paymentfee,jdbcType=DECIMAL},
+      </if>
+      <if test="consultservicefee != null">
+        #{consultservicefee,jdbcType=DECIMAL},
+      </if>
+      <if test="issending != null">
+        #{issending,jdbcType=VARCHAR},
+      </if>
+      <if test="finerate2 != null">
+        #{finerate2,jdbcType=DECIMAL},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="unionConsultationFee != null">
+        #{unionConsultationFee,jdbcType=DECIMAL},
+      </if>
+      <if test="customerSourceChannel != null">
+        #{customerSourceChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="phonescore != null">
+        #{phonescore,jdbcType=VARCHAR},
+      </if>
+      <if test="phonescorelevel != null">
+        #{phonescorelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="termUnit != null">
+        #{termUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="platformRateOne != null">
+        #{platformRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="platformRateTwo != null">
+        #{platformRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fallback != null">
+        #{fallback,jdbcType=VARCHAR},
+      </if>
+      <if test="autoFinish != null">
+        #{autoFinish,jdbcType=VARCHAR},
+      </if>
+      <if test="bindCardTime != null">
+        #{bindCardTime,jdbcType=VARCHAR},
+      </if>
+      <if test="faceRecognition != null">
+        #{faceRecognition,jdbcType=VARCHAR},
+      </if>
+      <if test="carrieroperator != null">
+        #{carrieroperator,jdbcType=INTEGER},
+      </if>
+      <if test="scorpio != null">
+        #{scorpio,jdbcType=VARCHAR},
+      </if>
+      <if test="scorpiotaskid != null">
+        #{scorpiotaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutOffline != null">
+        #{putoutOffline,jdbcType=INTEGER},
+      </if>
+      <if test="couponIds != null">
+        #{couponIds,jdbcType=VARCHAR},
+      </if>
+      <if test="intentionId != null">
+        #{intentionId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanNo != null">
+        #{salesmanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanName != null">
+        #{salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutVersion != null">
+        #{putoutVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecordCompletion != null">
+        #{isRecordCompletion,jdbcType=VARCHAR},
+      </if>
+      <if test="videoFlag != null">
+        #{videoFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="videoFlag1 != null">
+        #{videoFlag1,jdbcType=VARCHAR},
+      </if>
+      <if test="creditScore != null">
+        #{creditScore,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpenUrl != null">
+        #{isOpenUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContractExample" resultType="java.lang.Long">
+    select count(*) from business_contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update business_contract
+    <set>
+      <if test="record.serialno != null">
+        SERIALNO = #{record.serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerid != null">
+        CUSTOMERID = #{record.customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businesstype != null">
+        BUSINESSTYPE = #{record.businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankcode != null">
+        BANKCODE = #{record.bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankcard != null">
+        BANKCARD = #{record.bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankcardphone != null">
+        BANKCARDPHONE = #{record.bankcardphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopsn != null">
+        SHOPSN = #{record.shopsn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerservice != null">
+        CUSTOMERSERVICE = #{record.customerservice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salersn != null">
+        SALERSN = #{record.salersn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salecentersn != null">
+        SALECENTERSN = #{record.salecentersn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyterm != null">
+        APPLYTERM = #{record.applyterm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monthrepay != null">
+        MONTHREPAY = #{record.monthrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="record.businesssum != null">
+        BUSINESSSUM = #{record.businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.imsi != null">
+        IMSI = #{record.imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneos != null">
+        PHONEOS = #{record.phoneos,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gpslocation != null">
+        GPSLOCATION = #{record.gpslocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordersn != null">
+        ORDERSN = #{record.ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approveterm != null">
+        APPROVETERM = #{record.approveterm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applysum != null">
+        APPLYSUM = #{record.applysum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.approvetime != null">
+        APPROVETIME = #{record.approvetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractdate != null">
+        CONTRACTDATE = #{record.contractdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.confirmtime != null">
+        CONFIRMTIME = #{record.confirmtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paydate != null">
+        PAYDATE = #{record.paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.returntype != null">
+        RETURNTYPE = #{record.returntype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractstatus != null">
+        contractstatus = #{record.contractstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applystatus != null">
+        applystatus = #{record.applystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderbegintime != null">
+        orderBeginTime = #{record.orderbegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderendtime != null">
+        orderEndTime = #{record.orderendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvedate != null">
+        approvedate = #{record.approvedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishdate != null">
+        finishdate = #{record.finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessrate != null">
+        businessrate = #{record.businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalrate != null">
+        TOTALRATE = #{record.totalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.finerate != null">
+        finerate = #{record.finerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.aheadscale != null">
+        aheadscale = #{record.aheadscale,jdbcType=DECIMAL},
+      </if>
+      <if test="record.targetstatus != null">
+        targetstatus = #{record.targetstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvesum != null">
+        APPROVESUM = #{record.approvesum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.putoutdate != null">
+        PUTOUTDATE = #{record.putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maturitydate != null">
+        MATURITYDATE = #{record.maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ahendrate != null">
+        AHENDRATE = #{record.ahendrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isputout != null">
+        isPutOut = #{record.isputout,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isfulldeal != null">
+        isFullDeal = #{record.isfulldeal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvenumber != null">
+        approvenumber = #{record.approvenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applymonthrepay != null">
+        applymonthrepay = #{record.applymonthrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="record.skuid != null">
+        skuId = #{record.skuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanuse != null">
+        loanuse = #{record.loanuse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundchannel != null">
+        FUNDCHANNEL = #{record.fundchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountno != null">
+        accountno = #{record.accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountbank != null">
+        accountbank = #{record.accountbank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankId != null">
+        bank_id = #{record.bankId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relevancebankno != null">
+        relevancebankno = #{record.relevancebankno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountaddress != null">
+        accountaddress = #{record.accountaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountnet != null">
+        accountnet = #{record.accountnet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fuyouaccount != null">
+        fuyouaccount = #{record.fuyouaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payway != null">
+        payway = #{record.payway,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isfamily != null">
+        isFamily = #{record.isfamily,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null">
+        SOURCE = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanusedesc != null">
+        loanusedesc = #{record.loanusedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourcedesc != null">
+        sourcedesc = #{record.sourcedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.citycode != null">
+        citycode = #{record.citycode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areacode != null">
+        areacode = #{record.areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankkind != null">
+        bankkind = #{record.bankkind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managerate != null">
+        MANAGERATE = #{record.managerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.serverrate != null">
+        SERVERRATE = #{record.serverrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurancerate != null">
+        INSURANCERATE = #{record.insurancerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.serverfee != null">
+        SERVERFEE = #{record.serverfee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.loanfeerate != null">
+        loanfeerate = #{record.loanfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.consultfeerate != null">
+        consultfeerate = #{record.consultfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.guaranteefeerate != null">
+        guaranteefeerate = #{record.guaranteefeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payfeerate != null">
+        payfeerate = #{record.payfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.consultrate != null">
+        CONSULTRATE = #{record.consultrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.checkrate != null">
+        CHECKRATE = #{record.checkrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ahendterm != null">
+        AHENDTERM = #{record.ahendterm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putoutsum != null">
+        putoutsum = #{record.putoutsum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rate != null">
+        rate = #{record.rate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.dealid != null">
+        dealid = #{record.dealid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamleader != null">
+        TEAMLEADER = #{record.teamleader,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outdataresuelt != null">
+        OUTDATARESUELT = #{record.outdataresuelt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refusemainreson != null">
+        REFUSEMAINRESON = #{record.refusemainreson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamLeader != null">
+        team_leader = #{record.teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendTargetTime != null">
+        send_target_time = #{record.sendTargetTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sumservicefee != null">
+        SUMSERVICEFEE = #{record.sumservicefee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sumcertidmanagefee != null">
+        SUMCERTIDMANAGEFEE = #{record.sumcertidmanagefee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pbcReportId != null">
+        pbc_report_id = #{record.pbcReportId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pbcReportTime != null">
+        pbc_report_time = #{record.pbcReportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetimestamp != null">
+        updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sendTargetUser != null">
+        send_target_user = #{record.sendTargetUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendTargetUsername != null">
+        send_target_username = #{record.sendTargetUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditAmount != null">
+        credit_amount = #{record.creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.creditPoint != null">
+        credit_point = #{record.creditPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.token != null">
+        token = #{record.token,jdbcType=VARCHAR},
+      </if>
+      <if test="record.innerdescription != null">
+        INNERDESCRIPTION = #{record.innerdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.afineRate2 != null">
+        afine_rate2 = #{record.afineRate2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.resourceDes != null">
+        RESOURCE_DES = #{record.resourceDes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.externalResourceDes != null">
+        EXTERNAL_RESOURCE_DES = #{record.externalResourceDes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.matchDes != null">
+        MATCH_DES = #{record.matchDes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.incomeTransactionDes != null">
+        income_transaction_des = #{record.incomeTransactionDes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productcategory != null">
+        productcategory = #{record.productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.platformfee != null">
+        platformfee = #{record.platformfee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalfee != null">
+        totalfee = #{record.totalfee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.paymentfee != null">
+        paymentfee = #{record.paymentfee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.consultservicefee != null">
+        consultservicefee = #{record.consultservicefee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.issending != null">
+        issending = #{record.issending,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finerate2 != null">
+        finerate2 = #{record.finerate2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.channel != null">
+        CHANNEL = #{record.channel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unionConsultationFee != null">
+        union_consultation_fee = #{record.unionConsultationFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.customerSourceChannel != null">
+        customer_source_channel = #{record.customerSourceChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonescore != null">
+        phonescore = #{record.phonescore,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonescorelevel != null">
+        phonescorelevel = #{record.phonescorelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.termUnit != null">
+        term_unit = #{record.termUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.platformRateOne != null">
+        platform_rate_one = #{record.platformRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="record.platformRateTwo != null">
+        platform_rate_two = #{record.platformRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.updateUser != null">
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createUser != null">
+        create_user = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fallback != null">
+        fallback = #{record.fallback,jdbcType=VARCHAR},
+      </if>
+      <if test="record.autoFinish != null">
+        auto_finish = #{record.autoFinish,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindCardTime != null">
+        bind_card_time = #{record.bindCardTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.faceRecognition != null">
+        face_recognition = #{record.faceRecognition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carrieroperator != null">
+        carrieroperator = #{record.carrieroperator,jdbcType=INTEGER},
+      </if>
+      <if test="record.scorpio != null">
+        scorpio = #{record.scorpio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scorpiotaskid != null">
+        scorpioTaskId = #{record.scorpiotaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putoutOffline != null">
+        putout_offline = #{record.putoutOffline,jdbcType=INTEGER},
+      </if>
+      <if test="record.couponIds != null">
+        coupon_ids = #{record.couponIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intentionId != null">
+        intention_id = #{record.intentionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmanNo != null">
+        salesman_no = #{record.salesmanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmanName != null">
+        salesman_name = #{record.salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putoutVersion != null">
+        putout_version = #{record.putoutVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isRecordCompletion != null">
+        is_record_completion = #{record.isRecordCompletion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoFlag != null">
+        video_flag = #{record.videoFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoFlag1 != null">
+        video_flag1 = #{record.videoFlag1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditScore != null">
+        credit_score = #{record.creditScore,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isOpenUrl != null">
+        is_open_url = #{record.isOpenUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update business_contract
+    set SERIALNO = #{record.serialno,jdbcType=VARCHAR},
+      CUSTOMERID = #{record.customerid,jdbcType=VARCHAR},
+      BUSINESSTYPE = #{record.businesstype,jdbcType=VARCHAR},
+      BANKCODE = #{record.bankcode,jdbcType=VARCHAR},
+      BANKCARD = #{record.bankcard,jdbcType=VARCHAR},
+      BANKCARDPHONE = #{record.bankcardphone,jdbcType=VARCHAR},
+      SHOPSN = #{record.shopsn,jdbcType=VARCHAR},
+      CUSTOMERSERVICE = #{record.customerservice,jdbcType=VARCHAR},
+      SALERSN = #{record.salersn,jdbcType=VARCHAR},
+      SALECENTERSN = #{record.salecentersn,jdbcType=VARCHAR},
+      APPLYTERM = #{record.applyterm,jdbcType=VARCHAR},
+      MONTHREPAY = #{record.monthrepay,jdbcType=DECIMAL},
+      BUSINESSSUM = #{record.businesssum,jdbcType=DECIMAL},
+      IMSI = #{record.imsi,jdbcType=VARCHAR},
+      PHONEOS = #{record.phoneos,jdbcType=VARCHAR},
+      GPSLOCATION = #{record.gpslocation,jdbcType=VARCHAR},
+      ORDERSN = #{record.ordersn,jdbcType=VARCHAR},
+      APPROVETERM = #{record.approveterm,jdbcType=VARCHAR},
+      APPLYSUM = #{record.applysum,jdbcType=DECIMAL},
+      APPROVETIME = #{record.approvetime,jdbcType=VARCHAR},
+      CONTRACTDATE = #{record.contractdate,jdbcType=VARCHAR},
+      CONFIRMTIME = #{record.confirmtime,jdbcType=VARCHAR},
+      PAYDATE = #{record.paydate,jdbcType=VARCHAR},
+      RETURNTYPE = #{record.returntype,jdbcType=VARCHAR},
+      contractstatus = #{record.contractstatus,jdbcType=VARCHAR},
+      applystatus = #{record.applystatus,jdbcType=VARCHAR},
+      orderBeginTime = #{record.orderbegintime,jdbcType=VARCHAR},
+      orderEndTime = #{record.orderendtime,jdbcType=VARCHAR},
+      approvedate = #{record.approvedate,jdbcType=VARCHAR},
+      finishdate = #{record.finishdate,jdbcType=VARCHAR},
+      businessrate = #{record.businessrate,jdbcType=DECIMAL},
+      TOTALRATE = #{record.totalrate,jdbcType=DECIMAL},
+      finerate = #{record.finerate,jdbcType=DECIMAL},
+      aheadscale = #{record.aheadscale,jdbcType=DECIMAL},
+      targetstatus = #{record.targetstatus,jdbcType=VARCHAR},
+      APPROVESUM = #{record.approvesum,jdbcType=DECIMAL},
+      PUTOUTDATE = #{record.putoutdate,jdbcType=VARCHAR},
+      MATURITYDATE = #{record.maturitydate,jdbcType=VARCHAR},
+      AHENDRATE = #{record.ahendrate,jdbcType=VARCHAR},
+      isPutOut = #{record.isputout,jdbcType=VARCHAR},
+      isFullDeal = #{record.isfulldeal,jdbcType=VARCHAR},
+      approvenumber = #{record.approvenumber,jdbcType=VARCHAR},
+      applymonthrepay = #{record.applymonthrepay,jdbcType=DECIMAL},
+      skuId = #{record.skuid,jdbcType=VARCHAR},
+      loanuse = #{record.loanuse,jdbcType=VARCHAR},
+      FUNDCHANNEL = #{record.fundchannel,jdbcType=VARCHAR},
+      accountno = #{record.accountno,jdbcType=VARCHAR},
+      accountbank = #{record.accountbank,jdbcType=VARCHAR},
+      bank_id = #{record.bankId,jdbcType=VARCHAR},
+      relevancebankno = #{record.relevancebankno,jdbcType=VARCHAR},
+      accountaddress = #{record.accountaddress,jdbcType=VARCHAR},
+      accountnet = #{record.accountnet,jdbcType=VARCHAR},
+      fuyouaccount = #{record.fuyouaccount,jdbcType=VARCHAR},
+      payway = #{record.payway,jdbcType=VARCHAR},
+      isFamily = #{record.isfamily,jdbcType=VARCHAR},
+      SOURCE = #{record.source,jdbcType=VARCHAR},
+      loanusedesc = #{record.loanusedesc,jdbcType=VARCHAR},
+      sourcedesc = #{record.sourcedesc,jdbcType=VARCHAR},
+      citycode = #{record.citycode,jdbcType=VARCHAR},
+      areacode = #{record.areacode,jdbcType=VARCHAR},
+      bankkind = #{record.bankkind,jdbcType=VARCHAR},
+      MANAGERATE = #{record.managerate,jdbcType=DECIMAL},
+      SERVERRATE = #{record.serverrate,jdbcType=DECIMAL},
+      INSURANCERATE = #{record.insurancerate,jdbcType=DECIMAL},
+      SERVERFEE = #{record.serverfee,jdbcType=DECIMAL},
+      loanfeerate = #{record.loanfeerate,jdbcType=DECIMAL},
+      consultfeerate = #{record.consultfeerate,jdbcType=DECIMAL},
+      guaranteefeerate = #{record.guaranteefeerate,jdbcType=DECIMAL},
+      payfeerate = #{record.payfeerate,jdbcType=DECIMAL},
+      CONSULTRATE = #{record.consultrate,jdbcType=DECIMAL},
+      CHECKRATE = #{record.checkrate,jdbcType=DECIMAL},
+      AHENDTERM = #{record.ahendterm,jdbcType=VARCHAR},
+      putoutsum = #{record.putoutsum,jdbcType=DECIMAL},
+      rate = #{record.rate,jdbcType=DECIMAL},
+      dealid = #{record.dealid,jdbcType=VARCHAR},
+      TEAMLEADER = #{record.teamleader,jdbcType=VARCHAR},
+      OUTDATARESUELT = #{record.outdataresuelt,jdbcType=VARCHAR},
+      REFUSEMAINRESON = #{record.refusemainreson,jdbcType=VARCHAR},
+      team_leader = #{record.teamLeader,jdbcType=VARCHAR},
+      send_target_time = #{record.sendTargetTime,jdbcType=VARCHAR},
+      SUMSERVICEFEE = #{record.sumservicefee,jdbcType=DECIMAL},
+      SUMCERTIDMANAGEFEE = #{record.sumcertidmanagefee,jdbcType=DECIMAL},
+      pbc_report_id = #{record.pbcReportId,jdbcType=INTEGER},
+      pbc_report_time = #{record.pbcReportTime,jdbcType=VARCHAR},
+      updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      send_target_user = #{record.sendTargetUser,jdbcType=VARCHAR},
+      send_target_username = #{record.sendTargetUsername,jdbcType=VARCHAR},
+      credit_amount = #{record.creditAmount,jdbcType=DECIMAL},
+      credit_point = #{record.creditPoint,jdbcType=VARCHAR},
+      token = #{record.token,jdbcType=VARCHAR},
+      INNERDESCRIPTION = #{record.innerdescription,jdbcType=VARCHAR},
+      afine_rate2 = #{record.afineRate2,jdbcType=DECIMAL},
+      RESOURCE_DES = #{record.resourceDes,jdbcType=VARCHAR},
+      EXTERNAL_RESOURCE_DES = #{record.externalResourceDes,jdbcType=VARCHAR},
+      MATCH_DES = #{record.matchDes,jdbcType=VARCHAR},
+      income_transaction_des = #{record.incomeTransactionDes,jdbcType=VARCHAR},
+      productcategory = #{record.productcategory,jdbcType=VARCHAR},
+      platformfee = #{record.platformfee,jdbcType=DECIMAL},
+      totalfee = #{record.totalfee,jdbcType=DECIMAL},
+      paymentfee = #{record.paymentfee,jdbcType=DECIMAL},
+      consultservicefee = #{record.consultservicefee,jdbcType=DECIMAL},
+      issending = #{record.issending,jdbcType=VARCHAR},
+      finerate2 = #{record.finerate2,jdbcType=DECIMAL},
+      CHANNEL = #{record.channel,jdbcType=VARCHAR},
+      union_consultation_fee = #{record.unionConsultationFee,jdbcType=DECIMAL},
+      customer_source_channel = #{record.customerSourceChannel,jdbcType=VARCHAR},
+      phonescore = #{record.phonescore,jdbcType=VARCHAR},
+      phonescorelevel = #{record.phonescorelevel,jdbcType=VARCHAR},
+      term_unit = #{record.termUnit,jdbcType=VARCHAR},
+      platform_rate_one = #{record.platformRateOne,jdbcType=DECIMAL},
+      platform_rate_two = #{record.platformRateTwo,jdbcType=DECIMAL},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      create_user = #{record.createUser,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=VARCHAR},
+      fallback = #{record.fallback,jdbcType=VARCHAR},
+      auto_finish = #{record.autoFinish,jdbcType=VARCHAR},
+      bind_card_time = #{record.bindCardTime,jdbcType=VARCHAR},
+      face_recognition = #{record.faceRecognition,jdbcType=VARCHAR},
+      carrieroperator = #{record.carrieroperator,jdbcType=INTEGER},
+      scorpio = #{record.scorpio,jdbcType=VARCHAR},
+      scorpioTaskId = #{record.scorpiotaskid,jdbcType=VARCHAR},
+      putout_offline = #{record.putoutOffline,jdbcType=INTEGER},
+      coupon_ids = #{record.couponIds,jdbcType=VARCHAR},
+      intention_id = #{record.intentionId,jdbcType=VARCHAR},
+      salesman_no = #{record.salesmanNo,jdbcType=VARCHAR},
+      salesman_name = #{record.salesmanName,jdbcType=VARCHAR},
+      putout_version = #{record.putoutVersion,jdbcType=VARCHAR},
+      is_record_completion = #{record.isRecordCompletion,jdbcType=VARCHAR},
+      video_flag = #{record.videoFlag,jdbcType=VARCHAR},
+      video_flag1 = #{record.videoFlag1,jdbcType=VARCHAR},
+      credit_score = #{record.creditScore,jdbcType=VARCHAR},
+      is_open_url = #{record.isOpenUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContract">
+    update business_contract
+    <set>
+      <if test="customerid != null">
+        CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        BUSINESSTYPE = #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcode != null">
+        BANKCODE = #{bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcardphone != null">
+        BANKCARDPHONE = #{bankcardphone,jdbcType=VARCHAR},
+      </if>
+      <if test="shopsn != null">
+        SHOPSN = #{shopsn,jdbcType=VARCHAR},
+      </if>
+      <if test="customerservice != null">
+        CUSTOMERSERVICE = #{customerservice,jdbcType=VARCHAR},
+      </if>
+      <if test="salersn != null">
+        SALERSN = #{salersn,jdbcType=VARCHAR},
+      </if>
+      <if test="salecentersn != null">
+        SALECENTERSN = #{salecentersn,jdbcType=VARCHAR},
+      </if>
+      <if test="applyterm != null">
+        APPLYTERM = #{applyterm,jdbcType=VARCHAR},
+      </if>
+      <if test="monthrepay != null">
+        MONTHREPAY = #{monthrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="businesssum != null">
+        BUSINESSSUM = #{businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="imsi != null">
+        IMSI = #{imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneos != null">
+        PHONEOS = #{phoneos,jdbcType=VARCHAR},
+      </if>
+      <if test="gpslocation != null">
+        GPSLOCATION = #{gpslocation,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersn != null">
+        ORDERSN = #{ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="approveterm != null">
+        APPROVETERM = #{approveterm,jdbcType=VARCHAR},
+      </if>
+      <if test="applysum != null">
+        APPLYSUM = #{applysum,jdbcType=DECIMAL},
+      </if>
+      <if test="approvetime != null">
+        APPROVETIME = #{approvetime,jdbcType=VARCHAR},
+      </if>
+      <if test="contractdate != null">
+        CONTRACTDATE = #{contractdate,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmtime != null">
+        CONFIRMTIME = #{confirmtime,jdbcType=VARCHAR},
+      </if>
+      <if test="paydate != null">
+        PAYDATE = #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="returntype != null">
+        RETURNTYPE = #{returntype,jdbcType=VARCHAR},
+      </if>
+      <if test="contractstatus != null">
+        contractstatus = #{contractstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applystatus != null">
+        applystatus = #{applystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orderbegintime != null">
+        orderBeginTime = #{orderbegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderendtime != null">
+        orderEndTime = #{orderendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="approvedate != null">
+        approvedate = #{approvedate,jdbcType=VARCHAR},
+      </if>
+      <if test="finishdate != null">
+        finishdate = #{finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessrate != null">
+        businessrate = #{businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="totalrate != null">
+        TOTALRATE = #{totalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="finerate != null">
+        finerate = #{finerate,jdbcType=DECIMAL},
+      </if>
+      <if test="aheadscale != null">
+        aheadscale = #{aheadscale,jdbcType=DECIMAL},
+      </if>
+      <if test="targetstatus != null">
+        targetstatus = #{targetstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="approvesum != null">
+        APPROVESUM = #{approvesum,jdbcType=DECIMAL},
+      </if>
+      <if test="putoutdate != null">
+        PUTOUTDATE = #{putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="maturitydate != null">
+        MATURITYDATE = #{maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="ahendrate != null">
+        AHENDRATE = #{ahendrate,jdbcType=VARCHAR},
+      </if>
+      <if test="isputout != null">
+        isPutOut = #{isputout,jdbcType=VARCHAR},
+      </if>
+      <if test="isfulldeal != null">
+        isFullDeal = #{isfulldeal,jdbcType=VARCHAR},
+      </if>
+      <if test="approvenumber != null">
+        approvenumber = #{approvenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="applymonthrepay != null">
+        applymonthrepay = #{applymonthrepay,jdbcType=DECIMAL},
+      </if>
+      <if test="skuid != null">
+        skuId = #{skuid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanuse != null">
+        loanuse = #{loanuse,jdbcType=VARCHAR},
+      </if>
+      <if test="fundchannel != null">
+        FUNDCHANNEL = #{fundchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null">
+        accountno = #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountbank != null">
+        accountbank = #{accountbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null">
+        bank_id = #{bankId,jdbcType=VARCHAR},
+      </if>
+      <if test="relevancebankno != null">
+        relevancebankno = #{relevancebankno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountaddress != null">
+        accountaddress = #{accountaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnet != null">
+        accountnet = #{accountnet,jdbcType=VARCHAR},
+      </if>
+      <if test="fuyouaccount != null">
+        fuyouaccount = #{fuyouaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="payway != null">
+        payway = #{payway,jdbcType=VARCHAR},
+      </if>
+      <if test="isfamily != null">
+        isFamily = #{isfamily,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="loanusedesc != null">
+        loanusedesc = #{loanusedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcedesc != null">
+        sourcedesc = #{sourcedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="citycode != null">
+        citycode = #{citycode,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null">
+        areacode = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankkind != null">
+        bankkind = #{bankkind,jdbcType=VARCHAR},
+      </if>
+      <if test="managerate != null">
+        MANAGERATE = #{managerate,jdbcType=DECIMAL},
+      </if>
+      <if test="serverrate != null">
+        SERVERRATE = #{serverrate,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancerate != null">
+        INSURANCERATE = #{insurancerate,jdbcType=DECIMAL},
+      </if>
+      <if test="serverfee != null">
+        SERVERFEE = #{serverfee,jdbcType=DECIMAL},
+      </if>
+      <if test="loanfeerate != null">
+        loanfeerate = #{loanfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="consultfeerate != null">
+        consultfeerate = #{consultfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="guaranteefeerate != null">
+        guaranteefeerate = #{guaranteefeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="payfeerate != null">
+        payfeerate = #{payfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="consultrate != null">
+        CONSULTRATE = #{consultrate,jdbcType=DECIMAL},
+      </if>
+      <if test="checkrate != null">
+        CHECKRATE = #{checkrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ahendterm != null">
+        AHENDTERM = #{ahendterm,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutsum != null">
+        putoutsum = #{putoutsum,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        rate = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="dealid != null">
+        dealid = #{dealid,jdbcType=VARCHAR},
+      </if>
+      <if test="teamleader != null">
+        TEAMLEADER = #{teamleader,jdbcType=VARCHAR},
+      </if>
+      <if test="outdataresuelt != null">
+        OUTDATARESUELT = #{outdataresuelt,jdbcType=VARCHAR},
+      </if>
+      <if test="refusemainreson != null">
+        REFUSEMAINRESON = #{refusemainreson,jdbcType=VARCHAR},
+      </if>
+      <if test="teamLeader != null">
+        team_leader = #{teamLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTargetTime != null">
+        send_target_time = #{sendTargetTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sumservicefee != null">
+        SUMSERVICEFEE = #{sumservicefee,jdbcType=DECIMAL},
+      </if>
+      <if test="sumcertidmanagefee != null">
+        SUMCERTIDMANAGEFEE = #{sumcertidmanagefee,jdbcType=DECIMAL},
+      </if>
+      <if test="pbcReportId != null">
+        pbc_report_id = #{pbcReportId,jdbcType=INTEGER},
+      </if>
+      <if test="pbcReportTime != null">
+        pbc_report_time = #{pbcReportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendTargetUser != null">
+        send_target_user = #{sendTargetUser,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTargetUsername != null">
+        send_target_username = #{sendTargetUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="creditAmount != null">
+        credit_amount = #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="creditPoint != null">
+        credit_point = #{creditPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null">
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="innerdescription != null">
+        INNERDESCRIPTION = #{innerdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="afineRate2 != null">
+        afine_rate2 = #{afineRate2,jdbcType=DECIMAL},
+      </if>
+      <if test="resourceDes != null">
+        RESOURCE_DES = #{resourceDes,jdbcType=VARCHAR},
+      </if>
+      <if test="externalResourceDes != null">
+        EXTERNAL_RESOURCE_DES = #{externalResourceDes,jdbcType=VARCHAR},
+      </if>
+      <if test="matchDes != null">
+        MATCH_DES = #{matchDes,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeTransactionDes != null">
+        income_transaction_des = #{incomeTransactionDes,jdbcType=VARCHAR},
+      </if>
+      <if test="productcategory != null">
+        productcategory = #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="platformfee != null">
+        platformfee = #{platformfee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalfee != null">
+        totalfee = #{totalfee,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentfee != null">
+        paymentfee = #{paymentfee,jdbcType=DECIMAL},
+      </if>
+      <if test="consultservicefee != null">
+        consultservicefee = #{consultservicefee,jdbcType=DECIMAL},
+      </if>
+      <if test="issending != null">
+        issending = #{issending,jdbcType=VARCHAR},
+      </if>
+      <if test="finerate2 != null">
+        finerate2 = #{finerate2,jdbcType=DECIMAL},
+      </if>
+      <if test="channel != null">
+        CHANNEL = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="unionConsultationFee != null">
+        union_consultation_fee = #{unionConsultationFee,jdbcType=DECIMAL},
+      </if>
+      <if test="customerSourceChannel != null">
+        customer_source_channel = #{customerSourceChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="phonescore != null">
+        phonescore = #{phonescore,jdbcType=VARCHAR},
+      </if>
+      <if test="phonescorelevel != null">
+        phonescorelevel = #{phonescorelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="termUnit != null">
+        term_unit = #{termUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="platformRateOne != null">
+        platform_rate_one = #{platformRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="platformRateTwo != null">
+        platform_rate_two = #{platformRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fallback != null">
+        fallback = #{fallback,jdbcType=VARCHAR},
+      </if>
+      <if test="autoFinish != null">
+        auto_finish = #{autoFinish,jdbcType=VARCHAR},
+      </if>
+      <if test="bindCardTime != null">
+        bind_card_time = #{bindCardTime,jdbcType=VARCHAR},
+      </if>
+      <if test="faceRecognition != null">
+        face_recognition = #{faceRecognition,jdbcType=VARCHAR},
+      </if>
+      <if test="carrieroperator != null">
+        carrieroperator = #{carrieroperator,jdbcType=INTEGER},
+      </if>
+      <if test="scorpio != null">
+        scorpio = #{scorpio,jdbcType=VARCHAR},
+      </if>
+      <if test="scorpiotaskid != null">
+        scorpioTaskId = #{scorpiotaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutOffline != null">
+        putout_offline = #{putoutOffline,jdbcType=INTEGER},
+      </if>
+      <if test="couponIds != null">
+        coupon_ids = #{couponIds,jdbcType=VARCHAR},
+      </if>
+      <if test="intentionId != null">
+        intention_id = #{intentionId,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanNo != null">
+        salesman_no = #{salesmanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanName != null">
+        salesman_name = #{salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutVersion != null">
+        putout_version = #{putoutVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecordCompletion != null">
+        is_record_completion = #{isRecordCompletion,jdbcType=VARCHAR},
+      </if>
+      <if test="videoFlag != null">
+        video_flag = #{videoFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="videoFlag1 != null">
+        video_flag1 = #{videoFlag1,jdbcType=VARCHAR},
+      </if>
+      <if test="creditScore != null">
+        credit_score = #{creditScore,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpenUrl != null">
+        is_open_url = #{isOpenUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERIALNO = #{serialno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessContract">
+    update business_contract
+    set CUSTOMERID = #{customerid,jdbcType=VARCHAR},
+      BUSINESSTYPE = #{businesstype,jdbcType=VARCHAR},
+      BANKCODE = #{bankcode,jdbcType=VARCHAR},
+      BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      BANKCARDPHONE = #{bankcardphone,jdbcType=VARCHAR},
+      SHOPSN = #{shopsn,jdbcType=VARCHAR},
+      CUSTOMERSERVICE = #{customerservice,jdbcType=VARCHAR},
+      SALERSN = #{salersn,jdbcType=VARCHAR},
+      SALECENTERSN = #{salecentersn,jdbcType=VARCHAR},
+      APPLYTERM = #{applyterm,jdbcType=VARCHAR},
+      MONTHREPAY = #{monthrepay,jdbcType=DECIMAL},
+      BUSINESSSUM = #{businesssum,jdbcType=DECIMAL},
+      IMSI = #{imsi,jdbcType=VARCHAR},
+      PHONEOS = #{phoneos,jdbcType=VARCHAR},
+      GPSLOCATION = #{gpslocation,jdbcType=VARCHAR},
+      ORDERSN = #{ordersn,jdbcType=VARCHAR},
+      APPROVETERM = #{approveterm,jdbcType=VARCHAR},
+      APPLYSUM = #{applysum,jdbcType=DECIMAL},
+      APPROVETIME = #{approvetime,jdbcType=VARCHAR},
+      CONTRACTDATE = #{contractdate,jdbcType=VARCHAR},
+      CONFIRMTIME = #{confirmtime,jdbcType=VARCHAR},
+      PAYDATE = #{paydate,jdbcType=VARCHAR},
+      RETURNTYPE = #{returntype,jdbcType=VARCHAR},
+      contractstatus = #{contractstatus,jdbcType=VARCHAR},
+      applystatus = #{applystatus,jdbcType=VARCHAR},
+      orderBeginTime = #{orderbegintime,jdbcType=VARCHAR},
+      orderEndTime = #{orderendtime,jdbcType=VARCHAR},
+      approvedate = #{approvedate,jdbcType=VARCHAR},
+      finishdate = #{finishdate,jdbcType=VARCHAR},
+      businessrate = #{businessrate,jdbcType=DECIMAL},
+      TOTALRATE = #{totalrate,jdbcType=DECIMAL},
+      finerate = #{finerate,jdbcType=DECIMAL},
+      aheadscale = #{aheadscale,jdbcType=DECIMAL},
+      targetstatus = #{targetstatus,jdbcType=VARCHAR},
+      APPROVESUM = #{approvesum,jdbcType=DECIMAL},
+      PUTOUTDATE = #{putoutdate,jdbcType=VARCHAR},
+      MATURITYDATE = #{maturitydate,jdbcType=VARCHAR},
+      AHENDRATE = #{ahendrate,jdbcType=VARCHAR},
+      isPutOut = #{isputout,jdbcType=VARCHAR},
+      isFullDeal = #{isfulldeal,jdbcType=VARCHAR},
+      approvenumber = #{approvenumber,jdbcType=VARCHAR},
+      applymonthrepay = #{applymonthrepay,jdbcType=DECIMAL},
+      skuId = #{skuid,jdbcType=VARCHAR},
+      loanuse = #{loanuse,jdbcType=VARCHAR},
+      FUNDCHANNEL = #{fundchannel,jdbcType=VARCHAR},
+      accountno = #{accountno,jdbcType=VARCHAR},
+      accountbank = #{accountbank,jdbcType=VARCHAR},
+      bank_id = #{bankId,jdbcType=VARCHAR},
+      relevancebankno = #{relevancebankno,jdbcType=VARCHAR},
+      accountaddress = #{accountaddress,jdbcType=VARCHAR},
+      accountnet = #{accountnet,jdbcType=VARCHAR},
+      fuyouaccount = #{fuyouaccount,jdbcType=VARCHAR},
+      payway = #{payway,jdbcType=VARCHAR},
+      isFamily = #{isfamily,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      loanusedesc = #{loanusedesc,jdbcType=VARCHAR},
+      sourcedesc = #{sourcedesc,jdbcType=VARCHAR},
+      citycode = #{citycode,jdbcType=VARCHAR},
+      areacode = #{areacode,jdbcType=VARCHAR},
+      bankkind = #{bankkind,jdbcType=VARCHAR},
+      MANAGERATE = #{managerate,jdbcType=DECIMAL},
+      SERVERRATE = #{serverrate,jdbcType=DECIMAL},
+      INSURANCERATE = #{insurancerate,jdbcType=DECIMAL},
+      SERVERFEE = #{serverfee,jdbcType=DECIMAL},
+      loanfeerate = #{loanfeerate,jdbcType=DECIMAL},
+      consultfeerate = #{consultfeerate,jdbcType=DECIMAL},
+      guaranteefeerate = #{guaranteefeerate,jdbcType=DECIMAL},
+      payfeerate = #{payfeerate,jdbcType=DECIMAL},
+      CONSULTRATE = #{consultrate,jdbcType=DECIMAL},
+      CHECKRATE = #{checkrate,jdbcType=DECIMAL},
+      AHENDTERM = #{ahendterm,jdbcType=VARCHAR},
+      putoutsum = #{putoutsum,jdbcType=DECIMAL},
+      rate = #{rate,jdbcType=DECIMAL},
+      dealid = #{dealid,jdbcType=VARCHAR},
+      TEAMLEADER = #{teamleader,jdbcType=VARCHAR},
+      OUTDATARESUELT = #{outdataresuelt,jdbcType=VARCHAR},
+      REFUSEMAINRESON = #{refusemainreson,jdbcType=VARCHAR},
+      team_leader = #{teamLeader,jdbcType=VARCHAR},
+      send_target_time = #{sendTargetTime,jdbcType=VARCHAR},
+      SUMSERVICEFEE = #{sumservicefee,jdbcType=DECIMAL},
+      SUMCERTIDMANAGEFEE = #{sumcertidmanagefee,jdbcType=DECIMAL},
+      pbc_report_id = #{pbcReportId,jdbcType=INTEGER},
+      pbc_report_time = #{pbcReportTime,jdbcType=VARCHAR},
+      updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      send_target_user = #{sendTargetUser,jdbcType=VARCHAR},
+      send_target_username = #{sendTargetUsername,jdbcType=VARCHAR},
+      credit_amount = #{creditAmount,jdbcType=DECIMAL},
+      credit_point = #{creditPoint,jdbcType=VARCHAR},
+      token = #{token,jdbcType=VARCHAR},
+      INNERDESCRIPTION = #{innerdescription,jdbcType=VARCHAR},
+      afine_rate2 = #{afineRate2,jdbcType=DECIMAL},
+      RESOURCE_DES = #{resourceDes,jdbcType=VARCHAR},
+      EXTERNAL_RESOURCE_DES = #{externalResourceDes,jdbcType=VARCHAR},
+      MATCH_DES = #{matchDes,jdbcType=VARCHAR},
+      income_transaction_des = #{incomeTransactionDes,jdbcType=VARCHAR},
+      productcategory = #{productcategory,jdbcType=VARCHAR},
+      platformfee = #{platformfee,jdbcType=DECIMAL},
+      totalfee = #{totalfee,jdbcType=DECIMAL},
+      paymentfee = #{paymentfee,jdbcType=DECIMAL},
+      consultservicefee = #{consultservicefee,jdbcType=DECIMAL},
+      issending = #{issending,jdbcType=VARCHAR},
+      finerate2 = #{finerate2,jdbcType=DECIMAL},
+      CHANNEL = #{channel,jdbcType=VARCHAR},
+      union_consultation_fee = #{unionConsultationFee,jdbcType=DECIMAL},
+      customer_source_channel = #{customerSourceChannel,jdbcType=VARCHAR},
+      phonescore = #{phonescore,jdbcType=VARCHAR},
+      phonescorelevel = #{phonescorelevel,jdbcType=VARCHAR},
+      term_unit = #{termUnit,jdbcType=VARCHAR},
+      platform_rate_one = #{platformRateOne,jdbcType=DECIMAL},
+      platform_rate_two = #{platformRateTwo,jdbcType=DECIMAL},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      fallback = #{fallback,jdbcType=VARCHAR},
+      auto_finish = #{autoFinish,jdbcType=VARCHAR},
+      bind_card_time = #{bindCardTime,jdbcType=VARCHAR},
+      face_recognition = #{faceRecognition,jdbcType=VARCHAR},
+      carrieroperator = #{carrieroperator,jdbcType=INTEGER},
+      scorpio = #{scorpio,jdbcType=VARCHAR},
+      scorpioTaskId = #{scorpiotaskid,jdbcType=VARCHAR},
+      putout_offline = #{putoutOffline,jdbcType=INTEGER},
+      coupon_ids = #{couponIds,jdbcType=VARCHAR},
+      intention_id = #{intentionId,jdbcType=VARCHAR},
+      salesman_no = #{salesmanNo,jdbcType=VARCHAR},
+      salesman_name = #{salesmanName,jdbcType=VARCHAR},
+      putout_version = #{putoutVersion,jdbcType=VARCHAR},
+      is_record_completion = #{isRecordCompletion,jdbcType=VARCHAR},
+      video_flag = #{videoFlag,jdbcType=VARCHAR},
+      video_flag1 = #{videoFlag1,jdbcType=VARCHAR},
+      credit_score = #{creditScore,jdbcType=VARCHAR},
+      is_open_url = #{isOpenUrl,jdbcType=VARCHAR}
+    where SERIALNO = #{serialno,jdbcType=VARCHAR}
+  </update>
+</mapper>

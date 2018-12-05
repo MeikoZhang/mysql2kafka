@@ -1,7 +1,7 @@
-package com.sixku.mysql2kafka.dao;
+package com.sixku.mysql2kafka.dao.ucard_loan;
 
-import com.sixku.mysql2kafka.dao.domain.OrderInfo;
-import com.sixku.mysql2kafka.dao.domain.OrderInfoExample;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfoExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -34,4 +34,6 @@ public interface OrderInfoMapper {
     int updateByPrimaryKeyWithBLOBs(OrderInfo record);
 
     int updateByPrimaryKey(OrderInfo record);
+
+    OrderInfo selectByOrderId(String orderId);
 }

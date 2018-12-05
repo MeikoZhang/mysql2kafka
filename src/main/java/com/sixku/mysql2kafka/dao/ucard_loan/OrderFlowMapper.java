@@ -1,7 +1,7 @@
-package com.sixku.mysql2kafka.dao;
+package com.sixku.mysql2kafka.dao.ucard_loan;
 
-import com.sixku.mysql2kafka.dao.domain.OrderFlow;
-import com.sixku.mysql2kafka.dao.domain.OrderFlowExample;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderFlow;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderFlowExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

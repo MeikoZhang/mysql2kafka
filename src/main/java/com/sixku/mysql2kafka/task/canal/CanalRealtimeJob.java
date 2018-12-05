@@ -6,9 +6,14 @@ import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.client.CanalConnectors;
 import com.alibaba.otter.canal.protocol.CanalEntry.*;
 import com.alibaba.otter.canal.protocol.Message;
-import com.sixku.mysql2kafka.dao.CustomerInfoMapper;
-import com.sixku.mysql2kafka.dao.domain.CustomerInfo;
-import com.sixku.mysql2kafka.dao.domain.OrderInfo;
+import com.sixku.mysql2kafka.dao.als7db.IndInfoMapper;
+import com.sixku.mysql2kafka.dao.als7db.domain.IndInfo;
+import com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample;
+import com.sixku.mysql2kafka.dao.ucard_loan.CustomerInfoMapper;
+import com.sixku.mysql2kafka.dao.ucard_loan.OrderInfoMapper;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderFlow;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo;
 import com.sixku.mysql2kafka.vo.BusinessType;
 import com.sixku.mysql2kafka.vo.KafkaMessage;
 import org.apache.commons.lang.StringUtils;
@@ -49,7 +54,10 @@ public class CanalRealtimeJob {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     @Autowired
-    private CustomerInfoMapper customerInfoMapper;
+    private IndInfoMapper indInfoMapper;
+
+    @Autowired
+    private OrderInfoMapper orderInfoMapper;
 
     public void run(){
 
@@ -70,7 +78,7 @@ public class CanalRealtimeJob {
                 if (batchId == -1 || size == 0) {
                     //nothing
                 } else {
-                    logger.debug("message[batchId={},size={}] \n", batchId, size);
+                    logger.info("message[batchId={},size={}] \n", batchId, size);
                     process(message.getEntries());
                 }
                 connector.ack(batchId); // 提交确认
@@ -108,16 +116,16 @@ public class CanalRealtimeJob {
             for (RowData rowData : rowChage.getRowDatasList()) {
 
                 if (eventType == EventType.DELETE) {
-                    printColumn(rowData.getBeforeColumnsList());
+//                    printColumn(rowData.getBeforeColumnsList());
                 } else if (eventType == EventType.INSERT) {
                     printColumn(rowData.getAfterColumnsList());
                     extractFromRowData(tableName, "insert", rowData);
                 } else if (eventType == EventType.UPDATE) {
-                    logger.info("-------> before");
-                    printColumn(rowData.getBeforeColumnsList());
-                    logger.info("-------> after");
-                    printColumn(rowData.getAfterColumnsList());
-                    extractFromRowData(tableName, "update", rowData);
+//                    logger.info("-------> before");
+//                    printColumn(rowData.getBeforeColumnsList());
+//                    logger.info("-------> after");
+//                    printColumn(rowData.getAfterColumnsList());
+//                    extractFromRowData(tableName, "update", rowData);
                 }else {
                     logger.debug("event type-------> "+ eventType);
                     logger.debug("-------> before");
@@ -208,48 +216,57 @@ public class CanalRealtimeJob {
                                 BusinessType.LOAN.getName(),JSON.toJSONString(kafkaBean));
                     }
                 }
+                break;
 
+            case "order_flow":
                 //审批、签约、放款
-                if("update".equals(eventType)){
-                    OrderInfo beforeOrderInfo = RowData2Bean.extract2Object(rowData, OrderInfo.class,"before");
-                    OrderInfo afterOrderInfo = RowData2Bean.extract2Object(rowData, OrderInfo.class,"after");
+                if("insert".equals(eventType)){
+//                    printColumn(rowData.getBeforeColumnsList());
+//                    printColumn(rowData.getAfterColumnsList());
+//                    OrderInfo beforeOrderInfo = RowData2Bean.extract2Object(rowData, OrderInfo.class,"before");
+//                    OrderInfo afterOrderInfo = RowData2Bean.extract2Object(rowData, OrderInfo.class,"after");
+//                    System.out.println(JSON.toJSONString(beforeOrderInfo));
+//                    System.out.println(JSON.toJSONString(afterOrderInfo));
+                    OrderFlow orderFolow = RowData2Bean.extract2Object(rowData, OrderFlow.class, "after");
+                    OrderInfo orderInfo = orderInfoMapper.selectByOrderId(orderFolow.getOrderId());
 
                     kafkaBean.setBusinessChannel(null);
-                    kafkaBean.setBusinessType(BusinessType.APPROVAL.getName());
-                    kafkaBean.setBusinessCustomerId(afterOrderInfo.getCustomerId());
-                    kafkaBean.setBusinessOrderId(afterOrderInfo.getOrderId());
-                    kafkaBean.setBusinessTime(afterOrderInfo.getUpdateTime());
+//                    kafkaBean.setBusinessType(BusinessType.APPROVAL.getName());
+                    kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
+                    kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
                     //是否复贷
-                    kafkaBean.setBusinessIsRepeat(getCusomerFromIndinfo(afterOrderInfo.getCertId()));
+                    kafkaBean.setBusinessIsRepeat(getCusomerFromIndinfo(orderInfo.getCertId()));
 
-                    kafkaBean.setBusinessCreateTime(afterOrderInfo.getCreateTime());
-                    kafkaBean.setBusinessUpdateTime(afterOrderInfo.getUpdateTime());
+                    kafkaBean.setBusinessTime(orderFolow.getCreateTime());
+                    kafkaBean.setBusinessCreateTime(orderFolow.getCreateTime());
+                    kafkaBean.setBusinessUpdateTime(orderFolow.getUpdateTime());
 
                     //审批通过
-                    if("10".equals(afterOrderInfo.getOrderStatus()) && !"10".equals(beforeOrderInfo.getOrderStatus())){
-                        kafkaBean.setBusinessMoney(String.valueOf(afterOrderInfo.getApproveSum()));
+                    if("10".equals(orderFolow.getEndStatus())){
+                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.APPROVAL.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.APPROVAL.getName(),JSON.toJSONString(kafkaBean));
                     }
 
                     //签约
-                    if("20".equals(afterOrderInfo.getOrderStatus()) && !"20".equals(beforeOrderInfo.getOrderStatus())){
-                        kafkaBean.setBusinessMoney(String.valueOf(afterOrderInfo.getApproveSum()));
+                    if("20".equals(orderFolow.getEndStatus())){
+                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.CONTRACT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.CONTRACT.getName(),JSON.toJSONString(kafkaBean));
                     }
 
                     //放款成功
-                    if("30,33".contains(afterOrderInfo.getOrderStatus()) && !"30,33".contains(beforeOrderInfo.getOrderStatus())){
-                        kafkaBean.setBusinessMoney(String.valueOf(afterOrderInfo.getApproveSum()));
+                    if("30,33".contains(orderFolow.getEndStatus())){
+                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.PUTOUT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.PUTOUT.getName(),JSON.toJSONString(kafkaBean));
                     }
                 }
                 break;
+
             default:
                 logger.info("event not in process table ,pass ...");
                 break;
@@ -268,12 +285,16 @@ public class CanalRealtimeJob {
             return null;
         }
 
-        String cusomerFromIndinfo = customerInfoMapper.selectIndinfo(certid);
+        IndInfoExample indInfoExample = new IndInfoExample();
+        IndInfoExample.Criteria criteria = indInfoExample.createCriteria();
+        criteria.andCertidEqualTo(certid);
+
+        List<IndInfo> indInfos = indInfoMapper.selectByExample(indInfoExample);
         //复贷人员判断
-        if(StringUtils.isBlank(cusomerFromIndinfo)){
-            return "0";
+        if(indInfos != null && indInfos.size() > 0){
+            return "1";//复贷人员
         }else{
-            return "1";
+            return "0";//非复贷人员
         }
     }
 

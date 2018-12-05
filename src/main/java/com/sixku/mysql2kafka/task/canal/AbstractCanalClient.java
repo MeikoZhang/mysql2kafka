@@ -105,11 +105,11 @@ public class AbstractCanalClient{
                     long batchId = message.getId();
                     int size = message.getEntries().size();
                     if (batchId == -1 || size == 0) {
-                         try {
-                            Thread.sleep(500);
-                         } catch (InterruptedException e) {
-                             e.printStackTrace();
-                         }
+//                         try {
+//                            Thread.sleep(500);
+//                         } catch (InterruptedException e) {
+//                             e.printStackTrace();
+//                         }
                     } else {
 //                        printSummary(message, batchId, size);
 //                        printEntry(message.getEntries());

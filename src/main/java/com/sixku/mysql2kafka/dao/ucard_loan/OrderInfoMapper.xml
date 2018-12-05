@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sixku.mysql2kafka.dao.OrderInfoMapper">
-  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+<mapper namespace="com.sixku.mysql2kafka.dao.ucard_loan.OrderInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="order_channel" jdbcType="VARCHAR" property="orderChannel" />
@@ -39,7 +39,7 @@
     <result column="is_open_url" jdbcType="CHAR" property="isOpenUrl" />
     <result column="face_video_url" jdbcType="VARCHAR" property="faceVideoUrl" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     <result column="extend" jdbcType="LONGVARCHAR" property="extend" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -110,7 +110,7 @@
   <sql id="Blob_Column_List">
     extend
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfoExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfoExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -126,7 +126,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -160,13 +160,13 @@
     delete from order_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfoExample">
+  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfoExample">
     delete from order_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -197,7 +197,7 @@
       #{isOpenUrl,jdbcType=CHAR}, #{faceVideoUrl,jdbcType=VARCHAR}, #{extend,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -423,7 +423,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfoExample" resultType="java.lang.Long">
     select count(*) from order_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -633,7 +633,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     update order_info
     <set>
       <if test="orderId != null">
@@ -747,7 +747,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     update order_info
     set order_id = #{orderId,jdbcType=VARCHAR},
       order_channel = #{orderChannel,jdbcType=VARCHAR},
@@ -787,7 +787,7 @@
       extend = #{extend,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.domain.OrderInfo">
+  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo">
     update order_info
     set order_id = #{orderId,jdbcType=VARCHAR},
       order_channel = #{orderChannel,jdbcType=VARCHAR},
@@ -826,4 +826,14 @@
       face_video_url = #{faceVideoUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByOrderId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from order_info
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

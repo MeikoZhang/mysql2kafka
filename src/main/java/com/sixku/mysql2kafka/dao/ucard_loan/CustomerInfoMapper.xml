@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sixku.mysql2kafka.dao.CustomerInfoMapper">
-  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.domain.CustomerInfo">
+<mapper namespace="com.sixku.mysql2kafka.dao.ucard_loan.CustomerInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
     <result column="register_channel" jdbcType="VARCHAR" property="registerChannel" />
@@ -95,7 +95,7 @@
     cert_start_date, cert_end_date, invite_code, invite_customer, is_realname, is_wx_collect, 
     customer_id_earth, status, black_flag, create_user, update_user, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -127,13 +127,13 @@
     delete from customer_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfoExample">
+  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfoExample">
     delete from customer_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfo">
+  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -156,7 +156,7 @@
       #{blackFlag,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfo">
+  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -328,7 +328,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfoExample" resultType="java.lang.Long">
     select count(*) from customer_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -460,7 +460,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo">
     update customer_info
     <set>
       <if test="customerId != null">
@@ -547,7 +547,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.domain.CustomerInfo">
+  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo">
     update customer_info
     set customer_id = #{customerId,jdbcType=VARCHAR},
       register_channel = #{registerChannel,jdbcType=VARCHAR},
@@ -578,10 +578,4 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-
-  <select id="selectIndinfo" parameterType="java.lang.String" resultType="java.lang.String">
-    select CUSTOMERID
-    from als7db.ind_info
-    where CERTID = #{certid,jdbcType=VARCHAR}
-  </select>
 </mapper>

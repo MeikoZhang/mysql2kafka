@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixku.mysql2kafka.dao.als7db.AcctLoanMapper">
+  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoan">
+    <id column="serialno" jdbcType="VARCHAR" property="serialno" />
+    <result column="accountno" jdbcType="VARCHAR" property="accountno" />
+    <result column="contractserialno" jdbcType="VARCHAR" property="contractserialno" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="customername" jdbcType="VARCHAR" property="customername" />
+    <result column="businesstype" jdbcType="VARCHAR" property="businesstype" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="specificid" jdbcType="VARCHAR" property="specificid" />
+    <result column="versionid" jdbcType="VARCHAR" property="versionid" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="businesssum" jdbcType="DECIMAL" property="businesssum" />
+    <result column="putoutdate" jdbcType="VARCHAR" property="putoutdate" />
+    <result column="maturitydate" jdbcType="VARCHAR" property="maturitydate" />
+    <result column="originalmaturitydate" jdbcType="VARCHAR" property="originalmaturitydate" />
+    <result column="operateorgid" jdbcType="VARCHAR" property="operateorgid" />
+    <result column="accountingorgid" jdbcType="VARCHAR" property="accountingorgid" />
+    <result column="loanstatus" jdbcType="VARCHAR" property="loanstatus" />
+    <result column="finishdate" jdbcType="VARCHAR" property="finishdate" />
+    <result column="businessdate" jdbcType="VARCHAR" property="businessdate" />
+    <result column="lockflag" jdbcType="VARCHAR" property="lockflag" />
+    <result column="overduedays" jdbcType="INTEGER" property="overduedays" />
+    <result column="classifyresult" jdbcType="VARCHAR" property="classifyresult" />
+    <result column="putoutserialno" jdbcType="VARCHAR" property="putoutserialno" />
+    <result column="approveserialno" jdbcType="VARCHAR" property="approveserialno" />
+    <result column="applyserialno" jdbcType="VARCHAR" property="applyserialno" />
+    <result column="businessstatus" jdbcType="VARCHAR" property="businessstatus" />
+    <result column="MonthRate" jdbcType="DECIMAL" property="monthrate" />
+    <result column="Rate" jdbcType="DECIMAL" property="rate" />
+    <result column="ARate" jdbcType="DECIMAL" property="arate" />
+    <result column="BRate" jdbcType="DECIMAL" property="brate" />
+    <result column="CRate" jdbcType="DECIMAL" property="crate" />
+    <result column="DRate" jdbcType="DECIMAL" property="drate" />
+    <result column="ReserveRate" jdbcType="DECIMAL" property="reserverate" />
+    <result column="Term" jdbcType="VARCHAR" property="term" />
+    <result column="MerchantsNo" jdbcType="VARCHAR" property="merchantsno" />
+    <result column="SANo" jdbcType="VARCHAR" property="sano" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="RepayUser" jdbcType="VARCHAR" property="repayuser" />
+    <result column="MerchantsName" jdbcType="VARCHAR" property="merchantsname" />
+    <result column="ReturnPolicy" jdbcType="VARCHAR" property="returnpolicy" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="INPUTUSERID" jdbcType="VARCHAR" property="inputuserid" />
+    <result column="INPUTORGID" jdbcType="VARCHAR" property="inputorgid" />
+    <result column="INPUTDATE" jdbcType="VARCHAR" property="inputdate" />
+    <result column="TermMonth" jdbcType="INTEGER" property="termmonth" />
+    <result column="ScrutinyOrgID" jdbcType="VARCHAR" property="scrutinyorgid" />
+    <result column="GroupID" jdbcType="VARCHAR" property="groupid" />
+    <result column="TeamID" jdbcType="VARCHAR" property="teamid" />
+    <result column="SucessUserID" jdbcType="VARCHAR" property="sucessuserid" />
+    <result column="HPPutoutDate" jdbcType="VARCHAR" property="hpputoutdate" />
+    <result column="HPMaturity" jdbcType="VARCHAR" property="hpmaturity" />
+    <result column="actualpayterm" jdbcType="INTEGER" property="actualpayterm" />
+    <result column="monthpay" jdbcType="DECIMAL" property="monthpay" />
+    <result column="unpayBalance" jdbcType="DECIMAL" property="unpaybalance" />
+    <result column="currentPayamt" jdbcType="DECIMAL" property="currentpayamt" />
+    <result column="loanserialno" jdbcType="VARCHAR" property="loanserialno" />
+    <result column="firstdate" jdbcType="VARCHAR" property="firstdate" />
+    <result column="BatchNo" jdbcType="VARCHAR" property="batchno" />
+    <result column="Cancellationperiod" jdbcType="INTEGER" property="cancellationperiod" />
+    <result column="AFineRate" jdbcType="DECIMAL" property="afinerate" />
+    <result column="LenderInfo" jdbcType="VARCHAR" property="lenderinfo" />
+    <result column="overdueBalance" jdbcType="DECIMAL" property="overduebalance" />
+    <result column="TermMonthStatus" jdbcType="VARCHAR" property="termmonthstatus" />
+    <result column="Residualprincipal" jdbcType="DECIMAL" property="residualprincipal" />
+    <result column="AheadAllBalance" jdbcType="DECIMAL" property="aheadallbalance" />
+    <result column="aheadscale" jdbcType="DECIMAL" property="aheadscale" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="totalfeeamount" jdbcType="DECIMAL" property="totalfeeamount" />
+    <result column="CurrentInterestAmt_1" jdbcType="DECIMAL" property="currentinterestamt1" />
+    <result column="NextInstalmentAmt" jdbcType="DECIMAL" property="nextinstalmentamt" />
+    <result column="NextDueDate" jdbcType="VARCHAR" property="nextduedate" />
+    <result column="CurrentPeriodNo" jdbcType="INTEGER" property="currentperiodno" />
+    <result column="DefaultDueDay" jdbcType="VARCHAR" property="defaultdueday" />
+    <result column="updatetimestamp" jdbcType="TIMESTAMP" property="updatetimestamp" />
+    <result column="renewalTimes" jdbcType="INTEGER" property="renewaltimes" />
+    <result column="GrancePeriod" jdbcType="INTEGER" property="granceperiod" />
+    <result column="AFineRate2" jdbcType="DECIMAL" property="afinerate2" />
+    <result column="productcategory" jdbcType="VARCHAR" property="productcategory" />
+    <result column="suspend" jdbcType="TINYINT" property="suspend" />
+    <result column="WITHDRAWSTATE" jdbcType="VARCHAR" property="withdrawstate" />
+    <result column="FUNDCHANNEL" jdbcType="VARCHAR" property="fundchannel" />
+    <result column="follower" jdbcType="VARCHAR" property="follower" />
+    <result column="orderChannel" jdbcType="VARCHAR" property="orderchannel" />
+    <result column="externalOrderNo" jdbcType="VARCHAR" property="externalorderno" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    serialno, accountno, contractserialno, customerid, customername, businesstype, productid, 
+    specificid, versionid, currency, businesssum, putoutdate, maturitydate, originalmaturitydate, 
+    operateorgid, accountingorgid, loanstatus, finishdate, businessdate, lockflag, overduedays, 
+    classifyresult, putoutserialno, approveserialno, applyserialno, businessstatus, MonthRate, 
+    Rate, ARate, BRate, CRate, DRate, ReserveRate, Term, MerchantsNo, SANo, Phone, RepayUser, 
+    MerchantsName, ReturnPolicy, status, INPUTUSERID, INPUTORGID, INPUTDATE, TermMonth, 
+    ScrutinyOrgID, GroupID, TeamID, SucessUserID, HPPutoutDate, HPMaturity, actualpayterm, 
+    monthpay, unpayBalance, currentPayamt, loanserialno, firstdate, BatchNo, Cancellationperiod, 
+    AFineRate, LenderInfo, overdueBalance, TermMonthStatus, Residualprincipal, AheadAllBalance, 
+    aheadscale, amount, totalfeeamount, CurrentInterestAmt_1, NextInstalmentAmt, NextDueDate, 
+    CurrentPeriodNo, DefaultDueDay, updatetimestamp, renewalTimes, GrancePeriod, AFineRate2, 
+    productcategory, suspend, WITHDRAWSTATE, FUNDCHANNEL, follower, orderChannel, externalOrderNo
+  </sql>
+  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from acct_loan
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from acct_loan
+    where serialno = #{serialno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from acct_loan
+    where serialno = #{serialno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoanExample">
+    delete from acct_loan
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoan">
+    insert into acct_loan (serialno, accountno, contractserialno, 
+      customerid, customername, businesstype, 
+      productid, specificid, versionid, 
+      currency, businesssum, putoutdate, 
+      maturitydate, originalmaturitydate, operateorgid, 
+      accountingorgid, loanstatus, finishdate, 
+      businessdate, lockflag, overduedays, 
+      classifyresult, putoutserialno, approveserialno, 
+      applyserialno, businessstatus, MonthRate, 
+      Rate, ARate, BRate, 
+      CRate, DRate, ReserveRate, 
+      Term, MerchantsNo, SANo, 
+      Phone, RepayUser, MerchantsName, 
+      ReturnPolicy, status, INPUTUSERID, 
+      INPUTORGID, INPUTDATE, TermMonth, 
+      ScrutinyOrgID, GroupID, TeamID, 
+      SucessUserID, HPPutoutDate, HPMaturity, 
+      actualpayterm, monthpay, unpayBalance, 
+      currentPayamt, loanserialno, firstdate, 
+      BatchNo, Cancellationperiod, AFineRate, 
+      LenderInfo, overdueBalance, TermMonthStatus, 
+      Residualprincipal, AheadAllBalance, aheadscale, 
+      amount, totalfeeamount, CurrentInterestAmt_1, 
+      NextInstalmentAmt, NextDueDate, CurrentPeriodNo, 
+      DefaultDueDay, updatetimestamp, renewalTimes, 
+      GrancePeriod, AFineRate2, productcategory, 
+      suspend, WITHDRAWSTATE, FUNDCHANNEL, 
+      follower, orderChannel, externalOrderNo
+      )
+    values (#{serialno,jdbcType=VARCHAR}, #{accountno,jdbcType=VARCHAR}, #{contractserialno,jdbcType=VARCHAR}, 
+      #{customerid,jdbcType=VARCHAR}, #{customername,jdbcType=VARCHAR}, #{businesstype,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{specificid,jdbcType=VARCHAR}, #{versionid,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR}, #{businesssum,jdbcType=DECIMAL}, #{putoutdate,jdbcType=VARCHAR}, 
+      #{maturitydate,jdbcType=VARCHAR}, #{originalmaturitydate,jdbcType=VARCHAR}, #{operateorgid,jdbcType=VARCHAR}, 
+      #{accountingorgid,jdbcType=VARCHAR}, #{loanstatus,jdbcType=VARCHAR}, #{finishdate,jdbcType=VARCHAR}, 
+      #{businessdate,jdbcType=VARCHAR}, #{lockflag,jdbcType=VARCHAR}, #{overduedays,jdbcType=INTEGER}, 
+      #{classifyresult,jdbcType=VARCHAR}, #{putoutserialno,jdbcType=VARCHAR}, #{approveserialno,jdbcType=VARCHAR}, 
+      #{applyserialno,jdbcType=VARCHAR}, #{businessstatus,jdbcType=VARCHAR}, #{monthrate,jdbcType=DECIMAL}, 
+      #{rate,jdbcType=DECIMAL}, #{arate,jdbcType=DECIMAL}, #{brate,jdbcType=DECIMAL}, 
+      #{crate,jdbcType=DECIMAL}, #{drate,jdbcType=DECIMAL}, #{reserverate,jdbcType=DECIMAL}, 
+      #{term,jdbcType=VARCHAR}, #{merchantsno,jdbcType=VARCHAR}, #{sano,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{repayuser,jdbcType=VARCHAR}, #{merchantsname,jdbcType=VARCHAR}, 
+      #{returnpolicy,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{inputuserid,jdbcType=VARCHAR}, 
+      #{inputorgid,jdbcType=VARCHAR}, #{inputdate,jdbcType=VARCHAR}, #{termmonth,jdbcType=INTEGER}, 
+      #{scrutinyorgid,jdbcType=VARCHAR}, #{groupid,jdbcType=VARCHAR}, #{teamid,jdbcType=VARCHAR}, 
+      #{sucessuserid,jdbcType=VARCHAR}, #{hpputoutdate,jdbcType=VARCHAR}, #{hpmaturity,jdbcType=VARCHAR}, 
+      #{actualpayterm,jdbcType=INTEGER}, #{monthpay,jdbcType=DECIMAL}, #{unpaybalance,jdbcType=DECIMAL}, 
+      #{currentpayamt,jdbcType=DECIMAL}, #{loanserialno,jdbcType=VARCHAR}, #{firstdate,jdbcType=VARCHAR}, 
+      #{batchno,jdbcType=VARCHAR}, #{cancellationperiod,jdbcType=INTEGER}, #{afinerate,jdbcType=DECIMAL}, 
+      #{lenderinfo,jdbcType=VARCHAR}, #{overduebalance,jdbcType=DECIMAL}, #{termmonthstatus,jdbcType=VARCHAR}, 
+      #{residualprincipal,jdbcType=DECIMAL}, #{aheadallbalance,jdbcType=DECIMAL}, #{aheadscale,jdbcType=DECIMAL}, 
+      #{amount,jdbcType=DECIMAL}, #{totalfeeamount,jdbcType=DECIMAL}, #{currentinterestamt1,jdbcType=DECIMAL}, 
+      #{nextinstalmentamt,jdbcType=DECIMAL}, #{nextduedate,jdbcType=VARCHAR}, #{currentperiodno,jdbcType=INTEGER}, 
+      #{defaultdueday,jdbcType=VARCHAR}, #{updatetimestamp,jdbcType=TIMESTAMP}, #{renewaltimes,jdbcType=INTEGER}, 
+      #{granceperiod,jdbcType=INTEGER}, #{afinerate2,jdbcType=DECIMAL}, #{productcategory,jdbcType=VARCHAR}, 
+      #{suspend,jdbcType=TINYINT}, #{withdrawstate,jdbcType=VARCHAR}, #{fundchannel,jdbcType=VARCHAR}, 
+      #{follower,jdbcType=VARCHAR}, #{orderchannel,jdbcType=VARCHAR}, #{externalorderno,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoan">
+    insert into acct_loan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        serialno,
+      </if>
+      <if test="accountno != null">
+        accountno,
+      </if>
+      <if test="contractserialno != null">
+        contractserialno,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="customername != null">
+        customername,
+      </if>
+      <if test="businesstype != null">
+        businesstype,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="specificid != null">
+        specificid,
+      </if>
+      <if test="versionid != null">
+        versionid,
+      </if>
+      <if test="currency != null">
+        currency,
+      </if>
+      <if test="businesssum != null">
+        businesssum,
+      </if>
+      <if test="putoutdate != null">
+        putoutdate,
+      </if>
+      <if test="maturitydate != null">
+        maturitydate,
+      </if>
+      <if test="originalmaturitydate != null">
+        originalmaturitydate,
+      </if>
+      <if test="operateorgid != null">
+        operateorgid,
+      </if>
+      <if test="accountingorgid != null">
+        accountingorgid,
+      </if>
+      <if test="loanstatus != null">
+        loanstatus,
+      </if>
+      <if test="finishdate != null">
+        finishdate,
+      </if>
+      <if test="businessdate != null">
+        businessdate,
+      </if>
+      <if test="lockflag != null">
+        lockflag,
+      </if>
+      <if test="overduedays != null">
+        overduedays,
+      </if>
+      <if test="classifyresult != null">
+        classifyresult,
+      </if>
+      <if test="putoutserialno != null">
+        putoutserialno,
+      </if>
+      <if test="approveserialno != null">
+        approveserialno,
+      </if>
+      <if test="applyserialno != null">
+        applyserialno,
+      </if>
+      <if test="businessstatus != null">
+        businessstatus,
+      </if>
+      <if test="monthrate != null">
+        MonthRate,
+      </if>
+      <if test="rate != null">
+        Rate,
+      </if>
+      <if test="arate != null">
+        ARate,
+      </if>
+      <if test="brate != null">
+        BRate,
+      </if>
+      <if test="crate != null">
+        CRate,
+      </if>
+      <if test="drate != null">
+        DRate,
+      </if>
+      <if test="reserverate != null">
+        ReserveRate,
+      </if>
+      <if test="term != null">
+        Term,
+      </if>
+      <if test="merchantsno != null">
+        MerchantsNo,
+      </if>
+      <if test="sano != null">
+        SANo,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="repayuser != null">
+        RepayUser,
+      </if>
+      <if test="merchantsname != null">
+        MerchantsName,
+      </if>
+      <if test="returnpolicy != null">
+        ReturnPolicy,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="inputuserid != null">
+        INPUTUSERID,
+      </if>
+      <if test="inputorgid != null">
+        INPUTORGID,
+      </if>
+      <if test="inputdate != null">
+        INPUTDATE,
+      </if>
+      <if test="termmonth != null">
+        TermMonth,
+      </if>
+      <if test="scrutinyorgid != null">
+        ScrutinyOrgID,
+      </if>
+      <if test="groupid != null">
+        GroupID,
+      </if>
+      <if test="teamid != null">
+        TeamID,
+      </if>
+      <if test="sucessuserid != null">
+        SucessUserID,
+      </if>
+      <if test="hpputoutdate != null">
+        HPPutoutDate,
+      </if>
+      <if test="hpmaturity != null">
+        HPMaturity,
+      </if>
+      <if test="actualpayterm != null">
+        actualpayterm,
+      </if>
+      <if test="monthpay != null">
+        monthpay,
+      </if>
+      <if test="unpaybalance != null">
+        unpayBalance,
+      </if>
+      <if test="currentpayamt != null">
+        currentPayamt,
+      </if>
+      <if test="loanserialno != null">
+        loanserialno,
+      </if>
+      <if test="firstdate != null">
+        firstdate,
+      </if>
+      <if test="batchno != null">
+        BatchNo,
+      </if>
+      <if test="cancellationperiod != null">
+        Cancellationperiod,
+      </if>
+      <if test="afinerate != null">
+        AFineRate,
+      </if>
+      <if test="lenderinfo != null">
+        LenderInfo,
+      </if>
+      <if test="overduebalance != null">
+        overdueBalance,
+      </if>
+      <if test="termmonthstatus != null">
+        TermMonthStatus,
+      </if>
+      <if test="residualprincipal != null">
+        Residualprincipal,
+      </if>
+      <if test="aheadallbalance != null">
+        AheadAllBalance,
+      </if>
+      <if test="aheadscale != null">
+        aheadscale,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="totalfeeamount != null">
+        totalfeeamount,
+      </if>
+      <if test="currentinterestamt1 != null">
+        CurrentInterestAmt_1,
+      </if>
+      <if test="nextinstalmentamt != null">
+        NextInstalmentAmt,
+      </if>
+      <if test="nextduedate != null">
+        NextDueDate,
+      </if>
+      <if test="currentperiodno != null">
+        CurrentPeriodNo,
+      </if>
+      <if test="defaultdueday != null">
+        DefaultDueDay,
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp,
+      </if>
+      <if test="renewaltimes != null">
+        renewalTimes,
+      </if>
+      <if test="granceperiod != null">
+        GrancePeriod,
+      </if>
+      <if test="afinerate2 != null">
+        AFineRate2,
+      </if>
+      <if test="productcategory != null">
+        productcategory,
+      </if>
+      <if test="suspend != null">
+        suspend,
+      </if>
+      <if test="withdrawstate != null">
+        WITHDRAWSTATE,
+      </if>
+      <if test="fundchannel != null">
+        FUNDCHANNEL,
+      </if>
+      <if test="follower != null">
+        follower,
+      </if>
+      <if test="orderchannel != null">
+        orderChannel,
+      </if>
+      <if test="externalorderno != null">
+        externalOrderNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null">
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="contractserialno != null">
+        #{contractserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="specificid != null">
+        #{specificid,jdbcType=VARCHAR},
+      </if>
+      <if test="versionid != null">
+        #{versionid,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssum != null">
+        #{businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="putoutdate != null">
+        #{putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="maturitydate != null">
+        #{maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="originalmaturitydate != null">
+        #{originalmaturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="operateorgid != null">
+        #{operateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingorgid != null">
+        #{accountingorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanstatus != null">
+        #{loanstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="finishdate != null">
+        #{finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessdate != null">
+        #{businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="lockflag != null">
+        #{lockflag,jdbcType=VARCHAR},
+      </if>
+      <if test="overduedays != null">
+        #{overduedays,jdbcType=INTEGER},
+      </if>
+      <if test="classifyresult != null">
+        #{classifyresult,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutserialno != null">
+        #{putoutserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="approveserialno != null">
+        #{approveserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="applyserialno != null">
+        #{applyserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="businessstatus != null">
+        #{businessstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="monthrate != null">
+        #{monthrate,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="arate != null">
+        #{arate,jdbcType=DECIMAL},
+      </if>
+      <if test="brate != null">
+        #{brate,jdbcType=DECIMAL},
+      </if>
+      <if test="crate != null">
+        #{crate,jdbcType=DECIMAL},
+      </if>
+      <if test="drate != null">
+        #{drate,jdbcType=DECIMAL},
+      </if>
+      <if test="reserverate != null">
+        #{reserverate,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantsno != null">
+        #{merchantsno,jdbcType=VARCHAR},
+      </if>
+      <if test="sano != null">
+        #{sano,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="repayuser != null">
+        #{repayuser,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantsname != null">
+        #{merchantsname,jdbcType=VARCHAR},
+      </if>
+      <if test="returnpolicy != null">
+        #{returnpolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="inputuserid != null">
+        #{inputuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputorgid != null">
+        #{inputorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputdate != null">
+        #{inputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="termmonth != null">
+        #{termmonth,jdbcType=INTEGER},
+      </if>
+      <if test="scrutinyorgid != null">
+        #{scrutinyorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="teamid != null">
+        #{teamid,jdbcType=VARCHAR},
+      </if>
+      <if test="sucessuserid != null">
+        #{sucessuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="hpputoutdate != null">
+        #{hpputoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="hpmaturity != null">
+        #{hpmaturity,jdbcType=VARCHAR},
+      </if>
+      <if test="actualpayterm != null">
+        #{actualpayterm,jdbcType=INTEGER},
+      </if>
+      <if test="monthpay != null">
+        #{monthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="unpaybalance != null">
+        #{unpaybalance,jdbcType=DECIMAL},
+      </if>
+      <if test="currentpayamt != null">
+        #{currentpayamt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanserialno != null">
+        #{loanserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="firstdate != null">
+        #{firstdate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchno != null">
+        #{batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="cancellationperiod != null">
+        #{cancellationperiod,jdbcType=INTEGER},
+      </if>
+      <if test="afinerate != null">
+        #{afinerate,jdbcType=DECIMAL},
+      </if>
+      <if test="lenderinfo != null">
+        #{lenderinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="overduebalance != null">
+        #{overduebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="termmonthstatus != null">
+        #{termmonthstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="residualprincipal != null">
+        #{residualprincipal,jdbcType=DECIMAL},
+      </if>
+      <if test="aheadallbalance != null">
+        #{aheadallbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="aheadscale != null">
+        #{aheadscale,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalfeeamount != null">
+        #{totalfeeamount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentinterestamt1 != null">
+        #{currentinterestamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="nextinstalmentamt != null">
+        #{nextinstalmentamt,jdbcType=DECIMAL},
+      </if>
+      <if test="nextduedate != null">
+        #{nextduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="currentperiodno != null">
+        #{currentperiodno,jdbcType=INTEGER},
+      </if>
+      <if test="defaultdueday != null">
+        #{defaultdueday,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetimestamp != null">
+        #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="renewaltimes != null">
+        #{renewaltimes,jdbcType=INTEGER},
+      </if>
+      <if test="granceperiod != null">
+        #{granceperiod,jdbcType=INTEGER},
+      </if>
+      <if test="afinerate2 != null">
+        #{afinerate2,jdbcType=DECIMAL},
+      </if>
+      <if test="productcategory != null">
+        #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="suspend != null">
+        #{suspend,jdbcType=TINYINT},
+      </if>
+      <if test="withdrawstate != null">
+        #{withdrawstate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundchannel != null">
+        #{fundchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="follower != null">
+        #{follower,jdbcType=VARCHAR},
+      </if>
+      <if test="orderchannel != null">
+        #{orderchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="externalorderno != null">
+        #{externalorderno,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoanExample" resultType="java.lang.Long">
+    select count(*) from acct_loan
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update acct_loan
+    <set>
+      <if test="record.serialno != null">
+        serialno = #{record.serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountno != null">
+        accountno = #{record.accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractserialno != null">
+        contractserialno = #{record.contractserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerid != null">
+        customerid = #{record.customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customername != null">
+        customername = #{record.customername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businesstype != null">
+        businesstype = #{record.businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productid != null">
+        productid = #{record.productid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specificid != null">
+        specificid = #{record.specificid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.versionid != null">
+        versionid = #{record.versionid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currency != null">
+        currency = #{record.currency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businesssum != null">
+        businesssum = #{record.businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.putoutdate != null">
+        putoutdate = #{record.putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maturitydate != null">
+        maturitydate = #{record.maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.originalmaturitydate != null">
+        originalmaturitydate = #{record.originalmaturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operateorgid != null">
+        operateorgid = #{record.operateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountingorgid != null">
+        accountingorgid = #{record.accountingorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanstatus != null">
+        loanstatus = #{record.loanstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishdate != null">
+        finishdate = #{record.finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessdate != null">
+        businessdate = #{record.businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lockflag != null">
+        lockflag = #{record.lockflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overduedays != null">
+        overduedays = #{record.overduedays,jdbcType=INTEGER},
+      </if>
+      <if test="record.classifyresult != null">
+        classifyresult = #{record.classifyresult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.putoutserialno != null">
+        putoutserialno = #{record.putoutserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approveserialno != null">
+        approveserialno = #{record.approveserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyserialno != null">
+        applyserialno = #{record.applyserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessstatus != null">
+        businessstatus = #{record.businessstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monthrate != null">
+        MonthRate = #{record.monthrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rate != null">
+        Rate = #{record.rate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.arate != null">
+        ARate = #{record.arate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.brate != null">
+        BRate = #{record.brate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.crate != null">
+        CRate = #{record.crate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.drate != null">
+        DRate = #{record.drate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.reserverate != null">
+        ReserveRate = #{record.reserverate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.term != null">
+        Term = #{record.term,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantsno != null">
+        MerchantsNo = #{record.merchantsno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sano != null">
+        SANo = #{record.sano,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        Phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repayuser != null">
+        RepayUser = #{record.repayuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantsname != null">
+        MerchantsName = #{record.merchantsname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.returnpolicy != null">
+        ReturnPolicy = #{record.returnpolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputuserid != null">
+        INPUTUSERID = #{record.inputuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputorgid != null">
+        INPUTORGID = #{record.inputorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputdate != null">
+        INPUTDATE = #{record.inputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.termmonth != null">
+        TermMonth = #{record.termmonth,jdbcType=INTEGER},
+      </if>
+      <if test="record.scrutinyorgid != null">
+        ScrutinyOrgID = #{record.scrutinyorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupid != null">
+        GroupID = #{record.groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamid != null">
+        TeamID = #{record.teamid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sucessuserid != null">
+        SucessUserID = #{record.sucessuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hpputoutdate != null">
+        HPPutoutDate = #{record.hpputoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hpmaturity != null">
+        HPMaturity = #{record.hpmaturity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actualpayterm != null">
+        actualpayterm = #{record.actualpayterm,jdbcType=INTEGER},
+      </if>
+      <if test="record.monthpay != null">
+        monthpay = #{record.monthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="record.unpaybalance != null">
+        unpayBalance = #{record.unpaybalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currentpayamt != null">
+        currentPayamt = #{record.currentpayamt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.loanserialno != null">
+        loanserialno = #{record.loanserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstdate != null">
+        firstdate = #{record.firstdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.batchno != null">
+        BatchNo = #{record.batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cancellationperiod != null">
+        Cancellationperiod = #{record.cancellationperiod,jdbcType=INTEGER},
+      </if>
+      <if test="record.afinerate != null">
+        AFineRate = #{record.afinerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lenderinfo != null">
+        LenderInfo = #{record.lenderinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overduebalance != null">
+        overdueBalance = #{record.overduebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.termmonthstatus != null">
+        TermMonthStatus = #{record.termmonthstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.residualprincipal != null">
+        Residualprincipal = #{record.residualprincipal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.aheadallbalance != null">
+        AheadAllBalance = #{record.aheadallbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.aheadscale != null">
+        aheadscale = #{record.aheadscale,jdbcType=DECIMAL},
+      </if>
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalfeeamount != null">
+        totalfeeamount = #{record.totalfeeamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currentinterestamt1 != null">
+        CurrentInterestAmt_1 = #{record.currentinterestamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nextinstalmentamt != null">
+        NextInstalmentAmt = #{record.nextinstalmentamt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nextduedate != null">
+        NextDueDate = #{record.nextduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentperiodno != null">
+        CurrentPeriodNo = #{record.currentperiodno,jdbcType=INTEGER},
+      </if>
+      <if test="record.defaultdueday != null">
+        DefaultDueDay = #{record.defaultdueday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetimestamp != null">
+        updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.renewaltimes != null">
+        renewalTimes = #{record.renewaltimes,jdbcType=INTEGER},
+      </if>
+      <if test="record.granceperiod != null">
+        GrancePeriod = #{record.granceperiod,jdbcType=INTEGER},
+      </if>
+      <if test="record.afinerate2 != null">
+        AFineRate2 = #{record.afinerate2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.productcategory != null">
+        productcategory = #{record.productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.suspend != null">
+        suspend = #{record.suspend,jdbcType=TINYINT},
+      </if>
+      <if test="record.withdrawstate != null">
+        WITHDRAWSTATE = #{record.withdrawstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundchannel != null">
+        FUNDCHANNEL = #{record.fundchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.follower != null">
+        follower = #{record.follower,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderchannel != null">
+        orderChannel = #{record.orderchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.externalorderno != null">
+        externalOrderNo = #{record.externalorderno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update acct_loan
+    set serialno = #{record.serialno,jdbcType=VARCHAR},
+      accountno = #{record.accountno,jdbcType=VARCHAR},
+      contractserialno = #{record.contractserialno,jdbcType=VARCHAR},
+      customerid = #{record.customerid,jdbcType=VARCHAR},
+      customername = #{record.customername,jdbcType=VARCHAR},
+      businesstype = #{record.businesstype,jdbcType=VARCHAR},
+      productid = #{record.productid,jdbcType=VARCHAR},
+      specificid = #{record.specificid,jdbcType=VARCHAR},
+      versionid = #{record.versionid,jdbcType=VARCHAR},
+      currency = #{record.currency,jdbcType=VARCHAR},
+      businesssum = #{record.businesssum,jdbcType=DECIMAL},
+      putoutdate = #{record.putoutdate,jdbcType=VARCHAR},
+      maturitydate = #{record.maturitydate,jdbcType=VARCHAR},
+      originalmaturitydate = #{record.originalmaturitydate,jdbcType=VARCHAR},
+      operateorgid = #{record.operateorgid,jdbcType=VARCHAR},
+      accountingorgid = #{record.accountingorgid,jdbcType=VARCHAR},
+      loanstatus = #{record.loanstatus,jdbcType=VARCHAR},
+      finishdate = #{record.finishdate,jdbcType=VARCHAR},
+      businessdate = #{record.businessdate,jdbcType=VARCHAR},
+      lockflag = #{record.lockflag,jdbcType=VARCHAR},
+      overduedays = #{record.overduedays,jdbcType=INTEGER},
+      classifyresult = #{record.classifyresult,jdbcType=VARCHAR},
+      putoutserialno = #{record.putoutserialno,jdbcType=VARCHAR},
+      approveserialno = #{record.approveserialno,jdbcType=VARCHAR},
+      applyserialno = #{record.applyserialno,jdbcType=VARCHAR},
+      businessstatus = #{record.businessstatus,jdbcType=VARCHAR},
+      MonthRate = #{record.monthrate,jdbcType=DECIMAL},
+      Rate = #{record.rate,jdbcType=DECIMAL},
+      ARate = #{record.arate,jdbcType=DECIMAL},
+      BRate = #{record.brate,jdbcType=DECIMAL},
+      CRate = #{record.crate,jdbcType=DECIMAL},
+      DRate = #{record.drate,jdbcType=DECIMAL},
+      ReserveRate = #{record.reserverate,jdbcType=DECIMAL},
+      Term = #{record.term,jdbcType=VARCHAR},
+      MerchantsNo = #{record.merchantsno,jdbcType=VARCHAR},
+      SANo = #{record.sano,jdbcType=VARCHAR},
+      Phone = #{record.phone,jdbcType=VARCHAR},
+      RepayUser = #{record.repayuser,jdbcType=VARCHAR},
+      MerchantsName = #{record.merchantsname,jdbcType=VARCHAR},
+      ReturnPolicy = #{record.returnpolicy,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      INPUTUSERID = #{record.inputuserid,jdbcType=VARCHAR},
+      INPUTORGID = #{record.inputorgid,jdbcType=VARCHAR},
+      INPUTDATE = #{record.inputdate,jdbcType=VARCHAR},
+      TermMonth = #{record.termmonth,jdbcType=INTEGER},
+      ScrutinyOrgID = #{record.scrutinyorgid,jdbcType=VARCHAR},
+      GroupID = #{record.groupid,jdbcType=VARCHAR},
+      TeamID = #{record.teamid,jdbcType=VARCHAR},
+      SucessUserID = #{record.sucessuserid,jdbcType=VARCHAR},
+      HPPutoutDate = #{record.hpputoutdate,jdbcType=VARCHAR},
+      HPMaturity = #{record.hpmaturity,jdbcType=VARCHAR},
+      actualpayterm = #{record.actualpayterm,jdbcType=INTEGER},
+      monthpay = #{record.monthpay,jdbcType=DECIMAL},
+      unpayBalance = #{record.unpaybalance,jdbcType=DECIMAL},
+      currentPayamt = #{record.currentpayamt,jdbcType=DECIMAL},
+      loanserialno = #{record.loanserialno,jdbcType=VARCHAR},
+      firstdate = #{record.firstdate,jdbcType=VARCHAR},
+      BatchNo = #{record.batchno,jdbcType=VARCHAR},
+      Cancellationperiod = #{record.cancellationperiod,jdbcType=INTEGER},
+      AFineRate = #{record.afinerate,jdbcType=DECIMAL},
+      LenderInfo = #{record.lenderinfo,jdbcType=VARCHAR},
+      overdueBalance = #{record.overduebalance,jdbcType=DECIMAL},
+      TermMonthStatus = #{record.termmonthstatus,jdbcType=VARCHAR},
+      Residualprincipal = #{record.residualprincipal,jdbcType=DECIMAL},
+      AheadAllBalance = #{record.aheadallbalance,jdbcType=DECIMAL},
+      aheadscale = #{record.aheadscale,jdbcType=DECIMAL},
+      amount = #{record.amount,jdbcType=DECIMAL},
+      totalfeeamount = #{record.totalfeeamount,jdbcType=DECIMAL},
+      CurrentInterestAmt_1 = #{record.currentinterestamt1,jdbcType=DECIMAL},
+      NextInstalmentAmt = #{record.nextinstalmentamt,jdbcType=DECIMAL},
+      NextDueDate = #{record.nextduedate,jdbcType=VARCHAR},
+      CurrentPeriodNo = #{record.currentperiodno,jdbcType=INTEGER},
+      DefaultDueDay = #{record.defaultdueday,jdbcType=VARCHAR},
+      updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      renewalTimes = #{record.renewaltimes,jdbcType=INTEGER},
+      GrancePeriod = #{record.granceperiod,jdbcType=INTEGER},
+      AFineRate2 = #{record.afinerate2,jdbcType=DECIMAL},
+      productcategory = #{record.productcategory,jdbcType=VARCHAR},
+      suspend = #{record.suspend,jdbcType=TINYINT},
+      WITHDRAWSTATE = #{record.withdrawstate,jdbcType=VARCHAR},
+      FUNDCHANNEL = #{record.fundchannel,jdbcType=VARCHAR},
+      follower = #{record.follower,jdbcType=VARCHAR},
+      orderChannel = #{record.orderchannel,jdbcType=VARCHAR},
+      externalOrderNo = #{record.externalorderno,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoan">
+    update acct_loan
+    <set>
+      <if test="accountno != null">
+        accountno = #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="contractserialno != null">
+        contractserialno = #{contractserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        customerid = #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        customername = #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="businesstype != null">
+        businesstype = #{businesstype,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        productid = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="specificid != null">
+        specificid = #{specificid,jdbcType=VARCHAR},
+      </if>
+      <if test="versionid != null">
+        versionid = #{versionid,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="businesssum != null">
+        businesssum = #{businesssum,jdbcType=DECIMAL},
+      </if>
+      <if test="putoutdate != null">
+        putoutdate = #{putoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="maturitydate != null">
+        maturitydate = #{maturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="originalmaturitydate != null">
+        originalmaturitydate = #{originalmaturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="operateorgid != null">
+        operateorgid = #{operateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingorgid != null">
+        accountingorgid = #{accountingorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="loanstatus != null">
+        loanstatus = #{loanstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="finishdate != null">
+        finishdate = #{finishdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessdate != null">
+        businessdate = #{businessdate,jdbcType=VARCHAR},
+      </if>
+      <if test="lockflag != null">
+        lockflag = #{lockflag,jdbcType=VARCHAR},
+      </if>
+      <if test="overduedays != null">
+        overduedays = #{overduedays,jdbcType=INTEGER},
+      </if>
+      <if test="classifyresult != null">
+        classifyresult = #{classifyresult,jdbcType=VARCHAR},
+      </if>
+      <if test="putoutserialno != null">
+        putoutserialno = #{putoutserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="approveserialno != null">
+        approveserialno = #{approveserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="applyserialno != null">
+        applyserialno = #{applyserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="businessstatus != null">
+        businessstatus = #{businessstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="monthrate != null">
+        MonthRate = #{monthrate,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        Rate = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="arate != null">
+        ARate = #{arate,jdbcType=DECIMAL},
+      </if>
+      <if test="brate != null">
+        BRate = #{brate,jdbcType=DECIMAL},
+      </if>
+      <if test="crate != null">
+        CRate = #{crate,jdbcType=DECIMAL},
+      </if>
+      <if test="drate != null">
+        DRate = #{drate,jdbcType=DECIMAL},
+      </if>
+      <if test="reserverate != null">
+        ReserveRate = #{reserverate,jdbcType=DECIMAL},
+      </if>
+      <if test="term != null">
+        Term = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantsno != null">
+        MerchantsNo = #{merchantsno,jdbcType=VARCHAR},
+      </if>
+      <if test="sano != null">
+        SANo = #{sano,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="repayuser != null">
+        RepayUser = #{repayuser,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantsname != null">
+        MerchantsName = #{merchantsname,jdbcType=VARCHAR},
+      </if>
+      <if test="returnpolicy != null">
+        ReturnPolicy = #{returnpolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="inputuserid != null">
+        INPUTUSERID = #{inputuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputorgid != null">
+        INPUTORGID = #{inputorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputdate != null">
+        INPUTDATE = #{inputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="termmonth != null">
+        TermMonth = #{termmonth,jdbcType=INTEGER},
+      </if>
+      <if test="scrutinyorgid != null">
+        ScrutinyOrgID = #{scrutinyorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null">
+        GroupID = #{groupid,jdbcType=VARCHAR},
+      </if>
+      <if test="teamid != null">
+        TeamID = #{teamid,jdbcType=VARCHAR},
+      </if>
+      <if test="sucessuserid != null">
+        SucessUserID = #{sucessuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="hpputoutdate != null">
+        HPPutoutDate = #{hpputoutdate,jdbcType=VARCHAR},
+      </if>
+      <if test="hpmaturity != null">
+        HPMaturity = #{hpmaturity,jdbcType=VARCHAR},
+      </if>
+      <if test="actualpayterm != null">
+        actualpayterm = #{actualpayterm,jdbcType=INTEGER},
+      </if>
+      <if test="monthpay != null">
+        monthpay = #{monthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="unpaybalance != null">
+        unpayBalance = #{unpaybalance,jdbcType=DECIMAL},
+      </if>
+      <if test="currentpayamt != null">
+        currentPayamt = #{currentpayamt,jdbcType=DECIMAL},
+      </if>
+      <if test="loanserialno != null">
+        loanserialno = #{loanserialno,jdbcType=VARCHAR},
+      </if>
+      <if test="firstdate != null">
+        firstdate = #{firstdate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchno != null">
+        BatchNo = #{batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="cancellationperiod != null">
+        Cancellationperiod = #{cancellationperiod,jdbcType=INTEGER},
+      </if>
+      <if test="afinerate != null">
+        AFineRate = #{afinerate,jdbcType=DECIMAL},
+      </if>
+      <if test="lenderinfo != null">
+        LenderInfo = #{lenderinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="overduebalance != null">
+        overdueBalance = #{overduebalance,jdbcType=DECIMAL},
+      </if>
+      <if test="termmonthstatus != null">
+        TermMonthStatus = #{termmonthstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="residualprincipal != null">
+        Residualprincipal = #{residualprincipal,jdbcType=DECIMAL},
+      </if>
+      <if test="aheadallbalance != null">
+        AheadAllBalance = #{aheadallbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="aheadscale != null">
+        aheadscale = #{aheadscale,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalfeeamount != null">
+        totalfeeamount = #{totalfeeamount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentinterestamt1 != null">
+        CurrentInterestAmt_1 = #{currentinterestamt1,jdbcType=DECIMAL},
+      </if>
+      <if test="nextinstalmentamt != null">
+        NextInstalmentAmt = #{nextinstalmentamt,jdbcType=DECIMAL},
+      </if>
+      <if test="nextduedate != null">
+        NextDueDate = #{nextduedate,jdbcType=VARCHAR},
+      </if>
+      <if test="currentperiodno != null">
+        CurrentPeriodNo = #{currentperiodno,jdbcType=INTEGER},
+      </if>
+      <if test="defaultdueday != null">
+        DefaultDueDay = #{defaultdueday,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="renewaltimes != null">
+        renewalTimes = #{renewaltimes,jdbcType=INTEGER},
+      </if>
+      <if test="granceperiod != null">
+        GrancePeriod = #{granceperiod,jdbcType=INTEGER},
+      </if>
+      <if test="afinerate2 != null">
+        AFineRate2 = #{afinerate2,jdbcType=DECIMAL},
+      </if>
+      <if test="productcategory != null">
+        productcategory = #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="suspend != null">
+        suspend = #{suspend,jdbcType=TINYINT},
+      </if>
+      <if test="withdrawstate != null">
+        WITHDRAWSTATE = #{withdrawstate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundchannel != null">
+        FUNDCHANNEL = #{fundchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="follower != null">
+        follower = #{follower,jdbcType=VARCHAR},
+      </if>
+      <if test="orderchannel != null">
+        orderChannel = #{orderchannel,jdbcType=VARCHAR},
+      </if>
+      <if test="externalorderno != null">
+        externalOrderNo = #{externalorderno,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where serialno = #{serialno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.AcctLoan">
+    update acct_loan
+    set accountno = #{accountno,jdbcType=VARCHAR},
+      contractserialno = #{contractserialno,jdbcType=VARCHAR},
+      customerid = #{customerid,jdbcType=VARCHAR},
+      customername = #{customername,jdbcType=VARCHAR},
+      businesstype = #{businesstype,jdbcType=VARCHAR},
+      productid = #{productid,jdbcType=VARCHAR},
+      specificid = #{specificid,jdbcType=VARCHAR},
+      versionid = #{versionid,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=VARCHAR},
+      businesssum = #{businesssum,jdbcType=DECIMAL},
+      putoutdate = #{putoutdate,jdbcType=VARCHAR},
+      maturitydate = #{maturitydate,jdbcType=VARCHAR},
+      originalmaturitydate = #{originalmaturitydate,jdbcType=VARCHAR},
+      operateorgid = #{operateorgid,jdbcType=VARCHAR},
+      accountingorgid = #{accountingorgid,jdbcType=VARCHAR},
+      loanstatus = #{loanstatus,jdbcType=VARCHAR},
+      finishdate = #{finishdate,jdbcType=VARCHAR},
+      businessdate = #{businessdate,jdbcType=VARCHAR},
+      lockflag = #{lockflag,jdbcType=VARCHAR},
+      overduedays = #{overduedays,jdbcType=INTEGER},
+      classifyresult = #{classifyresult,jdbcType=VARCHAR},
+      putoutserialno = #{putoutserialno,jdbcType=VARCHAR},
+      approveserialno = #{approveserialno,jdbcType=VARCHAR},
+      applyserialno = #{applyserialno,jdbcType=VARCHAR},
+      businessstatus = #{businessstatus,jdbcType=VARCHAR},
+      MonthRate = #{monthrate,jdbcType=DECIMAL},
+      Rate = #{rate,jdbcType=DECIMAL},
+      ARate = #{arate,jdbcType=DECIMAL},
+      BRate = #{brate,jdbcType=DECIMAL},
+      CRate = #{crate,jdbcType=DECIMAL},
+      DRate = #{drate,jdbcType=DECIMAL},
+      ReserveRate = #{reserverate,jdbcType=DECIMAL},
+      Term = #{term,jdbcType=VARCHAR},
+      MerchantsNo = #{merchantsno,jdbcType=VARCHAR},
+      SANo = #{sano,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      RepayUser = #{repayuser,jdbcType=VARCHAR},
+      MerchantsName = #{merchantsname,jdbcType=VARCHAR},
+      ReturnPolicy = #{returnpolicy,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      INPUTUSERID = #{inputuserid,jdbcType=VARCHAR},
+      INPUTORGID = #{inputorgid,jdbcType=VARCHAR},
+      INPUTDATE = #{inputdate,jdbcType=VARCHAR},
+      TermMonth = #{termmonth,jdbcType=INTEGER},
+      ScrutinyOrgID = #{scrutinyorgid,jdbcType=VARCHAR},
+      GroupID = #{groupid,jdbcType=VARCHAR},
+      TeamID = #{teamid,jdbcType=VARCHAR},
+      SucessUserID = #{sucessuserid,jdbcType=VARCHAR},
+      HPPutoutDate = #{hpputoutdate,jdbcType=VARCHAR},
+      HPMaturity = #{hpmaturity,jdbcType=VARCHAR},
+      actualpayterm = #{actualpayterm,jdbcType=INTEGER},
+      monthpay = #{monthpay,jdbcType=DECIMAL},
+      unpayBalance = #{unpaybalance,jdbcType=DECIMAL},
+      currentPayamt = #{currentpayamt,jdbcType=DECIMAL},
+      loanserialno = #{loanserialno,jdbcType=VARCHAR},
+      firstdate = #{firstdate,jdbcType=VARCHAR},
+      BatchNo = #{batchno,jdbcType=VARCHAR},
+      Cancellationperiod = #{cancellationperiod,jdbcType=INTEGER},
+      AFineRate = #{afinerate,jdbcType=DECIMAL},
+      LenderInfo = #{lenderinfo,jdbcType=VARCHAR},
+      overdueBalance = #{overduebalance,jdbcType=DECIMAL},
+      TermMonthStatus = #{termmonthstatus,jdbcType=VARCHAR},
+      Residualprincipal = #{residualprincipal,jdbcType=DECIMAL},
+      AheadAllBalance = #{aheadallbalance,jdbcType=DECIMAL},
+      aheadscale = #{aheadscale,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=DECIMAL},
+      totalfeeamount = #{totalfeeamount,jdbcType=DECIMAL},
+      CurrentInterestAmt_1 = #{currentinterestamt1,jdbcType=DECIMAL},
+      NextInstalmentAmt = #{nextinstalmentamt,jdbcType=DECIMAL},
+      NextDueDate = #{nextduedate,jdbcType=VARCHAR},
+      CurrentPeriodNo = #{currentperiodno,jdbcType=INTEGER},
+      DefaultDueDay = #{defaultdueday,jdbcType=VARCHAR},
+      updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      renewalTimes = #{renewaltimes,jdbcType=INTEGER},
+      GrancePeriod = #{granceperiod,jdbcType=INTEGER},
+      AFineRate2 = #{afinerate2,jdbcType=DECIMAL},
+      productcategory = #{productcategory,jdbcType=VARCHAR},
+      suspend = #{suspend,jdbcType=TINYINT},
+      WITHDRAWSTATE = #{withdrawstate,jdbcType=VARCHAR},
+      FUNDCHANNEL = #{fundchannel,jdbcType=VARCHAR},
+      follower = #{follower,jdbcType=VARCHAR},
+      orderChannel = #{orderchannel,jdbcType=VARCHAR},
+      externalOrderNo = #{externalorderno,jdbcType=VARCHAR}
+    where serialno = #{serialno,jdbcType=VARCHAR}
+  </update>
+</mapper>

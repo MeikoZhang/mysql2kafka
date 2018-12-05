@@ -1,7 +1,7 @@
-package com.sixku.mysql2kafka.dao;
+package com.sixku.mysql2kafka.dao.ucard_loan;
 
-import com.sixku.mysql2kafka.dao.domain.CustomerInfo;
-import com.sixku.mysql2kafka.dao.domain.CustomerInfoExample;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfoExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -29,5 +29,4 @@ public interface CustomerInfoMapper {
 
     int updateByPrimaryKey(CustomerInfo record);
 
-    String selectIndinfo(String certid);
 }

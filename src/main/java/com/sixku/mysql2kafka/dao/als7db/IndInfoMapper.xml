@@ -1,0 +1,3518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixku.mysql2kafka.dao.als7db.IndInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    <id column="CUSTOMERID" jdbcType="VARCHAR" property="customerid" />
+    <result column="FULLNAME" jdbcType="VARCHAR" property="fullname" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="CERTTYPE" jdbcType="VARCHAR" property="certtype" />
+    <result column="CERTID" jdbcType="VARCHAR" property="certid" />
+    <result column="SINO" jdbcType="VARCHAR" property="sino" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="NATIONALITY" jdbcType="VARCHAR" property="nationality" />
+    <result column="NATIVEPLACE" jdbcType="VARCHAR" property="nativeplace" />
+    <result column="POLITICALFACE" jdbcType="VARCHAR" property="politicalface" />
+    <result column="MARRIAGE" jdbcType="VARCHAR" property="marriage" />
+    <result column="RELATIVETYPE" jdbcType="VARCHAR" property="relativetype" />
+    <result column="FAMILYADD" jdbcType="VARCHAR" property="familyadd" />
+    <result column="FAMILYZIP" jdbcType="VARCHAR" property="familyzip" />
+    <result column="EMAILADD" jdbcType="VARCHAR" property="emailadd" />
+    <result column="FAMILYTEL" jdbcType="VARCHAR" property="familytel" />
+    <result column="FAMILYTEL1" jdbcType="VARCHAR" property="familytel1" />
+    <result column="FAMILYTEL2" jdbcType="VARCHAR" property="familytel2" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="PHONE1" jdbcType="VARCHAR" property="phone1" />
+    <result column="PHONE2" jdbcType="VARCHAR" property="phone2" />
+    <result column="UNITKIND" jdbcType="VARCHAR" property="unitkind" />
+    <result column="WORKCORP" jdbcType="VARCHAR" property="workcorp" />
+    <result column="WORKADD" jdbcType="VARCHAR" property="workadd" />
+    <result column="WORKTEL" jdbcType="VARCHAR" property="worktel" />
+    <result column="OCCUPATION" jdbcType="VARCHAR" property="occupation" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="EMPLOYRECORD" jdbcType="VARCHAR" property="employrecord" />
+    <result column="EDUEXPERIENCE" jdbcType="VARCHAR" property="eduexperience" />
+    <result column="EDUDEGREE" jdbcType="VARCHAR" property="edudegree" />
+    <result column="GRADUATEYEAR" jdbcType="VARCHAR" property="graduateyear" />
+    <result column="CREDITLEVEL" jdbcType="VARCHAR" property="creditlevel" />
+    <result column="EVALUATEDATE" jdbcType="VARCHAR" property="evaluatedate" />
+    <result column="BALANCESHEET" jdbcType="VARCHAR" property="balancesheet" />
+    <result column="INTRO" jdbcType="VARCHAR" property="intro" />
+    <result column="SELFMONTHINCOME" jdbcType="DECIMAL" property="selfmonthincome" />
+    <result column="FAMILYMONTHINCOME" jdbcType="DECIMAL" property="familymonthincome" />
+    <result column="INCOMESOURCE" jdbcType="VARCHAR" property="incomesource" />
+    <result column="POPULATION" jdbcType="DECIMAL" property="population" />
+    <result column="FARMERSORT" jdbcType="VARCHAR" property="farmersort" />
+    <result column="REGIONALISM" jdbcType="VARCHAR" property="regionalism" />
+    <result column="STAFF" jdbcType="VARCHAR" property="staff" />
+    <result column="CREDITFARMER" jdbcType="VARCHAR" property="creditfarmer" />
+    <result column="INPUTORGID" jdbcType="VARCHAR" property="inputorgid" />
+    <result column="INPUTUSERID" jdbcType="VARCHAR" property="inputuserid" />
+    <result column="INPUTDATE" jdbcType="VARCHAR" property="inputdate" />
+    <result column="UPDATEDATE" jdbcType="VARCHAR" property="updatedate" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="UPDATEORGID" jdbcType="VARCHAR" property="updateorgid" />
+    <result column="UPDATEUSERID" jdbcType="VARCHAR" property="updateuserid" />
+    <result column="COMMADD" jdbcType="VARCHAR" property="commadd" />
+    <result column="COMMZIP" jdbcType="VARCHAR" property="commzip" />
+    <result column="NATIVEADD" jdbcType="VARCHAR" property="nativeadd" />
+    <result column="WORKZIP" jdbcType="VARCHAR" property="workzip" />
+    <result column="HEADSHIP" jdbcType="VARCHAR" property="headship" />
+    <result column="WORKBEGINDATE" jdbcType="VARCHAR" property="workbegindate" />
+    <result column="YEARINCOME" jdbcType="DECIMAL" property="yearincome" />
+    <result column="FAMILYSTATUS" jdbcType="VARCHAR" property="familystatus" />
+    <result column="TEMPSAVEFLAG" jdbcType="VARCHAR" property="tempsaveflag" />
+    <result column="ENGNAME" jdbcType="VARCHAR" property="engname" />
+    <result column="REGIONCODE" jdbcType="VARCHAR" property="regioncode" />
+    <result column="WORKNATURE" jdbcType="VARCHAR" property="worknature" />
+    <result column="CHILDFLAG" jdbcType="VARCHAR" property="childflag" />
+    <result column="LOCALYEAR" jdbcType="VARCHAR" property="localyear" />
+    <result column="POSIONLEVEL" jdbcType="VARCHAR" property="posionlevel" />
+    <result column="FIRSTTEL" jdbcType="VARCHAR" property="firsttel" />
+    <result column="FIRSTEMAIL" jdbcType="VARCHAR" property="firstemail" />
+    <result column="MONTHINCOME" jdbcType="DECIMAL" property="monthincome" />
+    <result column="CORPZONE" jdbcType="VARCHAR" property="corpzone" />
+    <result column="CORPAREA" jdbcType="VARCHAR" property="corparea" />
+    <result column="CORPEXTENSION" jdbcType="VARCHAR" property="corpextension" />
+    <result column="HOUSEZONE" jdbcType="VARCHAR" property="housezone" />
+    <result column="HOUSEAREA" jdbcType="VARCHAR" property="housearea" />
+    <result column="COMPANYNATURE" jdbcType="VARCHAR" property="companynature" />
+    <result column="QQCODE" jdbcType="VARCHAR" property="qqcode" />
+    <result column="WHILOMNAME" jdbcType="VARCHAR" property="whilomname" />
+    <result column="DRIVINGLICENCE" jdbcType="VARCHAR" property="drivinglicence" />
+    <result column="ISOWN" jdbcType="VARCHAR" property="isown" />
+    <result column="CHANNELTYPE" jdbcType="VARCHAR" property="channeltype" />
+    <result column="CHANNELGROUPNUM" jdbcType="VARCHAR" property="channelgroupnum" />
+    <result column="HOUSINGAREA" jdbcType="VARCHAR" property="housingarea" />
+    <result column="MASCRIPTIONADSS" jdbcType="VARCHAR" property="mascriptionadss" />
+    <result column="GETBUSYTIME" jdbcType="VARCHAR" property="getbusytime" />
+    <result column="WORKTIME" jdbcType="VARCHAR" property="worktime" />
+    <result column="DIMISSIONTIME" jdbcType="VARCHAR" property="dimissiontime" />
+    <result column="SUBSISTPAMOUNT" jdbcType="VARCHAR" property="subsistpamount" />
+    <result column="ISBORROWER" jdbcType="VARCHAR" property="isborrower" />
+    <result column="ISWARRANTOR" jdbcType="VARCHAR" property="iswarrantor" />
+    <result column="CERTMATURITYDATE" jdbcType="VARCHAR" property="certmaturitydate" />
+    <result column="SENDCARDORGAN" jdbcType="VARCHAR" property="sendcardorgan" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="EMPTYPE" jdbcType="VARCHAR" property="emptype" />
+    <result column="CUSLEVELTYPE" jdbcType="VARCHAR" property="cusleveltype" />
+    <result column="LOCALTYPE" jdbcType="VARCHAR" property="localtype" />
+    <result column="CERTID18" jdbcType="VARCHAR" property="certid18" />
+    <result column="HOMESUM" jdbcType="DECIMAL" property="homesum" />
+    <result column="FAMILYSUMROOT" jdbcType="VARCHAR" property="familysumroot" />
+    <result column="FAMILYPINCOME" jdbcType="DECIMAL" property="familypincome" />
+    <result column="HOMELOANBLANCE" jdbcType="DECIMAL" property="homeloanblance" />
+    <result column="HOMELOANMONTHSUM" jdbcType="DECIMAL" property="homeloanmonthsum" />
+    <result column="CARLOANBLANCE" jdbcType="DECIMAL" property="carloanblance" />
+    <result column="CARLOANMONTHSUM" jdbcType="DECIMAL" property="carloanmonthsum" />
+    <result column="OTHERLOANBLANCE" jdbcType="DECIMAL" property="otherloanblance" />
+    <result column="OTHERLOANMONTHSUM" jdbcType="DECIMAL" property="otherloanmonthsum" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="BankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="BankCARD" jdbcType="VARCHAR" property="bankcard" />
+    <result column="bankCode" jdbcType="VARCHAR" property="bankcode" />
+    <result column="bankCardPhone" jdbcType="VARCHAR" property="bankcardphone" />
+    <result column="sidflag" jdbcType="VARCHAR" property="sidflag" />
+    <result column="edurecord" jdbcType="VARCHAR" property="edurecord" />
+    <result column="verifyType" jdbcType="VARCHAR" property="verifytype" />
+    <result column="housenumber" jdbcType="VARCHAR" property="housenumber" />
+    <result column="NativePlaceTel" jdbcType="VARCHAR" property="nativeplacetel" />
+    <result column="FamilyTelBelong" jdbcType="VARCHAR" property="familytelbelong" />
+    <result column="FamilyBeginTime" jdbcType="VARCHAR" property="familybegintime" />
+    <result column="isparent" jdbcType="VARCHAR" property="isparent" />
+    <result column="housetype" jdbcType="VARCHAR" property="housetype" />
+    <result column="houseprice" jdbcType="DECIMAL" property="houseprice" />
+    <result column="housesize" jdbcType="DECIMAL" property="housesize" />
+    <result column="housemonth" jdbcType="DECIMAL" property="housemonth" />
+    <result column="housetime" jdbcType="VARCHAR" property="housetime" />
+    <result column="provence" jdbcType="VARCHAR" property="provence" />
+    <result column="provenceName" jdbcType="VARCHAR" property="provencename" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="cityname" jdbcType="VARCHAR" property="cityname" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="areaName" jdbcType="VARCHAR" property="areaname" />
+    <result column="houseadd" jdbcType="VARCHAR" property="houseadd" />
+    <result column="housezip" jdbcType="VARCHAR" property="housezip" />
+    <result column="entrytime" jdbcType="VARCHAR" property="entrytime" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="WorkTel2" jdbcType="VARCHAR" property="worktel2" />
+    <result column="monthpayday" jdbcType="VARCHAR" property="monthpayday" />
+    <result column="bonusincome" jdbcType="DECIMAL" property="bonusincome" />
+    <result column="issueform" jdbcType="VARCHAR" property="issueform" />
+    <result column="sourceincome" jdbcType="VARCHAR" property="sourceincome" />
+    <result column="changenumber" jdbcType="VARCHAR" property="changenumber" />
+    <result column="WORKCORP1" jdbcType="VARCHAR" property="workcorp1" />
+    <result column="WORKTEL1" jdbcType="VARCHAR" property="worktel1" />
+    <result column="WORKAGE1" jdbcType="VARCHAR" property="workage1" />
+    <result column="WORKADD1" jdbcType="VARCHAR" property="workadd1" />
+    <result column="WORKZIP1" jdbcType="VARCHAR" property="workzip1" />
+    <result column="NATIVEZIP" jdbcType="VARCHAR" property="nativezip" />
+    <result column="RENT" jdbcType="DECIMAL" property="rent" />
+    <result column="MARKETVALUE" jdbcType="DECIMAL" property="marketvalue" />
+    <result column="HOMELOANMONTH" jdbcType="VARCHAR" property="homeloanmonth" />
+    <result column="INSURANCECOMPANY" jdbcType="VARCHAR" property="insurancecompany" />
+    <result column="INSUREDLOCATION" jdbcType="VARCHAR" property="insuredlocation" />
+    <result column="EFFECTIVEDATE" jdbcType="VARCHAR" property="effectivedate" />
+    <result column="PAYYEAR" jdbcType="VARCHAR" property="payyear" />
+    <result column="INSURANCENO" jdbcType="VARCHAR" property="insuranceno" />
+    <result column="PAYTYPE" jdbcType="VARCHAR" property="paytype" />
+    <result column="REGULARPREMIUM" jdbcType="DECIMAL" property="regularpremium" />
+    <result column="INSURANCESUM" jdbcType="DECIMAL" property="insurancesum" />
+    <result column="INSURANCETYPE" jdbcType="VARCHAR" property="insurancetype" />
+    <result column="INSUREDNAME" jdbcType="VARCHAR" property="insuredname" />
+    <result column="INSURANCETEL" jdbcType="VARCHAR" property="insurancetel" />
+    <result column="INSURANCECOMPANY1" jdbcType="VARCHAR" property="insurancecompany1" />
+    <result column="INSUREDLOCATION1" jdbcType="VARCHAR" property="insuredlocation1" />
+    <result column="EFFECTIVEDATE1" jdbcType="VARCHAR" property="effectivedate1" />
+    <result column="PAYYEAR1" jdbcType="VARCHAR" property="payyear1" />
+    <result column="INSURANCENO1" jdbcType="VARCHAR" property="insuranceno1" />
+    <result column="PAYTYPE1" jdbcType="VARCHAR" property="paytype1" />
+    <result column="REGULARPREMIUM1" jdbcType="DECIMAL" property="regularpremium1" />
+    <result column="INSURANCESUM1" jdbcType="DECIMAL" property="insurancesum1" />
+    <result column="INSURANCETYPE1" jdbcType="VARCHAR" property="insurancetype1" />
+    <result column="INSUREDNAME1" jdbcType="VARCHAR" property="insuredname1" />
+    <result column="INSURANCETEL1" jdbcType="VARCHAR" property="insurancetel1" />
+    <result column="COMPANYSIZE" jdbcType="VARCHAR" property="companysize" />
+    <result column="FIRSTTIME" jdbcType="VARCHAR" property="firsttime" />
+    <result column="NOWCOMTIME" jdbcType="VARCHAR" property="nowcomtime" />
+    <result column="MONTHSUM" jdbcType="DECIMAL" property="monthsum" />
+    <result column="housennmber" jdbcType="VARCHAR" property="housennmber" />
+    <result column="updatetimestamp" jdbcType="TIMESTAMP" property="updatetimestamp" />
+    <result column="fin_factory_status" jdbcType="INTEGER" property="finFactoryStatus" />
+    <result column="ind_type" jdbcType="INTEGER" property="indType" />
+    <result column="join_work_time" jdbcType="VARCHAR" property="joinWorkTime" />
+    <result column="card_begin_time" jdbcType="VARCHAR" property="cardBeginTime" />
+    <result column="card_end_time" jdbcType="VARCHAR" property="cardEndTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="occupation_id" jdbcType="VARCHAR" property="occupationId" />
+    <result column="Business_License" jdbcType="VARCHAR" property="businessLicense" />
+    <result column="login_phone" jdbcType="VARCHAR" property="loginPhone" />
+    <result column="bind_time" jdbcType="DATE" property="bindTime" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    <result column="ROOTREAME" jdbcType="LONGVARCHAR" property="rootreame" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    CUSTOMERID, FULLNAME, SEX, BIRTHDAY, CERTTYPE, CERTID, SINO, COUNTRY, NATIONALITY, 
+    NATIVEPLACE, POLITICALFACE, MARRIAGE, RELATIVETYPE, FAMILYADD, FAMILYZIP, EMAILADD, 
+    FAMILYTEL, FAMILYTEL1, FAMILYTEL2, PHONE, PHONE1, PHONE2, UNITKIND, WORKCORP, WORKADD, 
+    WORKTEL, OCCUPATION, POSITION, EMPLOYRECORD, EDUEXPERIENCE, EDUDEGREE, GRADUATEYEAR, 
+    CREDITLEVEL, EVALUATEDATE, BALANCESHEET, INTRO, SELFMONTHINCOME, FAMILYMONTHINCOME, 
+    INCOMESOURCE, POPULATION, FARMERSORT, REGIONALISM, STAFF, CREDITFARMER, INPUTORGID, 
+    INPUTUSERID, INPUTDATE, UPDATEDATE, REMARK, UPDATEORGID, UPDATEUSERID, COMMADD, COMMZIP, 
+    NATIVEADD, WORKZIP, HEADSHIP, WORKBEGINDATE, YEARINCOME, FAMILYSTATUS, TEMPSAVEFLAG, 
+    ENGNAME, REGIONCODE, WORKNATURE, CHILDFLAG, LOCALYEAR, POSIONLEVEL, FIRSTTEL, FIRSTEMAIL, 
+    MONTHINCOME, CORPZONE, CORPAREA, CORPEXTENSION, HOUSEZONE, HOUSEAREA, COMPANYNATURE, 
+    QQCODE, WHILOMNAME, DRIVINGLICENCE, ISOWN, CHANNELTYPE, CHANNELGROUPNUM, HOUSINGAREA, 
+    MASCRIPTIONADSS, GETBUSYTIME, WORKTIME, DIMISSIONTIME, SUBSISTPAMOUNT, ISBORROWER, 
+    ISWARRANTOR, CERTMATURITYDATE, SENDCARDORGAN, AGE, EMPTYPE, CUSLEVELTYPE, LOCALTYPE, 
+    CERTID18, HOMESUM, FAMILYSUMROOT, FAMILYPINCOME, HOMELOANBLANCE, HOMELOANMONTHSUM, 
+    CARLOANBLANCE, CARLOANMONTHSUM, OTHERLOANBLANCE, OTHERLOANMONTHSUM, USERID, BankName, 
+    BankCARD, bankCode, bankCardPhone, sidflag, edurecord, verifyType, housenumber, NativePlaceTel, 
+    FamilyTelBelong, FamilyBeginTime, isparent, housetype, houseprice, housesize, housemonth, 
+    housetime, provence, provenceName, city, cityname, area, areaName, houseadd, housezip, 
+    entrytime, department, WorkTel2, monthpayday, bonusincome, issueform, sourceincome, 
+    changenumber, WORKCORP1, WORKTEL1, WORKAGE1, WORKADD1, WORKZIP1, NATIVEZIP, RENT, 
+    MARKETVALUE, HOMELOANMONTH, INSURANCECOMPANY, INSUREDLOCATION, EFFECTIVEDATE, PAYYEAR, 
+    INSURANCENO, PAYTYPE, REGULARPREMIUM, INSURANCESUM, INSURANCETYPE, INSUREDNAME, INSURANCETEL, 
+    INSURANCECOMPANY1, INSUREDLOCATION1, EFFECTIVEDATE1, PAYYEAR1, INSURANCENO1, PAYTYPE1, 
+    REGULARPREMIUM1, INSURANCESUM1, INSURANCETYPE1, INSUREDNAME1, INSURANCETEL1, COMPANYSIZE, 
+    FIRSTTIME, NOWCOMTIME, MONTHSUM, housennmber, updatetimestamp, fin_factory_status, 
+    ind_type, join_work_time, card_begin_time, card_end_time, update_user, occupation_id, 
+    Business_License, login_phone, bind_time, open_id
+  </sql>
+  <sql id="Blob_Column_List">
+    ROOTREAME
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ind_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ind_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ind_info
+    where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ind_info
+    where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample">
+    delete from ind_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    insert into ind_info (CUSTOMERID, FULLNAME, SEX, 
+      BIRTHDAY, CERTTYPE, CERTID, 
+      SINO, COUNTRY, NATIONALITY, 
+      NATIVEPLACE, POLITICALFACE, MARRIAGE, 
+      RELATIVETYPE, FAMILYADD, FAMILYZIP, 
+      EMAILADD, FAMILYTEL, FAMILYTEL1, 
+      FAMILYTEL2, PHONE, PHONE1, 
+      PHONE2, UNITKIND, WORKCORP, 
+      WORKADD, WORKTEL, OCCUPATION, 
+      POSITION, EMPLOYRECORD, EDUEXPERIENCE, 
+      EDUDEGREE, GRADUATEYEAR, CREDITLEVEL, 
+      EVALUATEDATE, BALANCESHEET, INTRO, 
+      SELFMONTHINCOME, FAMILYMONTHINCOME, INCOMESOURCE, 
+      POPULATION, FARMERSORT, REGIONALISM, 
+      STAFF, CREDITFARMER, INPUTORGID, 
+      INPUTUSERID, INPUTDATE, UPDATEDATE, 
+      REMARK, UPDATEORGID, UPDATEUSERID, 
+      COMMADD, COMMZIP, NATIVEADD, 
+      WORKZIP, HEADSHIP, WORKBEGINDATE, 
+      YEARINCOME, FAMILYSTATUS, TEMPSAVEFLAG, 
+      ENGNAME, REGIONCODE, WORKNATURE, 
+      CHILDFLAG, LOCALYEAR, POSIONLEVEL, 
+      FIRSTTEL, FIRSTEMAIL, MONTHINCOME, 
+      CORPZONE, CORPAREA, CORPEXTENSION, 
+      HOUSEZONE, HOUSEAREA, COMPANYNATURE, 
+      QQCODE, WHILOMNAME, DRIVINGLICENCE, 
+      ISOWN, CHANNELTYPE, CHANNELGROUPNUM, 
+      HOUSINGAREA, MASCRIPTIONADSS, GETBUSYTIME, 
+      WORKTIME, DIMISSIONTIME, SUBSISTPAMOUNT, 
+      ISBORROWER, ISWARRANTOR, CERTMATURITYDATE, 
+      SENDCARDORGAN, AGE, EMPTYPE, 
+      CUSLEVELTYPE, LOCALTYPE, CERTID18, 
+      HOMESUM, FAMILYSUMROOT, FAMILYPINCOME, 
+      HOMELOANBLANCE, HOMELOANMONTHSUM, CARLOANBLANCE, 
+      CARLOANMONTHSUM, OTHERLOANBLANCE, OTHERLOANMONTHSUM, 
+      USERID, BankName, BankCARD, 
+      bankCode, bankCardPhone, sidflag, 
+      edurecord, verifyType, housenumber, 
+      NativePlaceTel, FamilyTelBelong, FamilyBeginTime, 
+      isparent, housetype, houseprice, 
+      housesize, housemonth, housetime, 
+      provence, provenceName, city, 
+      cityname, area, areaName, 
+      houseadd, housezip, entrytime, 
+      department, WorkTel2, monthpayday, 
+      bonusincome, issueform, sourceincome, 
+      changenumber, WORKCORP1, WORKTEL1, 
+      WORKAGE1, WORKADD1, WORKZIP1, 
+      NATIVEZIP, RENT, MARKETVALUE, 
+      HOMELOANMONTH, INSURANCECOMPANY, INSUREDLOCATION, 
+      EFFECTIVEDATE, PAYYEAR, INSURANCENO, 
+      PAYTYPE, REGULARPREMIUM, INSURANCESUM, 
+      INSURANCETYPE, INSUREDNAME, INSURANCETEL, 
+      INSURANCECOMPANY1, INSUREDLOCATION1, EFFECTIVEDATE1, 
+      PAYYEAR1, INSURANCENO1, PAYTYPE1, 
+      REGULARPREMIUM1, INSURANCESUM1, INSURANCETYPE1, 
+      INSUREDNAME1, INSURANCETEL1, COMPANYSIZE, 
+      FIRSTTIME, NOWCOMTIME, MONTHSUM, 
+      housennmber, updatetimestamp, fin_factory_status, 
+      ind_type, join_work_time, card_begin_time, 
+      card_end_time, update_user, occupation_id, 
+      Business_License, login_phone, bind_time, 
+      open_id, ROOTREAME)
+    values (#{customerid,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=VARCHAR}, #{certtype,jdbcType=VARCHAR}, #{certid,jdbcType=VARCHAR}, 
+      #{sino,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{nativeplace,jdbcType=VARCHAR}, #{politicalface,jdbcType=VARCHAR}, #{marriage,jdbcType=VARCHAR}, 
+      #{relativetype,jdbcType=VARCHAR}, #{familyadd,jdbcType=VARCHAR}, #{familyzip,jdbcType=VARCHAR}, 
+      #{emailadd,jdbcType=VARCHAR}, #{familytel,jdbcType=VARCHAR}, #{familytel1,jdbcType=VARCHAR}, 
+      #{familytel2,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{phone1,jdbcType=VARCHAR}, 
+      #{phone2,jdbcType=VARCHAR}, #{unitkind,jdbcType=VARCHAR}, #{workcorp,jdbcType=VARCHAR}, 
+      #{workadd,jdbcType=VARCHAR}, #{worktel,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{employrecord,jdbcType=VARCHAR}, #{eduexperience,jdbcType=VARCHAR}, 
+      #{edudegree,jdbcType=VARCHAR}, #{graduateyear,jdbcType=VARCHAR}, #{creditlevel,jdbcType=VARCHAR}, 
+      #{evaluatedate,jdbcType=VARCHAR}, #{balancesheet,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, 
+      #{selfmonthincome,jdbcType=DECIMAL}, #{familymonthincome,jdbcType=DECIMAL}, #{incomesource,jdbcType=VARCHAR}, 
+      #{population,jdbcType=DECIMAL}, #{farmersort,jdbcType=VARCHAR}, #{regionalism,jdbcType=VARCHAR}, 
+      #{staff,jdbcType=VARCHAR}, #{creditfarmer,jdbcType=VARCHAR}, #{inputorgid,jdbcType=VARCHAR}, 
+      #{inputuserid,jdbcType=VARCHAR}, #{inputdate,jdbcType=VARCHAR}, #{updatedate,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{updateorgid,jdbcType=VARCHAR}, #{updateuserid,jdbcType=VARCHAR}, 
+      #{commadd,jdbcType=VARCHAR}, #{commzip,jdbcType=VARCHAR}, #{nativeadd,jdbcType=VARCHAR}, 
+      #{workzip,jdbcType=VARCHAR}, #{headship,jdbcType=VARCHAR}, #{workbegindate,jdbcType=VARCHAR}, 
+      #{yearincome,jdbcType=DECIMAL}, #{familystatus,jdbcType=VARCHAR}, #{tempsaveflag,jdbcType=VARCHAR}, 
+      #{engname,jdbcType=VARCHAR}, #{regioncode,jdbcType=VARCHAR}, #{worknature,jdbcType=VARCHAR}, 
+      #{childflag,jdbcType=VARCHAR}, #{localyear,jdbcType=VARCHAR}, #{posionlevel,jdbcType=VARCHAR}, 
+      #{firsttel,jdbcType=VARCHAR}, #{firstemail,jdbcType=VARCHAR}, #{monthincome,jdbcType=DECIMAL}, 
+      #{corpzone,jdbcType=VARCHAR}, #{corparea,jdbcType=VARCHAR}, #{corpextension,jdbcType=VARCHAR}, 
+      #{housezone,jdbcType=VARCHAR}, #{housearea,jdbcType=VARCHAR}, #{companynature,jdbcType=VARCHAR}, 
+      #{qqcode,jdbcType=VARCHAR}, #{whilomname,jdbcType=VARCHAR}, #{drivinglicence,jdbcType=VARCHAR}, 
+      #{isown,jdbcType=VARCHAR}, #{channeltype,jdbcType=VARCHAR}, #{channelgroupnum,jdbcType=VARCHAR}, 
+      #{housingarea,jdbcType=VARCHAR}, #{mascriptionadss,jdbcType=VARCHAR}, #{getbusytime,jdbcType=VARCHAR}, 
+      #{worktime,jdbcType=VARCHAR}, #{dimissiontime,jdbcType=VARCHAR}, #{subsistpamount,jdbcType=VARCHAR}, 
+      #{isborrower,jdbcType=VARCHAR}, #{iswarrantor,jdbcType=VARCHAR}, #{certmaturitydate,jdbcType=VARCHAR}, 
+      #{sendcardorgan,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{emptype,jdbcType=VARCHAR}, 
+      #{cusleveltype,jdbcType=VARCHAR}, #{localtype,jdbcType=VARCHAR}, #{certid18,jdbcType=VARCHAR}, 
+      #{homesum,jdbcType=DECIMAL}, #{familysumroot,jdbcType=VARCHAR}, #{familypincome,jdbcType=DECIMAL}, 
+      #{homeloanblance,jdbcType=DECIMAL}, #{homeloanmonthsum,jdbcType=DECIMAL}, #{carloanblance,jdbcType=DECIMAL}, 
+      #{carloanmonthsum,jdbcType=DECIMAL}, #{otherloanblance,jdbcType=DECIMAL}, #{otherloanmonthsum,jdbcType=DECIMAL}, 
+      #{userid,jdbcType=VARCHAR}, #{bankname,jdbcType=VARCHAR}, #{bankcard,jdbcType=VARCHAR}, 
+      #{bankcode,jdbcType=VARCHAR}, #{bankcardphone,jdbcType=VARCHAR}, #{sidflag,jdbcType=VARCHAR}, 
+      #{edurecord,jdbcType=VARCHAR}, #{verifytype,jdbcType=VARCHAR}, #{housenumber,jdbcType=VARCHAR}, 
+      #{nativeplacetel,jdbcType=VARCHAR}, #{familytelbelong,jdbcType=VARCHAR}, #{familybegintime,jdbcType=VARCHAR}, 
+      #{isparent,jdbcType=VARCHAR}, #{housetype,jdbcType=VARCHAR}, #{houseprice,jdbcType=DECIMAL}, 
+      #{housesize,jdbcType=DECIMAL}, #{housemonth,jdbcType=DECIMAL}, #{housetime,jdbcType=VARCHAR}, 
+      #{provence,jdbcType=VARCHAR}, #{provencename,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{cityname,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{houseadd,jdbcType=VARCHAR}, #{housezip,jdbcType=VARCHAR}, #{entrytime,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{worktel2,jdbcType=VARCHAR}, #{monthpayday,jdbcType=VARCHAR}, 
+      #{bonusincome,jdbcType=DECIMAL}, #{issueform,jdbcType=VARCHAR}, #{sourceincome,jdbcType=VARCHAR}, 
+      #{changenumber,jdbcType=VARCHAR}, #{workcorp1,jdbcType=VARCHAR}, #{worktel1,jdbcType=VARCHAR}, 
+      #{workage1,jdbcType=VARCHAR}, #{workadd1,jdbcType=VARCHAR}, #{workzip1,jdbcType=VARCHAR}, 
+      #{nativezip,jdbcType=VARCHAR}, #{rent,jdbcType=DECIMAL}, #{marketvalue,jdbcType=DECIMAL}, 
+      #{homeloanmonth,jdbcType=VARCHAR}, #{insurancecompany,jdbcType=VARCHAR}, #{insuredlocation,jdbcType=VARCHAR}, 
+      #{effectivedate,jdbcType=VARCHAR}, #{payyear,jdbcType=VARCHAR}, #{insuranceno,jdbcType=VARCHAR}, 
+      #{paytype,jdbcType=VARCHAR}, #{regularpremium,jdbcType=DECIMAL}, #{insurancesum,jdbcType=DECIMAL}, 
+      #{insurancetype,jdbcType=VARCHAR}, #{insuredname,jdbcType=VARCHAR}, #{insurancetel,jdbcType=VARCHAR}, 
+      #{insurancecompany1,jdbcType=VARCHAR}, #{insuredlocation1,jdbcType=VARCHAR}, #{effectivedate1,jdbcType=VARCHAR}, 
+      #{payyear1,jdbcType=VARCHAR}, #{insuranceno1,jdbcType=VARCHAR}, #{paytype1,jdbcType=VARCHAR}, 
+      #{regularpremium1,jdbcType=DECIMAL}, #{insurancesum1,jdbcType=DECIMAL}, #{insurancetype1,jdbcType=VARCHAR}, 
+      #{insuredname1,jdbcType=VARCHAR}, #{insurancetel1,jdbcType=VARCHAR}, #{companysize,jdbcType=VARCHAR}, 
+      #{firsttime,jdbcType=VARCHAR}, #{nowcomtime,jdbcType=VARCHAR}, #{monthsum,jdbcType=DECIMAL}, 
+      #{housennmber,jdbcType=VARCHAR}, #{updatetimestamp,jdbcType=TIMESTAMP}, #{finFactoryStatus,jdbcType=INTEGER}, 
+      #{indType,jdbcType=INTEGER}, #{joinWorkTime,jdbcType=VARCHAR}, #{cardBeginTime,jdbcType=VARCHAR}, 
+      #{cardEndTime,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{occupationId,jdbcType=VARCHAR}, 
+      #{businessLicense,jdbcType=VARCHAR}, #{loginPhone,jdbcType=VARCHAR}, #{bindTime,jdbcType=DATE}, 
+      #{openId,jdbcType=VARCHAR}, #{rootreame,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    insert into ind_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        CUSTOMERID,
+      </if>
+      <if test="fullname != null">
+        FULLNAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="certtype != null">
+        CERTTYPE,
+      </if>
+      <if test="certid != null">
+        CERTID,
+      </if>
+      <if test="sino != null">
+        SINO,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+      <if test="nationality != null">
+        NATIONALITY,
+      </if>
+      <if test="nativeplace != null">
+        NATIVEPLACE,
+      </if>
+      <if test="politicalface != null">
+        POLITICALFACE,
+      </if>
+      <if test="marriage != null">
+        MARRIAGE,
+      </if>
+      <if test="relativetype != null">
+        RELATIVETYPE,
+      </if>
+      <if test="familyadd != null">
+        FAMILYADD,
+      </if>
+      <if test="familyzip != null">
+        FAMILYZIP,
+      </if>
+      <if test="emailadd != null">
+        EMAILADD,
+      </if>
+      <if test="familytel != null">
+        FAMILYTEL,
+      </if>
+      <if test="familytel1 != null">
+        FAMILYTEL1,
+      </if>
+      <if test="familytel2 != null">
+        FAMILYTEL2,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="phone1 != null">
+        PHONE1,
+      </if>
+      <if test="phone2 != null">
+        PHONE2,
+      </if>
+      <if test="unitkind != null">
+        UNITKIND,
+      </if>
+      <if test="workcorp != null">
+        WORKCORP,
+      </if>
+      <if test="workadd != null">
+        WORKADD,
+      </if>
+      <if test="worktel != null">
+        WORKTEL,
+      </if>
+      <if test="occupation != null">
+        OCCUPATION,
+      </if>
+      <if test="position != null">
+        POSITION,
+      </if>
+      <if test="employrecord != null">
+        EMPLOYRECORD,
+      </if>
+      <if test="eduexperience != null">
+        EDUEXPERIENCE,
+      </if>
+      <if test="edudegree != null">
+        EDUDEGREE,
+      </if>
+      <if test="graduateyear != null">
+        GRADUATEYEAR,
+      </if>
+      <if test="creditlevel != null">
+        CREDITLEVEL,
+      </if>
+      <if test="evaluatedate != null">
+        EVALUATEDATE,
+      </if>
+      <if test="balancesheet != null">
+        BALANCESHEET,
+      </if>
+      <if test="intro != null">
+        INTRO,
+      </if>
+      <if test="selfmonthincome != null">
+        SELFMONTHINCOME,
+      </if>
+      <if test="familymonthincome != null">
+        FAMILYMONTHINCOME,
+      </if>
+      <if test="incomesource != null">
+        INCOMESOURCE,
+      </if>
+      <if test="population != null">
+        POPULATION,
+      </if>
+      <if test="farmersort != null">
+        FARMERSORT,
+      </if>
+      <if test="regionalism != null">
+        REGIONALISM,
+      </if>
+      <if test="staff != null">
+        STAFF,
+      </if>
+      <if test="creditfarmer != null">
+        CREDITFARMER,
+      </if>
+      <if test="inputorgid != null">
+        INPUTORGID,
+      </if>
+      <if test="inputuserid != null">
+        INPUTUSERID,
+      </if>
+      <if test="inputdate != null">
+        INPUTDATE,
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="updateorgid != null">
+        UPDATEORGID,
+      </if>
+      <if test="updateuserid != null">
+        UPDATEUSERID,
+      </if>
+      <if test="commadd != null">
+        COMMADD,
+      </if>
+      <if test="commzip != null">
+        COMMZIP,
+      </if>
+      <if test="nativeadd != null">
+        NATIVEADD,
+      </if>
+      <if test="workzip != null">
+        WORKZIP,
+      </if>
+      <if test="headship != null">
+        HEADSHIP,
+      </if>
+      <if test="workbegindate != null">
+        WORKBEGINDATE,
+      </if>
+      <if test="yearincome != null">
+        YEARINCOME,
+      </if>
+      <if test="familystatus != null">
+        FAMILYSTATUS,
+      </if>
+      <if test="tempsaveflag != null">
+        TEMPSAVEFLAG,
+      </if>
+      <if test="engname != null">
+        ENGNAME,
+      </if>
+      <if test="regioncode != null">
+        REGIONCODE,
+      </if>
+      <if test="worknature != null">
+        WORKNATURE,
+      </if>
+      <if test="childflag != null">
+        CHILDFLAG,
+      </if>
+      <if test="localyear != null">
+        LOCALYEAR,
+      </if>
+      <if test="posionlevel != null">
+        POSIONLEVEL,
+      </if>
+      <if test="firsttel != null">
+        FIRSTTEL,
+      </if>
+      <if test="firstemail != null">
+        FIRSTEMAIL,
+      </if>
+      <if test="monthincome != null">
+        MONTHINCOME,
+      </if>
+      <if test="corpzone != null">
+        CORPZONE,
+      </if>
+      <if test="corparea != null">
+        CORPAREA,
+      </if>
+      <if test="corpextension != null">
+        CORPEXTENSION,
+      </if>
+      <if test="housezone != null">
+        HOUSEZONE,
+      </if>
+      <if test="housearea != null">
+        HOUSEAREA,
+      </if>
+      <if test="companynature != null">
+        COMPANYNATURE,
+      </if>
+      <if test="qqcode != null">
+        QQCODE,
+      </if>
+      <if test="whilomname != null">
+        WHILOMNAME,
+      </if>
+      <if test="drivinglicence != null">
+        DRIVINGLICENCE,
+      </if>
+      <if test="isown != null">
+        ISOWN,
+      </if>
+      <if test="channeltype != null">
+        CHANNELTYPE,
+      </if>
+      <if test="channelgroupnum != null">
+        CHANNELGROUPNUM,
+      </if>
+      <if test="housingarea != null">
+        HOUSINGAREA,
+      </if>
+      <if test="mascriptionadss != null">
+        MASCRIPTIONADSS,
+      </if>
+      <if test="getbusytime != null">
+        GETBUSYTIME,
+      </if>
+      <if test="worktime != null">
+        WORKTIME,
+      </if>
+      <if test="dimissiontime != null">
+        DIMISSIONTIME,
+      </if>
+      <if test="subsistpamount != null">
+        SUBSISTPAMOUNT,
+      </if>
+      <if test="isborrower != null">
+        ISBORROWER,
+      </if>
+      <if test="iswarrantor != null">
+        ISWARRANTOR,
+      </if>
+      <if test="certmaturitydate != null">
+        CERTMATURITYDATE,
+      </if>
+      <if test="sendcardorgan != null">
+        SENDCARDORGAN,
+      </if>
+      <if test="age != null">
+        AGE,
+      </if>
+      <if test="emptype != null">
+        EMPTYPE,
+      </if>
+      <if test="cusleveltype != null">
+        CUSLEVELTYPE,
+      </if>
+      <if test="localtype != null">
+        LOCALTYPE,
+      </if>
+      <if test="certid18 != null">
+        CERTID18,
+      </if>
+      <if test="homesum != null">
+        HOMESUM,
+      </if>
+      <if test="familysumroot != null">
+        FAMILYSUMROOT,
+      </if>
+      <if test="familypincome != null">
+        FAMILYPINCOME,
+      </if>
+      <if test="homeloanblance != null">
+        HOMELOANBLANCE,
+      </if>
+      <if test="homeloanmonthsum != null">
+        HOMELOANMONTHSUM,
+      </if>
+      <if test="carloanblance != null">
+        CARLOANBLANCE,
+      </if>
+      <if test="carloanmonthsum != null">
+        CARLOANMONTHSUM,
+      </if>
+      <if test="otherloanblance != null">
+        OTHERLOANBLANCE,
+      </if>
+      <if test="otherloanmonthsum != null">
+        OTHERLOANMONTHSUM,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="bankname != null">
+        BankName,
+      </if>
+      <if test="bankcard != null">
+        BankCARD,
+      </if>
+      <if test="bankcode != null">
+        bankCode,
+      </if>
+      <if test="bankcardphone != null">
+        bankCardPhone,
+      </if>
+      <if test="sidflag != null">
+        sidflag,
+      </if>
+      <if test="edurecord != null">
+        edurecord,
+      </if>
+      <if test="verifytype != null">
+        verifyType,
+      </if>
+      <if test="housenumber != null">
+        housenumber,
+      </if>
+      <if test="nativeplacetel != null">
+        NativePlaceTel,
+      </if>
+      <if test="familytelbelong != null">
+        FamilyTelBelong,
+      </if>
+      <if test="familybegintime != null">
+        FamilyBeginTime,
+      </if>
+      <if test="isparent != null">
+        isparent,
+      </if>
+      <if test="housetype != null">
+        housetype,
+      </if>
+      <if test="houseprice != null">
+        houseprice,
+      </if>
+      <if test="housesize != null">
+        housesize,
+      </if>
+      <if test="housemonth != null">
+        housemonth,
+      </if>
+      <if test="housetime != null">
+        housetime,
+      </if>
+      <if test="provence != null">
+        provence,
+      </if>
+      <if test="provencename != null">
+        provenceName,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="cityname != null">
+        cityname,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="areaname != null">
+        areaName,
+      </if>
+      <if test="houseadd != null">
+        houseadd,
+      </if>
+      <if test="housezip != null">
+        housezip,
+      </if>
+      <if test="entrytime != null">
+        entrytime,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="worktel2 != null">
+        WorkTel2,
+      </if>
+      <if test="monthpayday != null">
+        monthpayday,
+      </if>
+      <if test="bonusincome != null">
+        bonusincome,
+      </if>
+      <if test="issueform != null">
+        issueform,
+      </if>
+      <if test="sourceincome != null">
+        sourceincome,
+      </if>
+      <if test="changenumber != null">
+        changenumber,
+      </if>
+      <if test="workcorp1 != null">
+        WORKCORP1,
+      </if>
+      <if test="worktel1 != null">
+        WORKTEL1,
+      </if>
+      <if test="workage1 != null">
+        WORKAGE1,
+      </if>
+      <if test="workadd1 != null">
+        WORKADD1,
+      </if>
+      <if test="workzip1 != null">
+        WORKZIP1,
+      </if>
+      <if test="nativezip != null">
+        NATIVEZIP,
+      </if>
+      <if test="rent != null">
+        RENT,
+      </if>
+      <if test="marketvalue != null">
+        MARKETVALUE,
+      </if>
+      <if test="homeloanmonth != null">
+        HOMELOANMONTH,
+      </if>
+      <if test="insurancecompany != null">
+        INSURANCECOMPANY,
+      </if>
+      <if test="insuredlocation != null">
+        INSUREDLOCATION,
+      </if>
+      <if test="effectivedate != null">
+        EFFECTIVEDATE,
+      </if>
+      <if test="payyear != null">
+        PAYYEAR,
+      </if>
+      <if test="insuranceno != null">
+        INSURANCENO,
+      </if>
+      <if test="paytype != null">
+        PAYTYPE,
+      </if>
+      <if test="regularpremium != null">
+        REGULARPREMIUM,
+      </if>
+      <if test="insurancesum != null">
+        INSURANCESUM,
+      </if>
+      <if test="insurancetype != null">
+        INSURANCETYPE,
+      </if>
+      <if test="insuredname != null">
+        INSUREDNAME,
+      </if>
+      <if test="insurancetel != null">
+        INSURANCETEL,
+      </if>
+      <if test="insurancecompany1 != null">
+        INSURANCECOMPANY1,
+      </if>
+      <if test="insuredlocation1 != null">
+        INSUREDLOCATION1,
+      </if>
+      <if test="effectivedate1 != null">
+        EFFECTIVEDATE1,
+      </if>
+      <if test="payyear1 != null">
+        PAYYEAR1,
+      </if>
+      <if test="insuranceno1 != null">
+        INSURANCENO1,
+      </if>
+      <if test="paytype1 != null">
+        PAYTYPE1,
+      </if>
+      <if test="regularpremium1 != null">
+        REGULARPREMIUM1,
+      </if>
+      <if test="insurancesum1 != null">
+        INSURANCESUM1,
+      </if>
+      <if test="insurancetype1 != null">
+        INSURANCETYPE1,
+      </if>
+      <if test="insuredname1 != null">
+        INSUREDNAME1,
+      </if>
+      <if test="insurancetel1 != null">
+        INSURANCETEL1,
+      </if>
+      <if test="companysize != null">
+        COMPANYSIZE,
+      </if>
+      <if test="firsttime != null">
+        FIRSTTIME,
+      </if>
+      <if test="nowcomtime != null">
+        NOWCOMTIME,
+      </if>
+      <if test="monthsum != null">
+        MONTHSUM,
+      </if>
+      <if test="housennmber != null">
+        housennmber,
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp,
+      </if>
+      <if test="finFactoryStatus != null">
+        fin_factory_status,
+      </if>
+      <if test="indType != null">
+        ind_type,
+      </if>
+      <if test="joinWorkTime != null">
+        join_work_time,
+      </if>
+      <if test="cardBeginTime != null">
+        card_begin_time,
+      </if>
+      <if test="cardEndTime != null">
+        card_end_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="occupationId != null">
+        occupation_id,
+      </if>
+      <if test="businessLicense != null">
+        Business_License,
+      </if>
+      <if test="loginPhone != null">
+        login_phone,
+      </if>
+      <if test="bindTime != null">
+        bind_time,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="rootreame != null">
+        ROOTREAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null">
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="certtype != null">
+        #{certtype,jdbcType=VARCHAR},
+      </if>
+      <if test="certid != null">
+        #{certid,jdbcType=VARCHAR},
+      </if>
+      <if test="sino != null">
+        #{sino,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalface != null">
+        #{politicalface,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null">
+        #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="relativetype != null">
+        #{relativetype,jdbcType=VARCHAR},
+      </if>
+      <if test="familyadd != null">
+        #{familyadd,jdbcType=VARCHAR},
+      </if>
+      <if test="familyzip != null">
+        #{familyzip,jdbcType=VARCHAR},
+      </if>
+      <if test="emailadd != null">
+        #{emailadd,jdbcType=VARCHAR},
+      </if>
+      <if test="familytel != null">
+        #{familytel,jdbcType=VARCHAR},
+      </if>
+      <if test="familytel1 != null">
+        #{familytel1,jdbcType=VARCHAR},
+      </if>
+      <if test="familytel2 != null">
+        #{familytel2,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="phone1 != null">
+        #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null">
+        #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="unitkind != null">
+        #{unitkind,jdbcType=VARCHAR},
+      </if>
+      <if test="workcorp != null">
+        #{workcorp,jdbcType=VARCHAR},
+      </if>
+      <if test="workadd != null">
+        #{workadd,jdbcType=VARCHAR},
+      </if>
+      <if test="worktel != null">
+        #{worktel,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="employrecord != null">
+        #{employrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="eduexperience != null">
+        #{eduexperience,jdbcType=VARCHAR},
+      </if>
+      <if test="edudegree != null">
+        #{edudegree,jdbcType=VARCHAR},
+      </if>
+      <if test="graduateyear != null">
+        #{graduateyear,jdbcType=VARCHAR},
+      </if>
+      <if test="creditlevel != null">
+        #{creditlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluatedate != null">
+        #{evaluatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="balancesheet != null">
+        #{balancesheet,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="selfmonthincome != null">
+        #{selfmonthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="familymonthincome != null">
+        #{familymonthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="incomesource != null">
+        #{incomesource,jdbcType=VARCHAR},
+      </if>
+      <if test="population != null">
+        #{population,jdbcType=DECIMAL},
+      </if>
+      <if test="farmersort != null">
+        #{farmersort,jdbcType=VARCHAR},
+      </if>
+      <if test="regionalism != null">
+        #{regionalism,jdbcType=VARCHAR},
+      </if>
+      <if test="staff != null">
+        #{staff,jdbcType=VARCHAR},
+      </if>
+      <if test="creditfarmer != null">
+        #{creditfarmer,jdbcType=VARCHAR},
+      </if>
+      <if test="inputorgid != null">
+        #{inputorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputuserid != null">
+        #{inputuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputdate != null">
+        #{inputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateorgid != null">
+        #{updateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuserid != null">
+        #{updateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="commadd != null">
+        #{commadd,jdbcType=VARCHAR},
+      </if>
+      <if test="commzip != null">
+        #{commzip,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeadd != null">
+        #{nativeadd,jdbcType=VARCHAR},
+      </if>
+      <if test="workzip != null">
+        #{workzip,jdbcType=VARCHAR},
+      </if>
+      <if test="headship != null">
+        #{headship,jdbcType=VARCHAR},
+      </if>
+      <if test="workbegindate != null">
+        #{workbegindate,jdbcType=VARCHAR},
+      </if>
+      <if test="yearincome != null">
+        #{yearincome,jdbcType=DECIMAL},
+      </if>
+      <if test="familystatus != null">
+        #{familystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="tempsaveflag != null">
+        #{tempsaveflag,jdbcType=VARCHAR},
+      </if>
+      <if test="engname != null">
+        #{engname,jdbcType=VARCHAR},
+      </if>
+      <if test="regioncode != null">
+        #{regioncode,jdbcType=VARCHAR},
+      </if>
+      <if test="worknature != null">
+        #{worknature,jdbcType=VARCHAR},
+      </if>
+      <if test="childflag != null">
+        #{childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="localyear != null">
+        #{localyear,jdbcType=VARCHAR},
+      </if>
+      <if test="posionlevel != null">
+        #{posionlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="firsttel != null">
+        #{firsttel,jdbcType=VARCHAR},
+      </if>
+      <if test="firstemail != null">
+        #{firstemail,jdbcType=VARCHAR},
+      </if>
+      <if test="monthincome != null">
+        #{monthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="corpzone != null">
+        #{corpzone,jdbcType=VARCHAR},
+      </if>
+      <if test="corparea != null">
+        #{corparea,jdbcType=VARCHAR},
+      </if>
+      <if test="corpextension != null">
+        #{corpextension,jdbcType=VARCHAR},
+      </if>
+      <if test="housezone != null">
+        #{housezone,jdbcType=VARCHAR},
+      </if>
+      <if test="housearea != null">
+        #{housearea,jdbcType=VARCHAR},
+      </if>
+      <if test="companynature != null">
+        #{companynature,jdbcType=VARCHAR},
+      </if>
+      <if test="qqcode != null">
+        #{qqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="whilomname != null">
+        #{whilomname,jdbcType=VARCHAR},
+      </if>
+      <if test="drivinglicence != null">
+        #{drivinglicence,jdbcType=VARCHAR},
+      </if>
+      <if test="isown != null">
+        #{isown,jdbcType=VARCHAR},
+      </if>
+      <if test="channeltype != null">
+        #{channeltype,jdbcType=VARCHAR},
+      </if>
+      <if test="channelgroupnum != null">
+        #{channelgroupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="housingarea != null">
+        #{housingarea,jdbcType=VARCHAR},
+      </if>
+      <if test="mascriptionadss != null">
+        #{mascriptionadss,jdbcType=VARCHAR},
+      </if>
+      <if test="getbusytime != null">
+        #{getbusytime,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null">
+        #{worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="dimissiontime != null">
+        #{dimissiontime,jdbcType=VARCHAR},
+      </if>
+      <if test="subsistpamount != null">
+        #{subsistpamount,jdbcType=VARCHAR},
+      </if>
+      <if test="isborrower != null">
+        #{isborrower,jdbcType=VARCHAR},
+      </if>
+      <if test="iswarrantor != null">
+        #{iswarrantor,jdbcType=VARCHAR},
+      </if>
+      <if test="certmaturitydate != null">
+        #{certmaturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcardorgan != null">
+        #{sendcardorgan,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="emptype != null">
+        #{emptype,jdbcType=VARCHAR},
+      </if>
+      <if test="cusleveltype != null">
+        #{cusleveltype,jdbcType=VARCHAR},
+      </if>
+      <if test="localtype != null">
+        #{localtype,jdbcType=VARCHAR},
+      </if>
+      <if test="certid18 != null">
+        #{certid18,jdbcType=VARCHAR},
+      </if>
+      <if test="homesum != null">
+        #{homesum,jdbcType=DECIMAL},
+      </if>
+      <if test="familysumroot != null">
+        #{familysumroot,jdbcType=VARCHAR},
+      </if>
+      <if test="familypincome != null">
+        #{familypincome,jdbcType=DECIMAL},
+      </if>
+      <if test="homeloanblance != null">
+        #{homeloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="homeloanmonthsum != null">
+        #{homeloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="carloanblance != null">
+        #{carloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="carloanmonthsum != null">
+        #{carloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="otherloanblance != null">
+        #{otherloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="otherloanmonthsum != null">
+        #{otherloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcode != null">
+        #{bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcardphone != null">
+        #{bankcardphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sidflag != null">
+        #{sidflag,jdbcType=VARCHAR},
+      </if>
+      <if test="edurecord != null">
+        #{edurecord,jdbcType=VARCHAR},
+      </if>
+      <if test="verifytype != null">
+        #{verifytype,jdbcType=VARCHAR},
+      </if>
+      <if test="housenumber != null">
+        #{housenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplacetel != null">
+        #{nativeplacetel,jdbcType=VARCHAR},
+      </if>
+      <if test="familytelbelong != null">
+        #{familytelbelong,jdbcType=VARCHAR},
+      </if>
+      <if test="familybegintime != null">
+        #{familybegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="isparent != null">
+        #{isparent,jdbcType=VARCHAR},
+      </if>
+      <if test="housetype != null">
+        #{housetype,jdbcType=VARCHAR},
+      </if>
+      <if test="houseprice != null">
+        #{houseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="housesize != null">
+        #{housesize,jdbcType=DECIMAL},
+      </if>
+      <if test="housemonth != null">
+        #{housemonth,jdbcType=DECIMAL},
+      </if>
+      <if test="housetime != null">
+        #{housetime,jdbcType=VARCHAR},
+      </if>
+      <if test="provence != null">
+        #{provence,jdbcType=VARCHAR},
+      </if>
+      <if test="provencename != null">
+        #{provencename,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="cityname != null">
+        #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null">
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="houseadd != null">
+        #{houseadd,jdbcType=VARCHAR},
+      </if>
+      <if test="housezip != null">
+        #{housezip,jdbcType=VARCHAR},
+      </if>
+      <if test="entrytime != null">
+        #{entrytime,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="worktel2 != null">
+        #{worktel2,jdbcType=VARCHAR},
+      </if>
+      <if test="monthpayday != null">
+        #{monthpayday,jdbcType=VARCHAR},
+      </if>
+      <if test="bonusincome != null">
+        #{bonusincome,jdbcType=DECIMAL},
+      </if>
+      <if test="issueform != null">
+        #{issueform,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceincome != null">
+        #{sourceincome,jdbcType=VARCHAR},
+      </if>
+      <if test="changenumber != null">
+        #{changenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="workcorp1 != null">
+        #{workcorp1,jdbcType=VARCHAR},
+      </if>
+      <if test="worktel1 != null">
+        #{worktel1,jdbcType=VARCHAR},
+      </if>
+      <if test="workage1 != null">
+        #{workage1,jdbcType=VARCHAR},
+      </if>
+      <if test="workadd1 != null">
+        #{workadd1,jdbcType=VARCHAR},
+      </if>
+      <if test="workzip1 != null">
+        #{workzip1,jdbcType=VARCHAR},
+      </if>
+      <if test="nativezip != null">
+        #{nativezip,jdbcType=VARCHAR},
+      </if>
+      <if test="rent != null">
+        #{rent,jdbcType=DECIMAL},
+      </if>
+      <if test="marketvalue != null">
+        #{marketvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="homeloanmonth != null">
+        #{homeloanmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancecompany != null">
+        #{insurancecompany,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredlocation != null">
+        #{insuredlocation,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate != null">
+        #{effectivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="payyear != null">
+        #{payyear,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceno != null">
+        #{insuranceno,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="regularpremium != null">
+        #{regularpremium,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesum != null">
+        #{insurancesum,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancetype != null">
+        #{insurancetype,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredname != null">
+        #{insuredname,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancetel != null">
+        #{insurancetel,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancecompany1 != null">
+        #{insurancecompany1,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredlocation1 != null">
+        #{insuredlocation1,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate1 != null">
+        #{effectivedate1,jdbcType=VARCHAR},
+      </if>
+      <if test="payyear1 != null">
+        #{payyear1,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceno1 != null">
+        #{insuranceno1,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype1 != null">
+        #{paytype1,jdbcType=VARCHAR},
+      </if>
+      <if test="regularpremium1 != null">
+        #{regularpremium1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesum1 != null">
+        #{insurancesum1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancetype1 != null">
+        #{insurancetype1,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredname1 != null">
+        #{insuredname1,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancetel1 != null">
+        #{insurancetel1,jdbcType=VARCHAR},
+      </if>
+      <if test="companysize != null">
+        #{companysize,jdbcType=VARCHAR},
+      </if>
+      <if test="firsttime != null">
+        #{firsttime,jdbcType=VARCHAR},
+      </if>
+      <if test="nowcomtime != null">
+        #{nowcomtime,jdbcType=VARCHAR},
+      </if>
+      <if test="monthsum != null">
+        #{monthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="housennmber != null">
+        #{housennmber,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetimestamp != null">
+        #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finFactoryStatus != null">
+        #{finFactoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="indType != null">
+        #{indType,jdbcType=INTEGER},
+      </if>
+      <if test="joinWorkTime != null">
+        #{joinWorkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBeginTime != null">
+        #{cardBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cardEndTime != null">
+        #{cardEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="occupationId != null">
+        #{occupationId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPhone != null">
+        #{loginPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bindTime != null">
+        #{bindTime,jdbcType=DATE},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="rootreame != null">
+        #{rootreame,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample" resultType="java.lang.Long">
+    select count(*) from ind_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ind_info
+    <set>
+      <if test="record.customerid != null">
+        CUSTOMERID = #{record.customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fullname != null">
+        FULLNAME = #{record.fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        SEX = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null">
+        BIRTHDAY = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certtype != null">
+        CERTTYPE = #{record.certtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certid != null">
+        CERTID = #{record.certid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sino != null">
+        SINO = #{record.sino,jdbcType=VARCHAR},
+      </if>
+      <if test="record.country != null">
+        COUNTRY = #{record.country,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nationality != null">
+        NATIONALITY = #{record.nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nativeplace != null">
+        NATIVEPLACE = #{record.nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politicalface != null">
+        POLITICALFACE = #{record.politicalface,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marriage != null">
+        MARRIAGE = #{record.marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relativetype != null">
+        RELATIVETYPE = #{record.relativetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyadd != null">
+        FAMILYADD = #{record.familyadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyzip != null">
+        FAMILYZIP = #{record.familyzip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailadd != null">
+        EMAILADD = #{record.emailadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familytel != null">
+        FAMILYTEL = #{record.familytel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familytel1 != null">
+        FAMILYTEL1 = #{record.familytel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familytel2 != null">
+        FAMILYTEL2 = #{record.familytel2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone1 != null">
+        PHONE1 = #{record.phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone2 != null">
+        PHONE2 = #{record.phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitkind != null">
+        UNITKIND = #{record.unitkind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workcorp != null">
+        WORKCORP = #{record.workcorp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workadd != null">
+        WORKADD = #{record.workadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktel != null">
+        WORKTEL = #{record.worktel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.occupation != null">
+        OCCUPATION = #{record.occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.position != null">
+        POSITION = #{record.position,jdbcType=VARCHAR},
+      </if>
+      <if test="record.employrecord != null">
+        EMPLOYRECORD = #{record.employrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduexperience != null">
+        EDUEXPERIENCE = #{record.eduexperience,jdbcType=VARCHAR},
+      </if>
+      <if test="record.edudegree != null">
+        EDUDEGREE = #{record.edudegree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.graduateyear != null">
+        GRADUATEYEAR = #{record.graduateyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditlevel != null">
+        CREDITLEVEL = #{record.creditlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.evaluatedate != null">
+        EVALUATEDATE = #{record.evaluatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balancesheet != null">
+        BALANCESHEET = #{record.balancesheet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intro != null">
+        INTRO = #{record.intro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selfmonthincome != null">
+        SELFMONTHINCOME = #{record.selfmonthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="record.familymonthincome != null">
+        FAMILYMONTHINCOME = #{record.familymonthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="record.incomesource != null">
+        INCOMESOURCE = #{record.incomesource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.population != null">
+        POPULATION = #{record.population,jdbcType=DECIMAL},
+      </if>
+      <if test="record.farmersort != null">
+        FARMERSORT = #{record.farmersort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regionalism != null">
+        REGIONALISM = #{record.regionalism,jdbcType=VARCHAR},
+      </if>
+      <if test="record.staff != null">
+        STAFF = #{record.staff,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creditfarmer != null">
+        CREDITFARMER = #{record.creditfarmer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputorgid != null">
+        INPUTORGID = #{record.inputorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputuserid != null">
+        INPUTUSERID = #{record.inputuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputdate != null">
+        INPUTDATE = #{record.inputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatedate != null">
+        UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateorgid != null">
+        UPDATEORGID = #{record.updateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateuserid != null">
+        UPDATEUSERID = #{record.updateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commadd != null">
+        COMMADD = #{record.commadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commzip != null">
+        COMMZIP = #{record.commzip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nativeadd != null">
+        NATIVEADD = #{record.nativeadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workzip != null">
+        WORKZIP = #{record.workzip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headship != null">
+        HEADSHIP = #{record.headship,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workbegindate != null">
+        WORKBEGINDATE = #{record.workbegindate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yearincome != null">
+        YEARINCOME = #{record.yearincome,jdbcType=DECIMAL},
+      </if>
+      <if test="record.familystatus != null">
+        FAMILYSTATUS = #{record.familystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tempsaveflag != null">
+        TEMPSAVEFLAG = #{record.tempsaveflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engname != null">
+        ENGNAME = #{record.engname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regioncode != null">
+        REGIONCODE = #{record.regioncode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worknature != null">
+        WORKNATURE = #{record.worknature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.childflag != null">
+        CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.localyear != null">
+        LOCALYEAR = #{record.localyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.posionlevel != null">
+        POSIONLEVEL = #{record.posionlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firsttel != null">
+        FIRSTTEL = #{record.firsttel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstemail != null">
+        FIRSTEMAIL = #{record.firstemail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monthincome != null">
+        MONTHINCOME = #{record.monthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="record.corpzone != null">
+        CORPZONE = #{record.corpzone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.corparea != null">
+        CORPAREA = #{record.corparea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.corpextension != null">
+        CORPEXTENSION = #{record.corpextension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housezone != null">
+        HOUSEZONE = #{record.housezone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housearea != null">
+        HOUSEAREA = #{record.housearea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companynature != null">
+        COMPANYNATURE = #{record.companynature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qqcode != null">
+        QQCODE = #{record.qqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.whilomname != null">
+        WHILOMNAME = #{record.whilomname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.drivinglicence != null">
+        DRIVINGLICENCE = #{record.drivinglicence,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isown != null">
+        ISOWN = #{record.isown,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channeltype != null">
+        CHANNELTYPE = #{record.channeltype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channelgroupnum != null">
+        CHANNELGROUPNUM = #{record.channelgroupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housingarea != null">
+        HOUSINGAREA = #{record.housingarea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mascriptionadss != null">
+        MASCRIPTIONADSS = #{record.mascriptionadss,jdbcType=VARCHAR},
+      </if>
+      <if test="record.getbusytime != null">
+        GETBUSYTIME = #{record.getbusytime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktime != null">
+        WORKTIME = #{record.worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dimissiontime != null">
+        DIMISSIONTIME = #{record.dimissiontime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subsistpamount != null">
+        SUBSISTPAMOUNT = #{record.subsistpamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isborrower != null">
+        ISBORROWER = #{record.isborrower,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iswarrantor != null">
+        ISWARRANTOR = #{record.iswarrantor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certmaturitydate != null">
+        CERTMATURITYDATE = #{record.certmaturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendcardorgan != null">
+        SENDCARDORGAN = #{record.sendcardorgan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        AGE = #{record.age,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emptype != null">
+        EMPTYPE = #{record.emptype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cusleveltype != null">
+        CUSLEVELTYPE = #{record.cusleveltype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.localtype != null">
+        LOCALTYPE = #{record.localtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certid18 != null">
+        CERTID18 = #{record.certid18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.homesum != null">
+        HOMESUM = #{record.homesum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.familysumroot != null">
+        FAMILYSUMROOT = #{record.familysumroot,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familypincome != null">
+        FAMILYPINCOME = #{record.familypincome,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeloanblance != null">
+        HOMELOANBLANCE = #{record.homeloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeloanmonthsum != null">
+        HOMELOANMONTHSUM = #{record.homeloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.carloanblance != null">
+        CARLOANBLANCE = #{record.carloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.carloanmonthsum != null">
+        CARLOANMONTHSUM = #{record.carloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.otherloanblance != null">
+        OTHERLOANBLANCE = #{record.otherloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="record.otherloanmonthsum != null">
+        OTHERLOANMONTHSUM = #{record.otherloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userid != null">
+        USERID = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankname != null">
+        BankName = #{record.bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankcard != null">
+        BankCARD = #{record.bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankcode != null">
+        bankCode = #{record.bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankcardphone != null">
+        bankCardPhone = #{record.bankcardphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sidflag != null">
+        sidflag = #{record.sidflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.edurecord != null">
+        edurecord = #{record.edurecord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.verifytype != null">
+        verifyType = #{record.verifytype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housenumber != null">
+        housenumber = #{record.housenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nativeplacetel != null">
+        NativePlaceTel = #{record.nativeplacetel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familytelbelong != null">
+        FamilyTelBelong = #{record.familytelbelong,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familybegintime != null">
+        FamilyBeginTime = #{record.familybegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isparent != null">
+        isparent = #{record.isparent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housetype != null">
+        housetype = #{record.housetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseprice != null">
+        houseprice = #{record.houseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.housesize != null">
+        housesize = #{record.housesize,jdbcType=DECIMAL},
+      </if>
+      <if test="record.housemonth != null">
+        housemonth = #{record.housemonth,jdbcType=DECIMAL},
+      </if>
+      <if test="record.housetime != null">
+        housetime = #{record.housetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provence != null">
+        provence = #{record.provence,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provencename != null">
+        provenceName = #{record.provencename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityname != null">
+        cityname = #{record.cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null">
+        area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaname != null">
+        areaName = #{record.areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houseadd != null">
+        houseadd = #{record.houseadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.housezip != null">
+        housezip = #{record.housezip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrytime != null">
+        entrytime = #{record.entrytime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.department != null">
+        department = #{record.department,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktel2 != null">
+        WorkTel2 = #{record.worktel2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monthpayday != null">
+        monthpayday = #{record.monthpayday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bonusincome != null">
+        bonusincome = #{record.bonusincome,jdbcType=DECIMAL},
+      </if>
+      <if test="record.issueform != null">
+        issueform = #{record.issueform,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceincome != null">
+        sourceincome = #{record.sourceincome,jdbcType=VARCHAR},
+      </if>
+      <if test="record.changenumber != null">
+        changenumber = #{record.changenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workcorp1 != null">
+        WORKCORP1 = #{record.workcorp1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktel1 != null">
+        WORKTEL1 = #{record.worktel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workage1 != null">
+        WORKAGE1 = #{record.workage1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workadd1 != null">
+        WORKADD1 = #{record.workadd1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workzip1 != null">
+        WORKZIP1 = #{record.workzip1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nativezip != null">
+        NATIVEZIP = #{record.nativezip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rent != null">
+        RENT = #{record.rent,jdbcType=DECIMAL},
+      </if>
+      <if test="record.marketvalue != null">
+        MARKETVALUE = #{record.marketvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="record.homeloanmonth != null">
+        HOMELOANMONTH = #{record.homeloanmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurancecompany != null">
+        INSURANCECOMPANY = #{record.insurancecompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuredlocation != null">
+        INSUREDLOCATION = #{record.insuredlocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.effectivedate != null">
+        EFFECTIVEDATE = #{record.effectivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payyear != null">
+        PAYYEAR = #{record.payyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceno != null">
+        INSURANCENO = #{record.insuranceno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paytype != null">
+        PAYTYPE = #{record.paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regularpremium != null">
+        REGULARPREMIUM = #{record.regularpremium,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurancesum != null">
+        INSURANCESUM = #{record.insurancesum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurancetype != null">
+        INSURANCETYPE = #{record.insurancetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuredname != null">
+        INSUREDNAME = #{record.insuredname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurancetel != null">
+        INSURANCETEL = #{record.insurancetel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurancecompany1 != null">
+        INSURANCECOMPANY1 = #{record.insurancecompany1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuredlocation1 != null">
+        INSUREDLOCATION1 = #{record.insuredlocation1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.effectivedate1 != null">
+        EFFECTIVEDATE1 = #{record.effectivedate1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payyear1 != null">
+        PAYYEAR1 = #{record.payyear1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceno1 != null">
+        INSURANCENO1 = #{record.insuranceno1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paytype1 != null">
+        PAYTYPE1 = #{record.paytype1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regularpremium1 != null">
+        REGULARPREMIUM1 = #{record.regularpremium1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurancesum1 != null">
+        INSURANCESUM1 = #{record.insurancesum1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.insurancetype1 != null">
+        INSURANCETYPE1 = #{record.insurancetype1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuredname1 != null">
+        INSUREDNAME1 = #{record.insuredname1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurancetel1 != null">
+        INSURANCETEL1 = #{record.insurancetel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companysize != null">
+        COMPANYSIZE = #{record.companysize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firsttime != null">
+        FIRSTTIME = #{record.firsttime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nowcomtime != null">
+        NOWCOMTIME = #{record.nowcomtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.monthsum != null">
+        MONTHSUM = #{record.monthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.housennmber != null">
+        housennmber = #{record.housennmber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetimestamp != null">
+        updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.finFactoryStatus != null">
+        fin_factory_status = #{record.finFactoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.indType != null">
+        ind_type = #{record.indType,jdbcType=INTEGER},
+      </if>
+      <if test="record.joinWorkTime != null">
+        join_work_time = #{record.joinWorkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardBeginTime != null">
+        card_begin_time = #{record.cardBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardEndTime != null">
+        card_end_time = #{record.cardEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUser != null">
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.occupationId != null">
+        occupation_id = #{record.occupationId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessLicense != null">
+        Business_License = #{record.businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginPhone != null">
+        login_phone = #{record.loginPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bindTime != null">
+        bind_time = #{record.bindTime,jdbcType=DATE},
+      </if>
+      <if test="record.openId != null">
+        open_id = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rootreame != null">
+        ROOTREAME = #{record.rootreame,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update ind_info
+    set CUSTOMERID = #{record.customerid,jdbcType=VARCHAR},
+      FULLNAME = #{record.fullname,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=VARCHAR},
+      CERTTYPE = #{record.certtype,jdbcType=VARCHAR},
+      CERTID = #{record.certid,jdbcType=VARCHAR},
+      SINO = #{record.sino,jdbcType=VARCHAR},
+      COUNTRY = #{record.country,jdbcType=VARCHAR},
+      NATIONALITY = #{record.nationality,jdbcType=VARCHAR},
+      NATIVEPLACE = #{record.nativeplace,jdbcType=VARCHAR},
+      POLITICALFACE = #{record.politicalface,jdbcType=VARCHAR},
+      MARRIAGE = #{record.marriage,jdbcType=VARCHAR},
+      RELATIVETYPE = #{record.relativetype,jdbcType=VARCHAR},
+      FAMILYADD = #{record.familyadd,jdbcType=VARCHAR},
+      FAMILYZIP = #{record.familyzip,jdbcType=VARCHAR},
+      EMAILADD = #{record.emailadd,jdbcType=VARCHAR},
+      FAMILYTEL = #{record.familytel,jdbcType=VARCHAR},
+      FAMILYTEL1 = #{record.familytel1,jdbcType=VARCHAR},
+      FAMILYTEL2 = #{record.familytel2,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      PHONE1 = #{record.phone1,jdbcType=VARCHAR},
+      PHONE2 = #{record.phone2,jdbcType=VARCHAR},
+      UNITKIND = #{record.unitkind,jdbcType=VARCHAR},
+      WORKCORP = #{record.workcorp,jdbcType=VARCHAR},
+      WORKADD = #{record.workadd,jdbcType=VARCHAR},
+      WORKTEL = #{record.worktel,jdbcType=VARCHAR},
+      OCCUPATION = #{record.occupation,jdbcType=VARCHAR},
+      POSITION = #{record.position,jdbcType=VARCHAR},
+      EMPLOYRECORD = #{record.employrecord,jdbcType=VARCHAR},
+      EDUEXPERIENCE = #{record.eduexperience,jdbcType=VARCHAR},
+      EDUDEGREE = #{record.edudegree,jdbcType=VARCHAR},
+      GRADUATEYEAR = #{record.graduateyear,jdbcType=VARCHAR},
+      CREDITLEVEL = #{record.creditlevel,jdbcType=VARCHAR},
+      EVALUATEDATE = #{record.evaluatedate,jdbcType=VARCHAR},
+      BALANCESHEET = #{record.balancesheet,jdbcType=VARCHAR},
+      INTRO = #{record.intro,jdbcType=VARCHAR},
+      SELFMONTHINCOME = #{record.selfmonthincome,jdbcType=DECIMAL},
+      FAMILYMONTHINCOME = #{record.familymonthincome,jdbcType=DECIMAL},
+      INCOMESOURCE = #{record.incomesource,jdbcType=VARCHAR},
+      POPULATION = #{record.population,jdbcType=DECIMAL},
+      FARMERSORT = #{record.farmersort,jdbcType=VARCHAR},
+      REGIONALISM = #{record.regionalism,jdbcType=VARCHAR},
+      STAFF = #{record.staff,jdbcType=VARCHAR},
+      CREDITFARMER = #{record.creditfarmer,jdbcType=VARCHAR},
+      INPUTORGID = #{record.inputorgid,jdbcType=VARCHAR},
+      INPUTUSERID = #{record.inputuserid,jdbcType=VARCHAR},
+      INPUTDATE = #{record.inputdate,jdbcType=VARCHAR},
+      UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      UPDATEORGID = #{record.updateorgid,jdbcType=VARCHAR},
+      UPDATEUSERID = #{record.updateuserid,jdbcType=VARCHAR},
+      COMMADD = #{record.commadd,jdbcType=VARCHAR},
+      COMMZIP = #{record.commzip,jdbcType=VARCHAR},
+      NATIVEADD = #{record.nativeadd,jdbcType=VARCHAR},
+      WORKZIP = #{record.workzip,jdbcType=VARCHAR},
+      HEADSHIP = #{record.headship,jdbcType=VARCHAR},
+      WORKBEGINDATE = #{record.workbegindate,jdbcType=VARCHAR},
+      YEARINCOME = #{record.yearincome,jdbcType=DECIMAL},
+      FAMILYSTATUS = #{record.familystatus,jdbcType=VARCHAR},
+      TEMPSAVEFLAG = #{record.tempsaveflag,jdbcType=VARCHAR},
+      ENGNAME = #{record.engname,jdbcType=VARCHAR},
+      REGIONCODE = #{record.regioncode,jdbcType=VARCHAR},
+      WORKNATURE = #{record.worknature,jdbcType=VARCHAR},
+      CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      LOCALYEAR = #{record.localyear,jdbcType=VARCHAR},
+      POSIONLEVEL = #{record.posionlevel,jdbcType=VARCHAR},
+      FIRSTTEL = #{record.firsttel,jdbcType=VARCHAR},
+      FIRSTEMAIL = #{record.firstemail,jdbcType=VARCHAR},
+      MONTHINCOME = #{record.monthincome,jdbcType=DECIMAL},
+      CORPZONE = #{record.corpzone,jdbcType=VARCHAR},
+      CORPAREA = #{record.corparea,jdbcType=VARCHAR},
+      CORPEXTENSION = #{record.corpextension,jdbcType=VARCHAR},
+      HOUSEZONE = #{record.housezone,jdbcType=VARCHAR},
+      HOUSEAREA = #{record.housearea,jdbcType=VARCHAR},
+      COMPANYNATURE = #{record.companynature,jdbcType=VARCHAR},
+      QQCODE = #{record.qqcode,jdbcType=VARCHAR},
+      WHILOMNAME = #{record.whilomname,jdbcType=VARCHAR},
+      DRIVINGLICENCE = #{record.drivinglicence,jdbcType=VARCHAR},
+      ISOWN = #{record.isown,jdbcType=VARCHAR},
+      CHANNELTYPE = #{record.channeltype,jdbcType=VARCHAR},
+      CHANNELGROUPNUM = #{record.channelgroupnum,jdbcType=VARCHAR},
+      HOUSINGAREA = #{record.housingarea,jdbcType=VARCHAR},
+      MASCRIPTIONADSS = #{record.mascriptionadss,jdbcType=VARCHAR},
+      GETBUSYTIME = #{record.getbusytime,jdbcType=VARCHAR},
+      WORKTIME = #{record.worktime,jdbcType=VARCHAR},
+      DIMISSIONTIME = #{record.dimissiontime,jdbcType=VARCHAR},
+      SUBSISTPAMOUNT = #{record.subsistpamount,jdbcType=VARCHAR},
+      ISBORROWER = #{record.isborrower,jdbcType=VARCHAR},
+      ISWARRANTOR = #{record.iswarrantor,jdbcType=VARCHAR},
+      CERTMATURITYDATE = #{record.certmaturitydate,jdbcType=VARCHAR},
+      SENDCARDORGAN = #{record.sendcardorgan,jdbcType=VARCHAR},
+      AGE = #{record.age,jdbcType=VARCHAR},
+      EMPTYPE = #{record.emptype,jdbcType=VARCHAR},
+      CUSLEVELTYPE = #{record.cusleveltype,jdbcType=VARCHAR},
+      LOCALTYPE = #{record.localtype,jdbcType=VARCHAR},
+      CERTID18 = #{record.certid18,jdbcType=VARCHAR},
+      HOMESUM = #{record.homesum,jdbcType=DECIMAL},
+      FAMILYSUMROOT = #{record.familysumroot,jdbcType=VARCHAR},
+      FAMILYPINCOME = #{record.familypincome,jdbcType=DECIMAL},
+      HOMELOANBLANCE = #{record.homeloanblance,jdbcType=DECIMAL},
+      HOMELOANMONTHSUM = #{record.homeloanmonthsum,jdbcType=DECIMAL},
+      CARLOANBLANCE = #{record.carloanblance,jdbcType=DECIMAL},
+      CARLOANMONTHSUM = #{record.carloanmonthsum,jdbcType=DECIMAL},
+      OTHERLOANBLANCE = #{record.otherloanblance,jdbcType=DECIMAL},
+      OTHERLOANMONTHSUM = #{record.otherloanmonthsum,jdbcType=DECIMAL},
+      USERID = #{record.userid,jdbcType=VARCHAR},
+      BankName = #{record.bankname,jdbcType=VARCHAR},
+      BankCARD = #{record.bankcard,jdbcType=VARCHAR},
+      bankCode = #{record.bankcode,jdbcType=VARCHAR},
+      bankCardPhone = #{record.bankcardphone,jdbcType=VARCHAR},
+      sidflag = #{record.sidflag,jdbcType=VARCHAR},
+      edurecord = #{record.edurecord,jdbcType=VARCHAR},
+      verifyType = #{record.verifytype,jdbcType=VARCHAR},
+      housenumber = #{record.housenumber,jdbcType=VARCHAR},
+      NativePlaceTel = #{record.nativeplacetel,jdbcType=VARCHAR},
+      FamilyTelBelong = #{record.familytelbelong,jdbcType=VARCHAR},
+      FamilyBeginTime = #{record.familybegintime,jdbcType=VARCHAR},
+      isparent = #{record.isparent,jdbcType=VARCHAR},
+      housetype = #{record.housetype,jdbcType=VARCHAR},
+      houseprice = #{record.houseprice,jdbcType=DECIMAL},
+      housesize = #{record.housesize,jdbcType=DECIMAL},
+      housemonth = #{record.housemonth,jdbcType=DECIMAL},
+      housetime = #{record.housetime,jdbcType=VARCHAR},
+      provence = #{record.provence,jdbcType=VARCHAR},
+      provenceName = #{record.provencename,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      cityname = #{record.cityname,jdbcType=VARCHAR},
+      area = #{record.area,jdbcType=VARCHAR},
+      areaName = #{record.areaname,jdbcType=VARCHAR},
+      houseadd = #{record.houseadd,jdbcType=VARCHAR},
+      housezip = #{record.housezip,jdbcType=VARCHAR},
+      entrytime = #{record.entrytime,jdbcType=VARCHAR},
+      department = #{record.department,jdbcType=VARCHAR},
+      WorkTel2 = #{record.worktel2,jdbcType=VARCHAR},
+      monthpayday = #{record.monthpayday,jdbcType=VARCHAR},
+      bonusincome = #{record.bonusincome,jdbcType=DECIMAL},
+      issueform = #{record.issueform,jdbcType=VARCHAR},
+      sourceincome = #{record.sourceincome,jdbcType=VARCHAR},
+      changenumber = #{record.changenumber,jdbcType=VARCHAR},
+      WORKCORP1 = #{record.workcorp1,jdbcType=VARCHAR},
+      WORKTEL1 = #{record.worktel1,jdbcType=VARCHAR},
+      WORKAGE1 = #{record.workage1,jdbcType=VARCHAR},
+      WORKADD1 = #{record.workadd1,jdbcType=VARCHAR},
+      WORKZIP1 = #{record.workzip1,jdbcType=VARCHAR},
+      NATIVEZIP = #{record.nativezip,jdbcType=VARCHAR},
+      RENT = #{record.rent,jdbcType=DECIMAL},
+      MARKETVALUE = #{record.marketvalue,jdbcType=DECIMAL},
+      HOMELOANMONTH = #{record.homeloanmonth,jdbcType=VARCHAR},
+      INSURANCECOMPANY = #{record.insurancecompany,jdbcType=VARCHAR},
+      INSUREDLOCATION = #{record.insuredlocation,jdbcType=VARCHAR},
+      EFFECTIVEDATE = #{record.effectivedate,jdbcType=VARCHAR},
+      PAYYEAR = #{record.payyear,jdbcType=VARCHAR},
+      INSURANCENO = #{record.insuranceno,jdbcType=VARCHAR},
+      PAYTYPE = #{record.paytype,jdbcType=VARCHAR},
+      REGULARPREMIUM = #{record.regularpremium,jdbcType=DECIMAL},
+      INSURANCESUM = #{record.insurancesum,jdbcType=DECIMAL},
+      INSURANCETYPE = #{record.insurancetype,jdbcType=VARCHAR},
+      INSUREDNAME = #{record.insuredname,jdbcType=VARCHAR},
+      INSURANCETEL = #{record.insurancetel,jdbcType=VARCHAR},
+      INSURANCECOMPANY1 = #{record.insurancecompany1,jdbcType=VARCHAR},
+      INSUREDLOCATION1 = #{record.insuredlocation1,jdbcType=VARCHAR},
+      EFFECTIVEDATE1 = #{record.effectivedate1,jdbcType=VARCHAR},
+      PAYYEAR1 = #{record.payyear1,jdbcType=VARCHAR},
+      INSURANCENO1 = #{record.insuranceno1,jdbcType=VARCHAR},
+      PAYTYPE1 = #{record.paytype1,jdbcType=VARCHAR},
+      REGULARPREMIUM1 = #{record.regularpremium1,jdbcType=DECIMAL},
+      INSURANCESUM1 = #{record.insurancesum1,jdbcType=DECIMAL},
+      INSURANCETYPE1 = #{record.insurancetype1,jdbcType=VARCHAR},
+      INSUREDNAME1 = #{record.insuredname1,jdbcType=VARCHAR},
+      INSURANCETEL1 = #{record.insurancetel1,jdbcType=VARCHAR},
+      COMPANYSIZE = #{record.companysize,jdbcType=VARCHAR},
+      FIRSTTIME = #{record.firsttime,jdbcType=VARCHAR},
+      NOWCOMTIME = #{record.nowcomtime,jdbcType=VARCHAR},
+      MONTHSUM = #{record.monthsum,jdbcType=DECIMAL},
+      housennmber = #{record.housennmber,jdbcType=VARCHAR},
+      updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      fin_factory_status = #{record.finFactoryStatus,jdbcType=INTEGER},
+      ind_type = #{record.indType,jdbcType=INTEGER},
+      join_work_time = #{record.joinWorkTime,jdbcType=VARCHAR},
+      card_begin_time = #{record.cardBeginTime,jdbcType=VARCHAR},
+      card_end_time = #{record.cardEndTime,jdbcType=VARCHAR},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      occupation_id = #{record.occupationId,jdbcType=VARCHAR},
+      Business_License = #{record.businessLicense,jdbcType=VARCHAR},
+      login_phone = #{record.loginPhone,jdbcType=VARCHAR},
+      bind_time = #{record.bindTime,jdbcType=DATE},
+      open_id = #{record.openId,jdbcType=VARCHAR},
+      ROOTREAME = #{record.rootreame,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ind_info
+    set CUSTOMERID = #{record.customerid,jdbcType=VARCHAR},
+      FULLNAME = #{record.fullname,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=VARCHAR},
+      CERTTYPE = #{record.certtype,jdbcType=VARCHAR},
+      CERTID = #{record.certid,jdbcType=VARCHAR},
+      SINO = #{record.sino,jdbcType=VARCHAR},
+      COUNTRY = #{record.country,jdbcType=VARCHAR},
+      NATIONALITY = #{record.nationality,jdbcType=VARCHAR},
+      NATIVEPLACE = #{record.nativeplace,jdbcType=VARCHAR},
+      POLITICALFACE = #{record.politicalface,jdbcType=VARCHAR},
+      MARRIAGE = #{record.marriage,jdbcType=VARCHAR},
+      RELATIVETYPE = #{record.relativetype,jdbcType=VARCHAR},
+      FAMILYADD = #{record.familyadd,jdbcType=VARCHAR},
+      FAMILYZIP = #{record.familyzip,jdbcType=VARCHAR},
+      EMAILADD = #{record.emailadd,jdbcType=VARCHAR},
+      FAMILYTEL = #{record.familytel,jdbcType=VARCHAR},
+      FAMILYTEL1 = #{record.familytel1,jdbcType=VARCHAR},
+      FAMILYTEL2 = #{record.familytel2,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      PHONE1 = #{record.phone1,jdbcType=VARCHAR},
+      PHONE2 = #{record.phone2,jdbcType=VARCHAR},
+      UNITKIND = #{record.unitkind,jdbcType=VARCHAR},
+      WORKCORP = #{record.workcorp,jdbcType=VARCHAR},
+      WORKADD = #{record.workadd,jdbcType=VARCHAR},
+      WORKTEL = #{record.worktel,jdbcType=VARCHAR},
+      OCCUPATION = #{record.occupation,jdbcType=VARCHAR},
+      POSITION = #{record.position,jdbcType=VARCHAR},
+      EMPLOYRECORD = #{record.employrecord,jdbcType=VARCHAR},
+      EDUEXPERIENCE = #{record.eduexperience,jdbcType=VARCHAR},
+      EDUDEGREE = #{record.edudegree,jdbcType=VARCHAR},
+      GRADUATEYEAR = #{record.graduateyear,jdbcType=VARCHAR},
+      CREDITLEVEL = #{record.creditlevel,jdbcType=VARCHAR},
+      EVALUATEDATE = #{record.evaluatedate,jdbcType=VARCHAR},
+      BALANCESHEET = #{record.balancesheet,jdbcType=VARCHAR},
+      INTRO = #{record.intro,jdbcType=VARCHAR},
+      SELFMONTHINCOME = #{record.selfmonthincome,jdbcType=DECIMAL},
+      FAMILYMONTHINCOME = #{record.familymonthincome,jdbcType=DECIMAL},
+      INCOMESOURCE = #{record.incomesource,jdbcType=VARCHAR},
+      POPULATION = #{record.population,jdbcType=DECIMAL},
+      FARMERSORT = #{record.farmersort,jdbcType=VARCHAR},
+      REGIONALISM = #{record.regionalism,jdbcType=VARCHAR},
+      STAFF = #{record.staff,jdbcType=VARCHAR},
+      CREDITFARMER = #{record.creditfarmer,jdbcType=VARCHAR},
+      INPUTORGID = #{record.inputorgid,jdbcType=VARCHAR},
+      INPUTUSERID = #{record.inputuserid,jdbcType=VARCHAR},
+      INPUTDATE = #{record.inputdate,jdbcType=VARCHAR},
+      UPDATEDATE = #{record.updatedate,jdbcType=VARCHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      UPDATEORGID = #{record.updateorgid,jdbcType=VARCHAR},
+      UPDATEUSERID = #{record.updateuserid,jdbcType=VARCHAR},
+      COMMADD = #{record.commadd,jdbcType=VARCHAR},
+      COMMZIP = #{record.commzip,jdbcType=VARCHAR},
+      NATIVEADD = #{record.nativeadd,jdbcType=VARCHAR},
+      WORKZIP = #{record.workzip,jdbcType=VARCHAR},
+      HEADSHIP = #{record.headship,jdbcType=VARCHAR},
+      WORKBEGINDATE = #{record.workbegindate,jdbcType=VARCHAR},
+      YEARINCOME = #{record.yearincome,jdbcType=DECIMAL},
+      FAMILYSTATUS = #{record.familystatus,jdbcType=VARCHAR},
+      TEMPSAVEFLAG = #{record.tempsaveflag,jdbcType=VARCHAR},
+      ENGNAME = #{record.engname,jdbcType=VARCHAR},
+      REGIONCODE = #{record.regioncode,jdbcType=VARCHAR},
+      WORKNATURE = #{record.worknature,jdbcType=VARCHAR},
+      CHILDFLAG = #{record.childflag,jdbcType=VARCHAR},
+      LOCALYEAR = #{record.localyear,jdbcType=VARCHAR},
+      POSIONLEVEL = #{record.posionlevel,jdbcType=VARCHAR},
+      FIRSTTEL = #{record.firsttel,jdbcType=VARCHAR},
+      FIRSTEMAIL = #{record.firstemail,jdbcType=VARCHAR},
+      MONTHINCOME = #{record.monthincome,jdbcType=DECIMAL},
+      CORPZONE = #{record.corpzone,jdbcType=VARCHAR},
+      CORPAREA = #{record.corparea,jdbcType=VARCHAR},
+      CORPEXTENSION = #{record.corpextension,jdbcType=VARCHAR},
+      HOUSEZONE = #{record.housezone,jdbcType=VARCHAR},
+      HOUSEAREA = #{record.housearea,jdbcType=VARCHAR},
+      COMPANYNATURE = #{record.companynature,jdbcType=VARCHAR},
+      QQCODE = #{record.qqcode,jdbcType=VARCHAR},
+      WHILOMNAME = #{record.whilomname,jdbcType=VARCHAR},
+      DRIVINGLICENCE = #{record.drivinglicence,jdbcType=VARCHAR},
+      ISOWN = #{record.isown,jdbcType=VARCHAR},
+      CHANNELTYPE = #{record.channeltype,jdbcType=VARCHAR},
+      CHANNELGROUPNUM = #{record.channelgroupnum,jdbcType=VARCHAR},
+      HOUSINGAREA = #{record.housingarea,jdbcType=VARCHAR},
+      MASCRIPTIONADSS = #{record.mascriptionadss,jdbcType=VARCHAR},
+      GETBUSYTIME = #{record.getbusytime,jdbcType=VARCHAR},
+      WORKTIME = #{record.worktime,jdbcType=VARCHAR},
+      DIMISSIONTIME = #{record.dimissiontime,jdbcType=VARCHAR},
+      SUBSISTPAMOUNT = #{record.subsistpamount,jdbcType=VARCHAR},
+      ISBORROWER = #{record.isborrower,jdbcType=VARCHAR},
+      ISWARRANTOR = #{record.iswarrantor,jdbcType=VARCHAR},
+      CERTMATURITYDATE = #{record.certmaturitydate,jdbcType=VARCHAR},
+      SENDCARDORGAN = #{record.sendcardorgan,jdbcType=VARCHAR},
+      AGE = #{record.age,jdbcType=VARCHAR},
+      EMPTYPE = #{record.emptype,jdbcType=VARCHAR},
+      CUSLEVELTYPE = #{record.cusleveltype,jdbcType=VARCHAR},
+      LOCALTYPE = #{record.localtype,jdbcType=VARCHAR},
+      CERTID18 = #{record.certid18,jdbcType=VARCHAR},
+      HOMESUM = #{record.homesum,jdbcType=DECIMAL},
+      FAMILYSUMROOT = #{record.familysumroot,jdbcType=VARCHAR},
+      FAMILYPINCOME = #{record.familypincome,jdbcType=DECIMAL},
+      HOMELOANBLANCE = #{record.homeloanblance,jdbcType=DECIMAL},
+      HOMELOANMONTHSUM = #{record.homeloanmonthsum,jdbcType=DECIMAL},
+      CARLOANBLANCE = #{record.carloanblance,jdbcType=DECIMAL},
+      CARLOANMONTHSUM = #{record.carloanmonthsum,jdbcType=DECIMAL},
+      OTHERLOANBLANCE = #{record.otherloanblance,jdbcType=DECIMAL},
+      OTHERLOANMONTHSUM = #{record.otherloanmonthsum,jdbcType=DECIMAL},
+      USERID = #{record.userid,jdbcType=VARCHAR},
+      BankName = #{record.bankname,jdbcType=VARCHAR},
+      BankCARD = #{record.bankcard,jdbcType=VARCHAR},
+      bankCode = #{record.bankcode,jdbcType=VARCHAR},
+      bankCardPhone = #{record.bankcardphone,jdbcType=VARCHAR},
+      sidflag = #{record.sidflag,jdbcType=VARCHAR},
+      edurecord = #{record.edurecord,jdbcType=VARCHAR},
+      verifyType = #{record.verifytype,jdbcType=VARCHAR},
+      housenumber = #{record.housenumber,jdbcType=VARCHAR},
+      NativePlaceTel = #{record.nativeplacetel,jdbcType=VARCHAR},
+      FamilyTelBelong = #{record.familytelbelong,jdbcType=VARCHAR},
+      FamilyBeginTime = #{record.familybegintime,jdbcType=VARCHAR},
+      isparent = #{record.isparent,jdbcType=VARCHAR},
+      housetype = #{record.housetype,jdbcType=VARCHAR},
+      houseprice = #{record.houseprice,jdbcType=DECIMAL},
+      housesize = #{record.housesize,jdbcType=DECIMAL},
+      housemonth = #{record.housemonth,jdbcType=DECIMAL},
+      housetime = #{record.housetime,jdbcType=VARCHAR},
+      provence = #{record.provence,jdbcType=VARCHAR},
+      provenceName = #{record.provencename,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      cityname = #{record.cityname,jdbcType=VARCHAR},
+      area = #{record.area,jdbcType=VARCHAR},
+      areaName = #{record.areaname,jdbcType=VARCHAR},
+      houseadd = #{record.houseadd,jdbcType=VARCHAR},
+      housezip = #{record.housezip,jdbcType=VARCHAR},
+      entrytime = #{record.entrytime,jdbcType=VARCHAR},
+      department = #{record.department,jdbcType=VARCHAR},
+      WorkTel2 = #{record.worktel2,jdbcType=VARCHAR},
+      monthpayday = #{record.monthpayday,jdbcType=VARCHAR},
+      bonusincome = #{record.bonusincome,jdbcType=DECIMAL},
+      issueform = #{record.issueform,jdbcType=VARCHAR},
+      sourceincome = #{record.sourceincome,jdbcType=VARCHAR},
+      changenumber = #{record.changenumber,jdbcType=VARCHAR},
+      WORKCORP1 = #{record.workcorp1,jdbcType=VARCHAR},
+      WORKTEL1 = #{record.worktel1,jdbcType=VARCHAR},
+      WORKAGE1 = #{record.workage1,jdbcType=VARCHAR},
+      WORKADD1 = #{record.workadd1,jdbcType=VARCHAR},
+      WORKZIP1 = #{record.workzip1,jdbcType=VARCHAR},
+      NATIVEZIP = #{record.nativezip,jdbcType=VARCHAR},
+      RENT = #{record.rent,jdbcType=DECIMAL},
+      MARKETVALUE = #{record.marketvalue,jdbcType=DECIMAL},
+      HOMELOANMONTH = #{record.homeloanmonth,jdbcType=VARCHAR},
+      INSURANCECOMPANY = #{record.insurancecompany,jdbcType=VARCHAR},
+      INSUREDLOCATION = #{record.insuredlocation,jdbcType=VARCHAR},
+      EFFECTIVEDATE = #{record.effectivedate,jdbcType=VARCHAR},
+      PAYYEAR = #{record.payyear,jdbcType=VARCHAR},
+      INSURANCENO = #{record.insuranceno,jdbcType=VARCHAR},
+      PAYTYPE = #{record.paytype,jdbcType=VARCHAR},
+      REGULARPREMIUM = #{record.regularpremium,jdbcType=DECIMAL},
+      INSURANCESUM = #{record.insurancesum,jdbcType=DECIMAL},
+      INSURANCETYPE = #{record.insurancetype,jdbcType=VARCHAR},
+      INSUREDNAME = #{record.insuredname,jdbcType=VARCHAR},
+      INSURANCETEL = #{record.insurancetel,jdbcType=VARCHAR},
+      INSURANCECOMPANY1 = #{record.insurancecompany1,jdbcType=VARCHAR},
+      INSUREDLOCATION1 = #{record.insuredlocation1,jdbcType=VARCHAR},
+      EFFECTIVEDATE1 = #{record.effectivedate1,jdbcType=VARCHAR},
+      PAYYEAR1 = #{record.payyear1,jdbcType=VARCHAR},
+      INSURANCENO1 = #{record.insuranceno1,jdbcType=VARCHAR},
+      PAYTYPE1 = #{record.paytype1,jdbcType=VARCHAR},
+      REGULARPREMIUM1 = #{record.regularpremium1,jdbcType=DECIMAL},
+      INSURANCESUM1 = #{record.insurancesum1,jdbcType=DECIMAL},
+      INSURANCETYPE1 = #{record.insurancetype1,jdbcType=VARCHAR},
+      INSUREDNAME1 = #{record.insuredname1,jdbcType=VARCHAR},
+      INSURANCETEL1 = #{record.insurancetel1,jdbcType=VARCHAR},
+      COMPANYSIZE = #{record.companysize,jdbcType=VARCHAR},
+      FIRSTTIME = #{record.firsttime,jdbcType=VARCHAR},
+      NOWCOMTIME = #{record.nowcomtime,jdbcType=VARCHAR},
+      MONTHSUM = #{record.monthsum,jdbcType=DECIMAL},
+      housennmber = #{record.housennmber,jdbcType=VARCHAR},
+      updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      fin_factory_status = #{record.finFactoryStatus,jdbcType=INTEGER},
+      ind_type = #{record.indType,jdbcType=INTEGER},
+      join_work_time = #{record.joinWorkTime,jdbcType=VARCHAR},
+      card_begin_time = #{record.cardBeginTime,jdbcType=VARCHAR},
+      card_end_time = #{record.cardEndTime,jdbcType=VARCHAR},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      occupation_id = #{record.occupationId,jdbcType=VARCHAR},
+      Business_License = #{record.businessLicense,jdbcType=VARCHAR},
+      login_phone = #{record.loginPhone,jdbcType=VARCHAR},
+      bind_time = #{record.bindTime,jdbcType=DATE},
+      open_id = #{record.openId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    update ind_info
+    <set>
+      <if test="fullname != null">
+        FULLNAME = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="certtype != null">
+        CERTTYPE = #{certtype,jdbcType=VARCHAR},
+      </if>
+      <if test="certid != null">
+        CERTID = #{certid,jdbcType=VARCHAR},
+      </if>
+      <if test="sino != null">
+        SINO = #{sino,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        COUNTRY = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        NATIVEPLACE = #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalface != null">
+        POLITICALFACE = #{politicalface,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null">
+        MARRIAGE = #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="relativetype != null">
+        RELATIVETYPE = #{relativetype,jdbcType=VARCHAR},
+      </if>
+      <if test="familyadd != null">
+        FAMILYADD = #{familyadd,jdbcType=VARCHAR},
+      </if>
+      <if test="familyzip != null">
+        FAMILYZIP = #{familyzip,jdbcType=VARCHAR},
+      </if>
+      <if test="emailadd != null">
+        EMAILADD = #{emailadd,jdbcType=VARCHAR},
+      </if>
+      <if test="familytel != null">
+        FAMILYTEL = #{familytel,jdbcType=VARCHAR},
+      </if>
+      <if test="familytel1 != null">
+        FAMILYTEL1 = #{familytel1,jdbcType=VARCHAR},
+      </if>
+      <if test="familytel2 != null">
+        FAMILYTEL2 = #{familytel2,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="phone1 != null">
+        PHONE1 = #{phone1,jdbcType=VARCHAR},
+      </if>
+      <if test="phone2 != null">
+        PHONE2 = #{phone2,jdbcType=VARCHAR},
+      </if>
+      <if test="unitkind != null">
+        UNITKIND = #{unitkind,jdbcType=VARCHAR},
+      </if>
+      <if test="workcorp != null">
+        WORKCORP = #{workcorp,jdbcType=VARCHAR},
+      </if>
+      <if test="workadd != null">
+        WORKADD = #{workadd,jdbcType=VARCHAR},
+      </if>
+      <if test="worktel != null">
+        WORKTEL = #{worktel,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        POSITION = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="employrecord != null">
+        EMPLOYRECORD = #{employrecord,jdbcType=VARCHAR},
+      </if>
+      <if test="eduexperience != null">
+        EDUEXPERIENCE = #{eduexperience,jdbcType=VARCHAR},
+      </if>
+      <if test="edudegree != null">
+        EDUDEGREE = #{edudegree,jdbcType=VARCHAR},
+      </if>
+      <if test="graduateyear != null">
+        GRADUATEYEAR = #{graduateyear,jdbcType=VARCHAR},
+      </if>
+      <if test="creditlevel != null">
+        CREDITLEVEL = #{creditlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluatedate != null">
+        EVALUATEDATE = #{evaluatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="balancesheet != null">
+        BALANCESHEET = #{balancesheet,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        INTRO = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="selfmonthincome != null">
+        SELFMONTHINCOME = #{selfmonthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="familymonthincome != null">
+        FAMILYMONTHINCOME = #{familymonthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="incomesource != null">
+        INCOMESOURCE = #{incomesource,jdbcType=VARCHAR},
+      </if>
+      <if test="population != null">
+        POPULATION = #{population,jdbcType=DECIMAL},
+      </if>
+      <if test="farmersort != null">
+        FARMERSORT = #{farmersort,jdbcType=VARCHAR},
+      </if>
+      <if test="regionalism != null">
+        REGIONALISM = #{regionalism,jdbcType=VARCHAR},
+      </if>
+      <if test="staff != null">
+        STAFF = #{staff,jdbcType=VARCHAR},
+      </if>
+      <if test="creditfarmer != null">
+        CREDITFARMER = #{creditfarmer,jdbcType=VARCHAR},
+      </if>
+      <if test="inputorgid != null">
+        INPUTORGID = #{inputorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputuserid != null">
+        INPUTUSERID = #{inputuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputdate != null">
+        INPUTDATE = #{inputdate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateorgid != null">
+        UPDATEORGID = #{updateorgid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuserid != null">
+        UPDATEUSERID = #{updateuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="commadd != null">
+        COMMADD = #{commadd,jdbcType=VARCHAR},
+      </if>
+      <if test="commzip != null">
+        COMMZIP = #{commzip,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeadd != null">
+        NATIVEADD = #{nativeadd,jdbcType=VARCHAR},
+      </if>
+      <if test="workzip != null">
+        WORKZIP = #{workzip,jdbcType=VARCHAR},
+      </if>
+      <if test="headship != null">
+        HEADSHIP = #{headship,jdbcType=VARCHAR},
+      </if>
+      <if test="workbegindate != null">
+        WORKBEGINDATE = #{workbegindate,jdbcType=VARCHAR},
+      </if>
+      <if test="yearincome != null">
+        YEARINCOME = #{yearincome,jdbcType=DECIMAL},
+      </if>
+      <if test="familystatus != null">
+        FAMILYSTATUS = #{familystatus,jdbcType=VARCHAR},
+      </if>
+      <if test="tempsaveflag != null">
+        TEMPSAVEFLAG = #{tempsaveflag,jdbcType=VARCHAR},
+      </if>
+      <if test="engname != null">
+        ENGNAME = #{engname,jdbcType=VARCHAR},
+      </if>
+      <if test="regioncode != null">
+        REGIONCODE = #{regioncode,jdbcType=VARCHAR},
+      </if>
+      <if test="worknature != null">
+        WORKNATURE = #{worknature,jdbcType=VARCHAR},
+      </if>
+      <if test="childflag != null">
+        CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      </if>
+      <if test="localyear != null">
+        LOCALYEAR = #{localyear,jdbcType=VARCHAR},
+      </if>
+      <if test="posionlevel != null">
+        POSIONLEVEL = #{posionlevel,jdbcType=VARCHAR},
+      </if>
+      <if test="firsttel != null">
+        FIRSTTEL = #{firsttel,jdbcType=VARCHAR},
+      </if>
+      <if test="firstemail != null">
+        FIRSTEMAIL = #{firstemail,jdbcType=VARCHAR},
+      </if>
+      <if test="monthincome != null">
+        MONTHINCOME = #{monthincome,jdbcType=DECIMAL},
+      </if>
+      <if test="corpzone != null">
+        CORPZONE = #{corpzone,jdbcType=VARCHAR},
+      </if>
+      <if test="corparea != null">
+        CORPAREA = #{corparea,jdbcType=VARCHAR},
+      </if>
+      <if test="corpextension != null">
+        CORPEXTENSION = #{corpextension,jdbcType=VARCHAR},
+      </if>
+      <if test="housezone != null">
+        HOUSEZONE = #{housezone,jdbcType=VARCHAR},
+      </if>
+      <if test="housearea != null">
+        HOUSEAREA = #{housearea,jdbcType=VARCHAR},
+      </if>
+      <if test="companynature != null">
+        COMPANYNATURE = #{companynature,jdbcType=VARCHAR},
+      </if>
+      <if test="qqcode != null">
+        QQCODE = #{qqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="whilomname != null">
+        WHILOMNAME = #{whilomname,jdbcType=VARCHAR},
+      </if>
+      <if test="drivinglicence != null">
+        DRIVINGLICENCE = #{drivinglicence,jdbcType=VARCHAR},
+      </if>
+      <if test="isown != null">
+        ISOWN = #{isown,jdbcType=VARCHAR},
+      </if>
+      <if test="channeltype != null">
+        CHANNELTYPE = #{channeltype,jdbcType=VARCHAR},
+      </if>
+      <if test="channelgroupnum != null">
+        CHANNELGROUPNUM = #{channelgroupnum,jdbcType=VARCHAR},
+      </if>
+      <if test="housingarea != null">
+        HOUSINGAREA = #{housingarea,jdbcType=VARCHAR},
+      </if>
+      <if test="mascriptionadss != null">
+        MASCRIPTIONADSS = #{mascriptionadss,jdbcType=VARCHAR},
+      </if>
+      <if test="getbusytime != null">
+        GETBUSYTIME = #{getbusytime,jdbcType=VARCHAR},
+      </if>
+      <if test="worktime != null">
+        WORKTIME = #{worktime,jdbcType=VARCHAR},
+      </if>
+      <if test="dimissiontime != null">
+        DIMISSIONTIME = #{dimissiontime,jdbcType=VARCHAR},
+      </if>
+      <if test="subsistpamount != null">
+        SUBSISTPAMOUNT = #{subsistpamount,jdbcType=VARCHAR},
+      </if>
+      <if test="isborrower != null">
+        ISBORROWER = #{isborrower,jdbcType=VARCHAR},
+      </if>
+      <if test="iswarrantor != null">
+        ISWARRANTOR = #{iswarrantor,jdbcType=VARCHAR},
+      </if>
+      <if test="certmaturitydate != null">
+        CERTMATURITYDATE = #{certmaturitydate,jdbcType=VARCHAR},
+      </if>
+      <if test="sendcardorgan != null">
+        SENDCARDORGAN = #{sendcardorgan,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        AGE = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="emptype != null">
+        EMPTYPE = #{emptype,jdbcType=VARCHAR},
+      </if>
+      <if test="cusleveltype != null">
+        CUSLEVELTYPE = #{cusleveltype,jdbcType=VARCHAR},
+      </if>
+      <if test="localtype != null">
+        LOCALTYPE = #{localtype,jdbcType=VARCHAR},
+      </if>
+      <if test="certid18 != null">
+        CERTID18 = #{certid18,jdbcType=VARCHAR},
+      </if>
+      <if test="homesum != null">
+        HOMESUM = #{homesum,jdbcType=DECIMAL},
+      </if>
+      <if test="familysumroot != null">
+        FAMILYSUMROOT = #{familysumroot,jdbcType=VARCHAR},
+      </if>
+      <if test="familypincome != null">
+        FAMILYPINCOME = #{familypincome,jdbcType=DECIMAL},
+      </if>
+      <if test="homeloanblance != null">
+        HOMELOANBLANCE = #{homeloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="homeloanmonthsum != null">
+        HOMELOANMONTHSUM = #{homeloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="carloanblance != null">
+        CARLOANBLANCE = #{carloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="carloanmonthsum != null">
+        CARLOANMONTHSUM = #{carloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="otherloanblance != null">
+        OTHERLOANBLANCE = #{otherloanblance,jdbcType=DECIMAL},
+      </if>
+      <if test="otherloanmonthsum != null">
+        OTHERLOANMONTHSUM = #{otherloanmonthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        BankName = #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        BankCARD = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcode != null">
+        bankCode = #{bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcardphone != null">
+        bankCardPhone = #{bankcardphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sidflag != null">
+        sidflag = #{sidflag,jdbcType=VARCHAR},
+      </if>
+      <if test="edurecord != null">
+        edurecord = #{edurecord,jdbcType=VARCHAR},
+      </if>
+      <if test="verifytype != null">
+        verifyType = #{verifytype,jdbcType=VARCHAR},
+      </if>
+      <if test="housenumber != null">
+        housenumber = #{housenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplacetel != null">
+        NativePlaceTel = #{nativeplacetel,jdbcType=VARCHAR},
+      </if>
+      <if test="familytelbelong != null">
+        FamilyTelBelong = #{familytelbelong,jdbcType=VARCHAR},
+      </if>
+      <if test="familybegintime != null">
+        FamilyBeginTime = #{familybegintime,jdbcType=VARCHAR},
+      </if>
+      <if test="isparent != null">
+        isparent = #{isparent,jdbcType=VARCHAR},
+      </if>
+      <if test="housetype != null">
+        housetype = #{housetype,jdbcType=VARCHAR},
+      </if>
+      <if test="houseprice != null">
+        houseprice = #{houseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="housesize != null">
+        housesize = #{housesize,jdbcType=DECIMAL},
+      </if>
+      <if test="housemonth != null">
+        housemonth = #{housemonth,jdbcType=DECIMAL},
+      </if>
+      <if test="housetime != null">
+        housetime = #{housetime,jdbcType=VARCHAR},
+      </if>
+      <if test="provence != null">
+        provence = #{provence,jdbcType=VARCHAR},
+      </if>
+      <if test="provencename != null">
+        provenceName = #{provencename,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="cityname != null">
+        cityname = #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null">
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="houseadd != null">
+        houseadd = #{houseadd,jdbcType=VARCHAR},
+      </if>
+      <if test="housezip != null">
+        housezip = #{housezip,jdbcType=VARCHAR},
+      </if>
+      <if test="entrytime != null">
+        entrytime = #{entrytime,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="worktel2 != null">
+        WorkTel2 = #{worktel2,jdbcType=VARCHAR},
+      </if>
+      <if test="monthpayday != null">
+        monthpayday = #{monthpayday,jdbcType=VARCHAR},
+      </if>
+      <if test="bonusincome != null">
+        bonusincome = #{bonusincome,jdbcType=DECIMAL},
+      </if>
+      <if test="issueform != null">
+        issueform = #{issueform,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceincome != null">
+        sourceincome = #{sourceincome,jdbcType=VARCHAR},
+      </if>
+      <if test="changenumber != null">
+        changenumber = #{changenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="workcorp1 != null">
+        WORKCORP1 = #{workcorp1,jdbcType=VARCHAR},
+      </if>
+      <if test="worktel1 != null">
+        WORKTEL1 = #{worktel1,jdbcType=VARCHAR},
+      </if>
+      <if test="workage1 != null">
+        WORKAGE1 = #{workage1,jdbcType=VARCHAR},
+      </if>
+      <if test="workadd1 != null">
+        WORKADD1 = #{workadd1,jdbcType=VARCHAR},
+      </if>
+      <if test="workzip1 != null">
+        WORKZIP1 = #{workzip1,jdbcType=VARCHAR},
+      </if>
+      <if test="nativezip != null">
+        NATIVEZIP = #{nativezip,jdbcType=VARCHAR},
+      </if>
+      <if test="rent != null">
+        RENT = #{rent,jdbcType=DECIMAL},
+      </if>
+      <if test="marketvalue != null">
+        MARKETVALUE = #{marketvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="homeloanmonth != null">
+        HOMELOANMONTH = #{homeloanmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancecompany != null">
+        INSURANCECOMPANY = #{insurancecompany,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredlocation != null">
+        INSUREDLOCATION = #{insuredlocation,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate != null">
+        EFFECTIVEDATE = #{effectivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="payyear != null">
+        PAYYEAR = #{payyear,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceno != null">
+        INSURANCENO = #{insuranceno,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null">
+        PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="regularpremium != null">
+        REGULARPREMIUM = #{regularpremium,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesum != null">
+        INSURANCESUM = #{insurancesum,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancetype != null">
+        INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredname != null">
+        INSUREDNAME = #{insuredname,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancetel != null">
+        INSURANCETEL = #{insurancetel,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancecompany1 != null">
+        INSURANCECOMPANY1 = #{insurancecompany1,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredlocation1 != null">
+        INSUREDLOCATION1 = #{insuredlocation1,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate1 != null">
+        EFFECTIVEDATE1 = #{effectivedate1,jdbcType=VARCHAR},
+      </if>
+      <if test="payyear1 != null">
+        PAYYEAR1 = #{payyear1,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceno1 != null">
+        INSURANCENO1 = #{insuranceno1,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype1 != null">
+        PAYTYPE1 = #{paytype1,jdbcType=VARCHAR},
+      </if>
+      <if test="regularpremium1 != null">
+        REGULARPREMIUM1 = #{regularpremium1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesum1 != null">
+        INSURANCESUM1 = #{insurancesum1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancetype1 != null">
+        INSURANCETYPE1 = #{insurancetype1,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredname1 != null">
+        INSUREDNAME1 = #{insuredname1,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancetel1 != null">
+        INSURANCETEL1 = #{insurancetel1,jdbcType=VARCHAR},
+      </if>
+      <if test="companysize != null">
+        COMPANYSIZE = #{companysize,jdbcType=VARCHAR},
+      </if>
+      <if test="firsttime != null">
+        FIRSTTIME = #{firsttime,jdbcType=VARCHAR},
+      </if>
+      <if test="nowcomtime != null">
+        NOWCOMTIME = #{nowcomtime,jdbcType=VARCHAR},
+      </if>
+      <if test="monthsum != null">
+        MONTHSUM = #{monthsum,jdbcType=DECIMAL},
+      </if>
+      <if test="housennmber != null">
+        housennmber = #{housennmber,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finFactoryStatus != null">
+        fin_factory_status = #{finFactoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="indType != null">
+        ind_type = #{indType,jdbcType=INTEGER},
+      </if>
+      <if test="joinWorkTime != null">
+        join_work_time = #{joinWorkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBeginTime != null">
+        card_begin_time = #{cardBeginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cardEndTime != null">
+        card_end_time = #{cardEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="occupationId != null">
+        occupation_id = #{occupationId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null">
+        Business_License = #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPhone != null">
+        login_phone = #{loginPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bindTime != null">
+        bind_time = #{bindTime,jdbcType=DATE},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="rootreame != null">
+        ROOTREAME = #{rootreame,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    update ind_info
+    set FULLNAME = #{fullname,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      CERTTYPE = #{certtype,jdbcType=VARCHAR},
+      CERTID = #{certid,jdbcType=VARCHAR},
+      SINO = #{sino,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      NATIVEPLACE = #{nativeplace,jdbcType=VARCHAR},
+      POLITICALFACE = #{politicalface,jdbcType=VARCHAR},
+      MARRIAGE = #{marriage,jdbcType=VARCHAR},
+      RELATIVETYPE = #{relativetype,jdbcType=VARCHAR},
+      FAMILYADD = #{familyadd,jdbcType=VARCHAR},
+      FAMILYZIP = #{familyzip,jdbcType=VARCHAR},
+      EMAILADD = #{emailadd,jdbcType=VARCHAR},
+      FAMILYTEL = #{familytel,jdbcType=VARCHAR},
+      FAMILYTEL1 = #{familytel1,jdbcType=VARCHAR},
+      FAMILYTEL2 = #{familytel2,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      PHONE1 = #{phone1,jdbcType=VARCHAR},
+      PHONE2 = #{phone2,jdbcType=VARCHAR},
+      UNITKIND = #{unitkind,jdbcType=VARCHAR},
+      WORKCORP = #{workcorp,jdbcType=VARCHAR},
+      WORKADD = #{workadd,jdbcType=VARCHAR},
+      WORKTEL = #{worktel,jdbcType=VARCHAR},
+      OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      POSITION = #{position,jdbcType=VARCHAR},
+      EMPLOYRECORD = #{employrecord,jdbcType=VARCHAR},
+      EDUEXPERIENCE = #{eduexperience,jdbcType=VARCHAR},
+      EDUDEGREE = #{edudegree,jdbcType=VARCHAR},
+      GRADUATEYEAR = #{graduateyear,jdbcType=VARCHAR},
+      CREDITLEVEL = #{creditlevel,jdbcType=VARCHAR},
+      EVALUATEDATE = #{evaluatedate,jdbcType=VARCHAR},
+      BALANCESHEET = #{balancesheet,jdbcType=VARCHAR},
+      INTRO = #{intro,jdbcType=VARCHAR},
+      SELFMONTHINCOME = #{selfmonthincome,jdbcType=DECIMAL},
+      FAMILYMONTHINCOME = #{familymonthincome,jdbcType=DECIMAL},
+      INCOMESOURCE = #{incomesource,jdbcType=VARCHAR},
+      POPULATION = #{population,jdbcType=DECIMAL},
+      FARMERSORT = #{farmersort,jdbcType=VARCHAR},
+      REGIONALISM = #{regionalism,jdbcType=VARCHAR},
+      STAFF = #{staff,jdbcType=VARCHAR},
+      CREDITFARMER = #{creditfarmer,jdbcType=VARCHAR},
+      INPUTORGID = #{inputorgid,jdbcType=VARCHAR},
+      INPUTUSERID = #{inputuserid,jdbcType=VARCHAR},
+      INPUTDATE = #{inputdate,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      UPDATEORGID = #{updateorgid,jdbcType=VARCHAR},
+      UPDATEUSERID = #{updateuserid,jdbcType=VARCHAR},
+      COMMADD = #{commadd,jdbcType=VARCHAR},
+      COMMZIP = #{commzip,jdbcType=VARCHAR},
+      NATIVEADD = #{nativeadd,jdbcType=VARCHAR},
+      WORKZIP = #{workzip,jdbcType=VARCHAR},
+      HEADSHIP = #{headship,jdbcType=VARCHAR},
+      WORKBEGINDATE = #{workbegindate,jdbcType=VARCHAR},
+      YEARINCOME = #{yearincome,jdbcType=DECIMAL},
+      FAMILYSTATUS = #{familystatus,jdbcType=VARCHAR},
+      TEMPSAVEFLAG = #{tempsaveflag,jdbcType=VARCHAR},
+      ENGNAME = #{engname,jdbcType=VARCHAR},
+      REGIONCODE = #{regioncode,jdbcType=VARCHAR},
+      WORKNATURE = #{worknature,jdbcType=VARCHAR},
+      CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      LOCALYEAR = #{localyear,jdbcType=VARCHAR},
+      POSIONLEVEL = #{posionlevel,jdbcType=VARCHAR},
+      FIRSTTEL = #{firsttel,jdbcType=VARCHAR},
+      FIRSTEMAIL = #{firstemail,jdbcType=VARCHAR},
+      MONTHINCOME = #{monthincome,jdbcType=DECIMAL},
+      CORPZONE = #{corpzone,jdbcType=VARCHAR},
+      CORPAREA = #{corparea,jdbcType=VARCHAR},
+      CORPEXTENSION = #{corpextension,jdbcType=VARCHAR},
+      HOUSEZONE = #{housezone,jdbcType=VARCHAR},
+      HOUSEAREA = #{housearea,jdbcType=VARCHAR},
+      COMPANYNATURE = #{companynature,jdbcType=VARCHAR},
+      QQCODE = #{qqcode,jdbcType=VARCHAR},
+      WHILOMNAME = #{whilomname,jdbcType=VARCHAR},
+      DRIVINGLICENCE = #{drivinglicence,jdbcType=VARCHAR},
+      ISOWN = #{isown,jdbcType=VARCHAR},
+      CHANNELTYPE = #{channeltype,jdbcType=VARCHAR},
+      CHANNELGROUPNUM = #{channelgroupnum,jdbcType=VARCHAR},
+      HOUSINGAREA = #{housingarea,jdbcType=VARCHAR},
+      MASCRIPTIONADSS = #{mascriptionadss,jdbcType=VARCHAR},
+      GETBUSYTIME = #{getbusytime,jdbcType=VARCHAR},
+      WORKTIME = #{worktime,jdbcType=VARCHAR},
+      DIMISSIONTIME = #{dimissiontime,jdbcType=VARCHAR},
+      SUBSISTPAMOUNT = #{subsistpamount,jdbcType=VARCHAR},
+      ISBORROWER = #{isborrower,jdbcType=VARCHAR},
+      ISWARRANTOR = #{iswarrantor,jdbcType=VARCHAR},
+      CERTMATURITYDATE = #{certmaturitydate,jdbcType=VARCHAR},
+      SENDCARDORGAN = #{sendcardorgan,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      EMPTYPE = #{emptype,jdbcType=VARCHAR},
+      CUSLEVELTYPE = #{cusleveltype,jdbcType=VARCHAR},
+      LOCALTYPE = #{localtype,jdbcType=VARCHAR},
+      CERTID18 = #{certid18,jdbcType=VARCHAR},
+      HOMESUM = #{homesum,jdbcType=DECIMAL},
+      FAMILYSUMROOT = #{familysumroot,jdbcType=VARCHAR},
+      FAMILYPINCOME = #{familypincome,jdbcType=DECIMAL},
+      HOMELOANBLANCE = #{homeloanblance,jdbcType=DECIMAL},
+      HOMELOANMONTHSUM = #{homeloanmonthsum,jdbcType=DECIMAL},
+      CARLOANBLANCE = #{carloanblance,jdbcType=DECIMAL},
+      CARLOANMONTHSUM = #{carloanmonthsum,jdbcType=DECIMAL},
+      OTHERLOANBLANCE = #{otherloanblance,jdbcType=DECIMAL},
+      OTHERLOANMONTHSUM = #{otherloanmonthsum,jdbcType=DECIMAL},
+      USERID = #{userid,jdbcType=VARCHAR},
+      BankName = #{bankname,jdbcType=VARCHAR},
+      BankCARD = #{bankcard,jdbcType=VARCHAR},
+      bankCode = #{bankcode,jdbcType=VARCHAR},
+      bankCardPhone = #{bankcardphone,jdbcType=VARCHAR},
+      sidflag = #{sidflag,jdbcType=VARCHAR},
+      edurecord = #{edurecord,jdbcType=VARCHAR},
+      verifyType = #{verifytype,jdbcType=VARCHAR},
+      housenumber = #{housenumber,jdbcType=VARCHAR},
+      NativePlaceTel = #{nativeplacetel,jdbcType=VARCHAR},
+      FamilyTelBelong = #{familytelbelong,jdbcType=VARCHAR},
+      FamilyBeginTime = #{familybegintime,jdbcType=VARCHAR},
+      isparent = #{isparent,jdbcType=VARCHAR},
+      housetype = #{housetype,jdbcType=VARCHAR},
+      houseprice = #{houseprice,jdbcType=DECIMAL},
+      housesize = #{housesize,jdbcType=DECIMAL},
+      housemonth = #{housemonth,jdbcType=DECIMAL},
+      housetime = #{housetime,jdbcType=VARCHAR},
+      provence = #{provence,jdbcType=VARCHAR},
+      provenceName = #{provencename,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      cityname = #{cityname,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      houseadd = #{houseadd,jdbcType=VARCHAR},
+      housezip = #{housezip,jdbcType=VARCHAR},
+      entrytime = #{entrytime,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      WorkTel2 = #{worktel2,jdbcType=VARCHAR},
+      monthpayday = #{monthpayday,jdbcType=VARCHAR},
+      bonusincome = #{bonusincome,jdbcType=DECIMAL},
+      issueform = #{issueform,jdbcType=VARCHAR},
+      sourceincome = #{sourceincome,jdbcType=VARCHAR},
+      changenumber = #{changenumber,jdbcType=VARCHAR},
+      WORKCORP1 = #{workcorp1,jdbcType=VARCHAR},
+      WORKTEL1 = #{worktel1,jdbcType=VARCHAR},
+      WORKAGE1 = #{workage1,jdbcType=VARCHAR},
+      WORKADD1 = #{workadd1,jdbcType=VARCHAR},
+      WORKZIP1 = #{workzip1,jdbcType=VARCHAR},
+      NATIVEZIP = #{nativezip,jdbcType=VARCHAR},
+      RENT = #{rent,jdbcType=DECIMAL},
+      MARKETVALUE = #{marketvalue,jdbcType=DECIMAL},
+      HOMELOANMONTH = #{homeloanmonth,jdbcType=VARCHAR},
+      INSURANCECOMPANY = #{insurancecompany,jdbcType=VARCHAR},
+      INSUREDLOCATION = #{insuredlocation,jdbcType=VARCHAR},
+      EFFECTIVEDATE = #{effectivedate,jdbcType=VARCHAR},
+      PAYYEAR = #{payyear,jdbcType=VARCHAR},
+      INSURANCENO = #{insuranceno,jdbcType=VARCHAR},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      REGULARPREMIUM = #{regularpremium,jdbcType=DECIMAL},
+      INSURANCESUM = #{insurancesum,jdbcType=DECIMAL},
+      INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR},
+      INSUREDNAME = #{insuredname,jdbcType=VARCHAR},
+      INSURANCETEL = #{insurancetel,jdbcType=VARCHAR},
+      INSURANCECOMPANY1 = #{insurancecompany1,jdbcType=VARCHAR},
+      INSUREDLOCATION1 = #{insuredlocation1,jdbcType=VARCHAR},
+      EFFECTIVEDATE1 = #{effectivedate1,jdbcType=VARCHAR},
+      PAYYEAR1 = #{payyear1,jdbcType=VARCHAR},
+      INSURANCENO1 = #{insuranceno1,jdbcType=VARCHAR},
+      PAYTYPE1 = #{paytype1,jdbcType=VARCHAR},
+      REGULARPREMIUM1 = #{regularpremium1,jdbcType=DECIMAL},
+      INSURANCESUM1 = #{insurancesum1,jdbcType=DECIMAL},
+      INSURANCETYPE1 = #{insurancetype1,jdbcType=VARCHAR},
+      INSUREDNAME1 = #{insuredname1,jdbcType=VARCHAR},
+      INSURANCETEL1 = #{insurancetel1,jdbcType=VARCHAR},
+      COMPANYSIZE = #{companysize,jdbcType=VARCHAR},
+      FIRSTTIME = #{firsttime,jdbcType=VARCHAR},
+      NOWCOMTIME = #{nowcomtime,jdbcType=VARCHAR},
+      MONTHSUM = #{monthsum,jdbcType=DECIMAL},
+      housennmber = #{housennmber,jdbcType=VARCHAR},
+      updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      fin_factory_status = #{finFactoryStatus,jdbcType=INTEGER},
+      ind_type = #{indType,jdbcType=INTEGER},
+      join_work_time = #{joinWorkTime,jdbcType=VARCHAR},
+      card_begin_time = #{cardBeginTime,jdbcType=VARCHAR},
+      card_end_time = #{cardEndTime,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      occupation_id = #{occupationId,jdbcType=VARCHAR},
+      Business_License = #{businessLicense,jdbcType=VARCHAR},
+      login_phone = #{loginPhone,jdbcType=VARCHAR},
+      bind_time = #{bindTime,jdbcType=DATE},
+      open_id = #{openId,jdbcType=VARCHAR},
+      ROOTREAME = #{rootreame,jdbcType=LONGVARCHAR}
+    where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.IndInfo">
+    update ind_info
+    set FULLNAME = #{fullname,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      CERTTYPE = #{certtype,jdbcType=VARCHAR},
+      CERTID = #{certid,jdbcType=VARCHAR},
+      SINO = #{sino,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      NATIVEPLACE = #{nativeplace,jdbcType=VARCHAR},
+      POLITICALFACE = #{politicalface,jdbcType=VARCHAR},
+      MARRIAGE = #{marriage,jdbcType=VARCHAR},
+      RELATIVETYPE = #{relativetype,jdbcType=VARCHAR},
+      FAMILYADD = #{familyadd,jdbcType=VARCHAR},
+      FAMILYZIP = #{familyzip,jdbcType=VARCHAR},
+      EMAILADD = #{emailadd,jdbcType=VARCHAR},
+      FAMILYTEL = #{familytel,jdbcType=VARCHAR},
+      FAMILYTEL1 = #{familytel1,jdbcType=VARCHAR},
+      FAMILYTEL2 = #{familytel2,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      PHONE1 = #{phone1,jdbcType=VARCHAR},
+      PHONE2 = #{phone2,jdbcType=VARCHAR},
+      UNITKIND = #{unitkind,jdbcType=VARCHAR},
+      WORKCORP = #{workcorp,jdbcType=VARCHAR},
+      WORKADD = #{workadd,jdbcType=VARCHAR},
+      WORKTEL = #{worktel,jdbcType=VARCHAR},
+      OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      POSITION = #{position,jdbcType=VARCHAR},
+      EMPLOYRECORD = #{employrecord,jdbcType=VARCHAR},
+      EDUEXPERIENCE = #{eduexperience,jdbcType=VARCHAR},
+      EDUDEGREE = #{edudegree,jdbcType=VARCHAR},
+      GRADUATEYEAR = #{graduateyear,jdbcType=VARCHAR},
+      CREDITLEVEL = #{creditlevel,jdbcType=VARCHAR},
+      EVALUATEDATE = #{evaluatedate,jdbcType=VARCHAR},
+      BALANCESHEET = #{balancesheet,jdbcType=VARCHAR},
+      INTRO = #{intro,jdbcType=VARCHAR},
+      SELFMONTHINCOME = #{selfmonthincome,jdbcType=DECIMAL},
+      FAMILYMONTHINCOME = #{familymonthincome,jdbcType=DECIMAL},
+      INCOMESOURCE = #{incomesource,jdbcType=VARCHAR},
+      POPULATION = #{population,jdbcType=DECIMAL},
+      FARMERSORT = #{farmersort,jdbcType=VARCHAR},
+      REGIONALISM = #{regionalism,jdbcType=VARCHAR},
+      STAFF = #{staff,jdbcType=VARCHAR},
+      CREDITFARMER = #{creditfarmer,jdbcType=VARCHAR},
+      INPUTORGID = #{inputorgid,jdbcType=VARCHAR},
+      INPUTUSERID = #{inputuserid,jdbcType=VARCHAR},
+      INPUTDATE = #{inputdate,jdbcType=VARCHAR},
+      UPDATEDATE = #{updatedate,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      UPDATEORGID = #{updateorgid,jdbcType=VARCHAR},
+      UPDATEUSERID = #{updateuserid,jdbcType=VARCHAR},
+      COMMADD = #{commadd,jdbcType=VARCHAR},
+      COMMZIP = #{commzip,jdbcType=VARCHAR},
+      NATIVEADD = #{nativeadd,jdbcType=VARCHAR},
+      WORKZIP = #{workzip,jdbcType=VARCHAR},
+      HEADSHIP = #{headship,jdbcType=VARCHAR},
+      WORKBEGINDATE = #{workbegindate,jdbcType=VARCHAR},
+      YEARINCOME = #{yearincome,jdbcType=DECIMAL},
+      FAMILYSTATUS = #{familystatus,jdbcType=VARCHAR},
+      TEMPSAVEFLAG = #{tempsaveflag,jdbcType=VARCHAR},
+      ENGNAME = #{engname,jdbcType=VARCHAR},
+      REGIONCODE = #{regioncode,jdbcType=VARCHAR},
+      WORKNATURE = #{worknature,jdbcType=VARCHAR},
+      CHILDFLAG = #{childflag,jdbcType=VARCHAR},
+      LOCALYEAR = #{localyear,jdbcType=VARCHAR},
+      POSIONLEVEL = #{posionlevel,jdbcType=VARCHAR},
+      FIRSTTEL = #{firsttel,jdbcType=VARCHAR},
+      FIRSTEMAIL = #{firstemail,jdbcType=VARCHAR},
+      MONTHINCOME = #{monthincome,jdbcType=DECIMAL},
+      CORPZONE = #{corpzone,jdbcType=VARCHAR},
+      CORPAREA = #{corparea,jdbcType=VARCHAR},
+      CORPEXTENSION = #{corpextension,jdbcType=VARCHAR},
+      HOUSEZONE = #{housezone,jdbcType=VARCHAR},
+      HOUSEAREA = #{housearea,jdbcType=VARCHAR},
+      COMPANYNATURE = #{companynature,jdbcType=VARCHAR},
+      QQCODE = #{qqcode,jdbcType=VARCHAR},
+      WHILOMNAME = #{whilomname,jdbcType=VARCHAR},
+      DRIVINGLICENCE = #{drivinglicence,jdbcType=VARCHAR},
+      ISOWN = #{isown,jdbcType=VARCHAR},
+      CHANNELTYPE = #{channeltype,jdbcType=VARCHAR},
+      CHANNELGROUPNUM = #{channelgroupnum,jdbcType=VARCHAR},
+      HOUSINGAREA = #{housingarea,jdbcType=VARCHAR},
+      MASCRIPTIONADSS = #{mascriptionadss,jdbcType=VARCHAR},
+      GETBUSYTIME = #{getbusytime,jdbcType=VARCHAR},
+      WORKTIME = #{worktime,jdbcType=VARCHAR},
+      DIMISSIONTIME = #{dimissiontime,jdbcType=VARCHAR},
+      SUBSISTPAMOUNT = #{subsistpamount,jdbcType=VARCHAR},
+      ISBORROWER = #{isborrower,jdbcType=VARCHAR},
+      ISWARRANTOR = #{iswarrantor,jdbcType=VARCHAR},
+      CERTMATURITYDATE = #{certmaturitydate,jdbcType=VARCHAR},
+      SENDCARDORGAN = #{sendcardorgan,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      EMPTYPE = #{emptype,jdbcType=VARCHAR},
+      CUSLEVELTYPE = #{cusleveltype,jdbcType=VARCHAR},
+      LOCALTYPE = #{localtype,jdbcType=VARCHAR},
+      CERTID18 = #{certid18,jdbcType=VARCHAR},
+      HOMESUM = #{homesum,jdbcType=DECIMAL},
+      FAMILYSUMROOT = #{familysumroot,jdbcType=VARCHAR},
+      FAMILYPINCOME = #{familypincome,jdbcType=DECIMAL},
+      HOMELOANBLANCE = #{homeloanblance,jdbcType=DECIMAL},
+      HOMELOANMONTHSUM = #{homeloanmonthsum,jdbcType=DECIMAL},
+      CARLOANBLANCE = #{carloanblance,jdbcType=DECIMAL},
+      CARLOANMONTHSUM = #{carloanmonthsum,jdbcType=DECIMAL},
+      OTHERLOANBLANCE = #{otherloanblance,jdbcType=DECIMAL},
+      OTHERLOANMONTHSUM = #{otherloanmonthsum,jdbcType=DECIMAL},
+      USERID = #{userid,jdbcType=VARCHAR},
+      BankName = #{bankname,jdbcType=VARCHAR},
+      BankCARD = #{bankcard,jdbcType=VARCHAR},
+      bankCode = #{bankcode,jdbcType=VARCHAR},
+      bankCardPhone = #{bankcardphone,jdbcType=VARCHAR},
+      sidflag = #{sidflag,jdbcType=VARCHAR},
+      edurecord = #{edurecord,jdbcType=VARCHAR},
+      verifyType = #{verifytype,jdbcType=VARCHAR},
+      housenumber = #{housenumber,jdbcType=VARCHAR},
+      NativePlaceTel = #{nativeplacetel,jdbcType=VARCHAR},
+      FamilyTelBelong = #{familytelbelong,jdbcType=VARCHAR},
+      FamilyBeginTime = #{familybegintime,jdbcType=VARCHAR},
+      isparent = #{isparent,jdbcType=VARCHAR},
+      housetype = #{housetype,jdbcType=VARCHAR},
+      houseprice = #{houseprice,jdbcType=DECIMAL},
+      housesize = #{housesize,jdbcType=DECIMAL},
+      housemonth = #{housemonth,jdbcType=DECIMAL},
+      housetime = #{housetime,jdbcType=VARCHAR},
+      provence = #{provence,jdbcType=VARCHAR},
+      provenceName = #{provencename,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      cityname = #{cityname,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      houseadd = #{houseadd,jdbcType=VARCHAR},
+      housezip = #{housezip,jdbcType=VARCHAR},
+      entrytime = #{entrytime,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      WorkTel2 = #{worktel2,jdbcType=VARCHAR},
+      monthpayday = #{monthpayday,jdbcType=VARCHAR},
+      bonusincome = #{bonusincome,jdbcType=DECIMAL},
+      issueform = #{issueform,jdbcType=VARCHAR},
+      sourceincome = #{sourceincome,jdbcType=VARCHAR},
+      changenumber = #{changenumber,jdbcType=VARCHAR},
+      WORKCORP1 = #{workcorp1,jdbcType=VARCHAR},
+      WORKTEL1 = #{worktel1,jdbcType=VARCHAR},
+      WORKAGE1 = #{workage1,jdbcType=VARCHAR},
+      WORKADD1 = #{workadd1,jdbcType=VARCHAR},
+      WORKZIP1 = #{workzip1,jdbcType=VARCHAR},
+      NATIVEZIP = #{nativezip,jdbcType=VARCHAR},
+      RENT = #{rent,jdbcType=DECIMAL},
+      MARKETVALUE = #{marketvalue,jdbcType=DECIMAL},
+      HOMELOANMONTH = #{homeloanmonth,jdbcType=VARCHAR},
+      INSURANCECOMPANY = #{insurancecompany,jdbcType=VARCHAR},
+      INSUREDLOCATION = #{insuredlocation,jdbcType=VARCHAR},
+      EFFECTIVEDATE = #{effectivedate,jdbcType=VARCHAR},
+      PAYYEAR = #{payyear,jdbcType=VARCHAR},
+      INSURANCENO = #{insuranceno,jdbcType=VARCHAR},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      REGULARPREMIUM = #{regularpremium,jdbcType=DECIMAL},
+      INSURANCESUM = #{insurancesum,jdbcType=DECIMAL},
+      INSURANCETYPE = #{insurancetype,jdbcType=VARCHAR},
+      INSUREDNAME = #{insuredname,jdbcType=VARCHAR},
+      INSURANCETEL = #{insurancetel,jdbcType=VARCHAR},
+      INSURANCECOMPANY1 = #{insurancecompany1,jdbcType=VARCHAR},
+      INSUREDLOCATION1 = #{insuredlocation1,jdbcType=VARCHAR},
+      EFFECTIVEDATE1 = #{effectivedate1,jdbcType=VARCHAR},
+      PAYYEAR1 = #{payyear1,jdbcType=VARCHAR},
+      INSURANCENO1 = #{insuranceno1,jdbcType=VARCHAR},
+      PAYTYPE1 = #{paytype1,jdbcType=VARCHAR},
+      REGULARPREMIUM1 = #{regularpremium1,jdbcType=DECIMAL},
+      INSURANCESUM1 = #{insurancesum1,jdbcType=DECIMAL},
+      INSURANCETYPE1 = #{insurancetype1,jdbcType=VARCHAR},
+      INSUREDNAME1 = #{insuredname1,jdbcType=VARCHAR},
+      INSURANCETEL1 = #{insurancetel1,jdbcType=VARCHAR},
+      COMPANYSIZE = #{companysize,jdbcType=VARCHAR},
+      FIRSTTIME = #{firsttime,jdbcType=VARCHAR},
+      NOWCOMTIME = #{nowcomtime,jdbcType=VARCHAR},
+      MONTHSUM = #{monthsum,jdbcType=DECIMAL},
+      housennmber = #{housennmber,jdbcType=VARCHAR},
+      updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      fin_factory_status = #{finFactoryStatus,jdbcType=INTEGER},
+      ind_type = #{indType,jdbcType=INTEGER},
+      join_work_time = #{joinWorkTime,jdbcType=VARCHAR},
+      card_begin_time = #{cardBeginTime,jdbcType=VARCHAR},
+      card_end_time = #{cardEndTime,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      occupation_id = #{occupationId,jdbcType=VARCHAR},
+      Business_License = #{businessLicense,jdbcType=VARCHAR},
+      login_phone = #{loginPhone,jdbcType=VARCHAR},
+      bind_time = #{bindTime,jdbcType=DATE},
+      open_id = #{openId,jdbcType=VARCHAR}
+    where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
+  </update>
+</mapper>

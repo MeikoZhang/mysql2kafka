@@ -1,6 +1,6 @@
 package com.sixku.mysql2kafka;
 
-import com.sixku.mysql2kafka.dao.CustomerInfoMapper;
+import com.sixku.mysql2kafka.dao.ucard_loan.CustomerInfoMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

@@ -90,7 +90,7 @@ public class RowData2Bean {
                     field.set(t, Double.valueOf(rowValue));
                     break;
                 case "BigDecimal":
-                    field.set(t, BigDecimal.valueOf(Long.valueOf(rowValue)));
+                    field.set(t, BigDecimal.valueOf(Double.valueOf(rowValue)));
                     break;
                 case "Date":
                     try {

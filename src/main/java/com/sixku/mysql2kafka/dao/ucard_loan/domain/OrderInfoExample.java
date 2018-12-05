@@ -1,4 +1,4 @@
-package com.sixku.mysql2kafka.dao.domain;
+package com.sixku.mysql2kafka.dao.ucard_loan.domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
