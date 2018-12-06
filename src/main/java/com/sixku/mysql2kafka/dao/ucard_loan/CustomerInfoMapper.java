@@ -29,4 +29,5 @@ public interface CustomerInfoMapper {
 
     int updateByPrimaryKey(CustomerInfo record);
 
+    CustomerInfo selectByCustomerId(String customerId);
 }

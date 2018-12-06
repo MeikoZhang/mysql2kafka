@@ -59,6 +59,9 @@ public class CanalRealtimeJob {
     @Autowired
     private OrderInfoMapper orderInfoMapper;
 
+    @Autowired
+    private CustomerInfoMapper customerInfoMapper;
+
     public void run(){
 
         // 创建链接
@@ -176,7 +179,6 @@ public class CanalRealtimeJob {
                 if("insert".equals(eventType)){
                     CustomerInfo customerInfo = RowData2Bean.extract2Object(rowData, CustomerInfo.class,"after");
                     kafkaBean.setBusinessChannel(customerInfo.getRegisterChannel());
-                    kafkaBean.setBusinessType(BusinessType.REGISTER.getName());
                     kafkaBean.setBusinessCustomerId(customerInfo.getCustomerId());
                     kafkaBean.setBusinessOrderId(null);
                     kafkaBean.setBusinessTime(customerInfo.getCreateTime());
@@ -185,7 +187,9 @@ public class CanalRealtimeJob {
 
                     kafkaBean.setBusinessCreateTime(customerInfo.getCreateTime());
                     kafkaBean.setBusinessUpdateTime(customerInfo.getUpdateTime());
+
                     //发送注册消息
+                    kafkaBean.setBusinessType(BusinessType.REGISTER.getName());
                     kafkaTemplate.send(BusinessType.REGISTER.getName(), JSON.toJSONString(kafkaBean));
                     logger.info("send kafka message ====> topic: {} message: {}",
                             BusinessType.REGISTER.getName(),JSON.toJSONString(kafkaBean));
@@ -196,8 +200,9 @@ public class CanalRealtimeJob {
                 //申请、进件
                 if("insert".equals(eventType)){
                     OrderInfo orderInfo = RowData2Bean.extract2Object(rowData, OrderInfo.class,"after");
-                    kafkaBean.setBusinessChannel(null);
-                    kafkaBean.setBusinessType(BusinessType.APPLY.getName());
+                    CustomerInfo customerInfo = customerInfoMapper.selectByCustomerId(orderInfo.getCustomerId());
+
+                    kafkaBean.setBusinessChannel(customerInfo.getRegisterChannel());
                     kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
                     kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
                     kafkaBean.setBusinessTime(orderInfo.getCreateTime());
@@ -206,11 +211,16 @@ public class CanalRealtimeJob {
 
                     kafkaBean.setBusinessCreateTime(orderInfo.getCreateTime());
                     kafkaBean.setBusinessUpdateTime(orderInfo.getUpdateTime());
+
+                    //申请
+                    kafkaBean.setBusinessType(BusinessType.APPLY.getName());
                     kafkaTemplate.send(BusinessType.APPLY.getName(), JSON.toJSONString(kafkaBean));
                     logger.info("send kafka message ====> topic: {} message: {}",
                             BusinessType.APPLY.getName(),JSON.toJSONString(kafkaBean));
+
+                    //进件
                     if(!"80,81".contains(orderInfo.getOrderStatus())){
-                        //进件
+                        kafkaBean.setBusinessType(BusinessType.LOAN.getName());
                         kafkaTemplate.send(BusinessType.LOAN.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.LOAN.getName(),JSON.toJSONString(kafkaBean));
@@ -229,9 +239,9 @@ public class CanalRealtimeJob {
 //                    System.out.println(JSON.toJSONString(afterOrderInfo));
                     OrderFlow orderFolow = RowData2Bean.extract2Object(rowData, OrderFlow.class, "after");
                     OrderInfo orderInfo = orderInfoMapper.selectByOrderId(orderFolow.getOrderId());
+                    CustomerInfo customerInfo = customerInfoMapper.selectByCustomerId(orderInfo.getCustomerId());
 
-                    kafkaBean.setBusinessChannel(null);
-//                    kafkaBean.setBusinessType(BusinessType.APPROVAL.getName());
+                    kafkaBean.setBusinessChannel(customerInfo.getRegisterChannel());
                     kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
                     kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
                     //是否复贷
@@ -243,6 +253,7 @@ public class CanalRealtimeJob {
 
                     //审批通过
                     if("10".equals(orderFolow.getEndStatus())){
+                        kafkaBean.setBusinessType(BusinessType.APPROVAL.getName());
                         kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.APPROVAL.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
@@ -251,6 +262,7 @@ public class CanalRealtimeJob {
 
                     //签约
                     if("20".equals(orderFolow.getEndStatus())){
+                        kafkaBean.setBusinessType(BusinessType.CONTRACT.getName());
                         kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.CONTRACT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
@@ -259,6 +271,7 @@ public class CanalRealtimeJob {
 
                     //放款成功
                     if("30,33".contains(orderFolow.getEndStatus())){
+                        kafkaBean.setBusinessType(BusinessType.PUTOUT.getName());
                         kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.PUTOUT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",

@@ -32,12 +32,12 @@ public class Application implements ApplicationRunner {
     @Autowired
     ConfigurableApplicationContext ctx;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         SpringApplication.run(Application.class, args).close();
     }
 
     @EventListener
-    public void eventApplicationListener(ApplicationEvent applicationEvent) throws Exception{
+    public void eventApplicationListener(ApplicationEvent applicationEvent) {
         if(applicationEvent instanceof ApplicationReadyEvent){
             logger.info("~~~~~~~正在启动服务~~~~~~~~~");
 //            server.start(port);
@@ -47,7 +47,7 @@ public class Application implements ApplicationRunner {
     }
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         simpleCanalClient.run();
 //        canalRealtimeJob.run();
     }
