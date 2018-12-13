@@ -1,6 +1,5 @@
 package com.sixku.mysql2kafka;
 
-import com.sixku.mysql2kafka.task.canal.CanalRealtimeJob;
 import com.sixku.mysql2kafka.task.canal.SimpleCanalClient;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -22,9 +21,6 @@ import org.springframework.context.event.EventListener;
 public class Application implements ApplicationRunner {
 
     private final static Logger logger = LoggerFactory.getLogger(Application.class);
-
-    @Autowired
-    private CanalRealtimeJob canalRealtimeJob;
 
     @Autowired
     SimpleCanalClient simpleCanalClient;
@@ -49,6 +45,5 @@ public class Application implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         simpleCanalClient.run();
-//        canalRealtimeJob.run();
     }
 }

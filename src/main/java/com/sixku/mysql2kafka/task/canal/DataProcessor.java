@@ -2,10 +2,7 @@ package com.sixku.mysql2kafka.task.canal;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.otter.canal.client.CanalConnector;
-import com.alibaba.otter.canal.client.CanalConnectors;
 import com.alibaba.otter.canal.protocol.CanalEntry.*;
-import com.alibaba.otter.canal.protocol.Message;
 import com.sixku.mysql2kafka.dao.als7db.IndInfoMapper;
 import com.sixku.mysql2kafka.dao.als7db.domain.IndInfo;
 import com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample;
@@ -20,10 +17,8 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
-import java.net.InetSocketAddress;
 import java.util.Date;
 import java.util.List;
 
@@ -31,24 +26,9 @@ import java.util.List;
  * 实时监控数据库表，并发送到kafka相应topic
  */
 @Component
-public class CanalRealtimeJob {
+public class DataProcessor {
 
-    private final static Logger logger = LoggerFactory.getLogger(CanalRealtimeJob.class);
-
-    @Value("${canal_address}")
-    private String canal_address;
-    @Value("${canal_port}")
-    private Integer canal_port;
-    @Value("${canal_destination}")
-    private String canal_destination;
-    @Value("${canal_username}")
-    private String canal_username;
-    @Value("${canal_password}")
-    private String canal_password;
-    @Value("${canal_batchSize}")
-    private Integer canal_batchSize;
-    @Value("${canal_subscribe}")
-    private String canal_subscribe;
+    private final static Logger logger = LoggerFactory.getLogger(DataProcessor.class);
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
@@ -61,40 +41,6 @@ public class CanalRealtimeJob {
 
     @Autowired
     private CustomerInfoMapper customerInfoMapper;
-
-    public void run(){
-
-        // 创建链接
-        CanalConnector connector = CanalConnectors
-                .newSingleConnector(new InetSocketAddress(canal_address,canal_port)
-                        , canal_destination, canal_username, canal_password);
-        int batchSize = canal_batchSize;
-        try {
-            connector.connect();
-            //订阅 监控的 数据库.表
-//            connector.subscribe(".*\\..*");
-            connector.subscribe(canal_subscribe);
-            while (true) {
-                Message message = connector.getWithoutAck(batchSize); // 获取指定数量的数据
-                long batchId = message.getId();
-                int size = message.getEntries().size();
-                if (batchId == -1 || size == 0) {
-                    //nothing
-                } else {
-                    logger.info("message[batchId={},size={}] \n", batchId, size);
-                    process(message.getEntries());
-                }
-                connector.ack(batchId); // 提交确认
-                // connector.rollback(batchId); // 处理失败, 回滚数据
-            }
-        } catch (Exception e){
-            logger.error("process error!", e);
-        } finally {
-            connector.disconnect();
-            logger.info("process over!");
-        }
-    }
-
 
     public void process(List<Entry> entrys) throws Exception{
         for (Entry entry : entrys) {

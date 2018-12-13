@@ -26,7 +26,7 @@ public class SimpleCanalClient extends AbstractCanalClient {
     private String canal_subscribe;
 
     @Autowired
-    CanalRealtimeJob canalRealtimeJob;
+    DataProcessor dataProcessor;
 
 
     public void run() {
@@ -40,7 +40,7 @@ public class SimpleCanalClient extends AbstractCanalClient {
         // 设置运行需要的参数
         clientTest.setDestination(canal_destination);
         clientTest.setSubscribe(canal_subscribe);
-        clientTest.setRealtimeJob(canalRealtimeJob);
+        clientTest.setDataProcessor(dataProcessor);
         // 运行任务
         clientTest.start();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

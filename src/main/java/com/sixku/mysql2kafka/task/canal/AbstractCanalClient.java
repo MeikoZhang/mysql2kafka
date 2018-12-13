@@ -47,7 +47,7 @@ public class AbstractCanalClient{
     protected String                          destination;
     protected String                          subscribe;
 
-    protected CanalRealtimeJob canalRealtimeJob;
+    protected DataProcessor dataProcessor;
 
     static {
         context_format = SEP + "****************************************************" + SEP;
@@ -114,7 +114,7 @@ public class AbstractCanalClient{
 //                        printSummary(message, batchId, size);
 //                        printEntry(message.getEntries());
                         try {
-                            canalRealtimeJob.process(message.getEntries());
+                            dataProcessor.process(message.getEntries());
                         }catch (Exception e){
                             logger.error("########process message error!!!errof info :");
                             printSummary(message, batchId, size);
@@ -141,8 +141,8 @@ public class AbstractCanalClient{
         this.connector = connector;
     }
 
-    public void setRealtimeJob(CanalRealtimeJob canalRealtimeJob) {
-        this.canalRealtimeJob = canalRealtimeJob;
+    public void setDataProcessor(DataProcessor dataProcessor) {
+        this.dataProcessor = dataProcessor;
     }
 
     public void setDestination(String destination) {
