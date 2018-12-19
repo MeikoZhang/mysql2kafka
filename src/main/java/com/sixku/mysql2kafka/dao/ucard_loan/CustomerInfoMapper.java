@@ -2,7 +2,9 @@ package com.sixku.mysql2kafka.dao.ucard_loan;
 
 import com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo;
 import com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfoExample;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -30,4 +32,8 @@ public interface CustomerInfoMapper {
     int updateByPrimaryKey(CustomerInfo record);
 
     CustomerInfo selectByCustomerId(String customerId);
+
+//    @Select("select * from customer_info where customer_id = #{customerId,jdbcType=VARCHAR}")
+//    @Options(useGeneratedKeys = true, keyProperty = "id")
+//    CustomerInfo selectExample(String customerId);
 }
