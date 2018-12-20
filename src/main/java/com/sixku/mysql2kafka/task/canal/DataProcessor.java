@@ -209,7 +209,7 @@ public class DataProcessor {
                     //签约
                     if("20".equals(orderFolow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.CONTRACT.getName());
-                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
+                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getPutoutSum()));
                         kafkaTemplate.send(BusinessType.CONTRACT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.CONTRACT.getName(),JSON.toJSONString(kafkaBean));
