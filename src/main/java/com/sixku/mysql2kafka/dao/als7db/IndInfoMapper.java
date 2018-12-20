@@ -33,4 +33,6 @@ public interface IndInfoMapper {
     int updateByPrimaryKeyWithBLOBs(IndInfo record);
 
     int updateByPrimaryKey(IndInfo record);
+
+    List<IndInfo> selectByCertId(String certid);
 }

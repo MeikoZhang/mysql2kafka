@@ -21,13 +21,11 @@ public class FirstDataSourceConfig {
 
     @Bean(name = "firstDataSource")
     @ConfigurationProperties(prefix = "als7db.datasource")
-    @Primary
     public DataSource testDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "firstSqlSessionFactory")
-    @Primary
     public SqlSessionFactory testSqlSessionFactory(@Qualifier("firstDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
@@ -36,13 +34,11 @@ public class FirstDataSourceConfig {
     }
 
     @Bean(name = "firstTransactionManager")
-    @Primary
     public DataSourceTransactionManager testTransactionManager(@Qualifier("firstDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean(name = "firstSqlSessionTemplate")
-    @Primary
     public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("firstSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }

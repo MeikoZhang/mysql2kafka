@@ -40,6 +40,7 @@ public class SimpleCanalClient extends AbstractCanalClient {
         // 设置运行需要的参数
         clientTest.setDestination(canal_destination);
         clientTest.setSubscribe(canal_subscribe);
+        clientTest.setBatchSize(canal_batchSize);
         clientTest.setDataProcessor(dataProcessor);
         // 运行任务
         clientTest.start();

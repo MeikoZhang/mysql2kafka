@@ -244,11 +244,7 @@ public class DataProcessor {
             return null;
         }
 
-        IndInfoExample indInfoExample = new IndInfoExample();
-        IndInfoExample.Criteria criteria = indInfoExample.createCriteria();
-        criteria.andCertidEqualTo(certid);
-
-        List<IndInfo> indInfos = indInfoMapper.selectByExample(indInfoExample);
+        List<IndInfo> indInfos = indInfoMapper.selectByCertId(certid);
         //复贷人员判断
         if(indInfos != null && indInfos.size() > 0){
             return "1";//复贷人员

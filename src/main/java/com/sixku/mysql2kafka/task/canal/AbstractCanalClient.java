@@ -46,8 +46,10 @@ public class AbstractCanalClient{
     protected static String                   transaction_format = null;
     protected String                          destination;
     protected String                          subscribe;
+    protected Integer                         batchSize;
 
     protected DataProcessor dataProcessor;
+    protected int retry = 0;
 
     static {
         context_format = SEP + "****************************************************" + SEP;
@@ -89,7 +91,6 @@ public class AbstractCanalClient{
     }
 
     protected void process() {
-        int batchSize = 5 * 1024;
         while (running) {
             try {
                 MDC.put("destination", destination);
@@ -115,6 +116,7 @@ public class AbstractCanalClient{
 //                        printEntry(message.getEntries());
                         try {
                             dataProcessor.process(message.getEntries());
+                            retry = 0;
                         }catch (Exception e){
                             logger.error("########process message error!!!errof info :");
                             printSummary(message, batchId, size);
@@ -128,6 +130,7 @@ public class AbstractCanalClient{
                 }
             } catch (Exception e) {
                 logger.error("process error!", e);
+                throw new RuntimeException(e);
             } finally {
                 connector.disconnect();
                 MDC.remove("destination");
@@ -358,4 +361,7 @@ public class AbstractCanalClient{
         }
     }
 
+    public void setBatchSize(Integer batchSize) {
+        this.batchSize = batchSize;
+    }
 }

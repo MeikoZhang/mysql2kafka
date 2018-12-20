@@ -3515,4 +3515,13 @@
       open_id = #{openId,jdbcType=VARCHAR}
     where CUSTOMERID = #{customerid,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByCertId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ind_info
+    where CERTID = #{certid,jdbcType=VARCHAR}
+  </select>
 </mapper>

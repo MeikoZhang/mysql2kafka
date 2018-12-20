@@ -32,11 +32,11 @@
         </triggeringPolicy>
     </appender>
 
-    <!-- Mybatis mapper log级别 -->
-    <!--<logger name="com.solin.springmvc.mapper" level="DEBUG">-->
-        <!--<appender-ref ref="STDOUT" />-->
-        <!--<appender-ref ref="FILE" />-->
-    <!--</logger>-->
+     <!--Mybatis mapper log级别-->
+    <logger name="com.solin.springmvc.mapper" level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </logger>
 
     <!-- spring mvc log级别 -->
     <logger name="org.springframework.web" level="error" additivity="false">
@@ -45,7 +45,7 @@
     </logger>
 
     <!-- 日志输出级别 -->
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
     </root>
