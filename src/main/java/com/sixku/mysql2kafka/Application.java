@@ -38,7 +38,7 @@ public class Application implements ApplicationRunner {
             logger.info("~~~~~~~正在启动服务~~~~~~~~~");
 //            server.start(port);
         }else if(applicationEvent instanceof ContextClosedEvent){
-            logger.info("~~~~~~~正在关闭服务~~~~~~~~~");
+            logger.info("~~~~~~~启动服务完成~~~~~~~~~");
         }
     }
 
