@@ -128,7 +128,7 @@ public class DataProcessor {
                     kafkaBean.setBusinessCustomerId(customerInfo.getCustomerId());
                     kafkaBean.setBusinessOrderId(null);
                     kafkaBean.setBusinessTime(customerInfo.getCreateTime());
-                    kafkaBean.setBusinessMoney(null);
+                    kafkaBean.setBusinessMoney("0");
                     kafkaBean.setBusinessIsRepeat(null);
 
                     kafkaBean.setBusinessCreateTime(customerInfo.getCreateTime());
@@ -152,7 +152,8 @@ public class DataProcessor {
                     kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
                     kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
                     kafkaBean.setBusinessTime(orderInfo.getCreateTime());
-                    kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApplySum()));
+                    kafkaBean.setBusinessMoney(orderInfo.getApplySum() == null ?
+                            "0" : String.valueOf(orderInfo.getApplySum()));
                     kafkaBean.setBusinessIsRepeat(null);
 
                     kafkaBean.setBusinessCreateTime(orderInfo.getCreateTime());
@@ -200,7 +201,8 @@ public class DataProcessor {
                     //审批通过
                     if("10".equals(orderFolow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.APPROVAL.getName());
-                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
+                        kafkaBean.setBusinessMoney(orderInfo.getApproveSum() == null
+                                ? "0" : String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.APPROVAL.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.APPROVAL.getName(),JSON.toJSONString(kafkaBean));
@@ -209,7 +211,8 @@ public class DataProcessor {
                     //签约
                     if("20".equals(orderFolow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.CONTRACT.getName());
-                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getPutoutSum()));
+                        kafkaBean.setBusinessMoney(orderInfo.getPutoutSum() == null ?
+                                "0" : String.valueOf(orderInfo.getPutoutSum()));
                         kafkaTemplate.send(BusinessType.CONTRACT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.CONTRACT.getName(),JSON.toJSONString(kafkaBean));
@@ -218,7 +221,8 @@ public class DataProcessor {
                     //放款成功
                     if("30,33".contains(orderFolow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.PUTOUT.getName());
-                        kafkaBean.setBusinessMoney(String.valueOf(orderInfo.getApproveSum()));
+                        kafkaBean.setBusinessMoney(orderInfo.getApproveSum() == null ?
+                                "0" : String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.PUTOUT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.PUTOUT.getName(),JSON.toJSONString(kafkaBean));
