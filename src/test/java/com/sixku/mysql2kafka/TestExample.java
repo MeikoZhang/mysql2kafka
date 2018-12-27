@@ -1,6 +1,9 @@
 package com.sixku.mysql2kafka;
 
 import com.sixku.mysql2kafka.dao.ucard_loan.CustomerInfoMapper;
+import com.sixku.mysql2kafka.dao.ucard_loan.OrderInfoMapper;
+import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderInfo;
+import com.sixku.mysql2kafka.task.canal.ContractMoney;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +42,12 @@ public class TestExample {
      * 注入mapper信息
      */
     private CustomerInfoMapper customerInfoMapper;
+    private OrderInfoMapper orderInfoMapper;
+
+    /**
+     * 注入bean
+     */
+    private ContractMoney contractMoney;
 
     /**
      * 注入kafka组件
@@ -47,31 +56,38 @@ public class TestExample {
 
     /**
      * 初始化 MVC 的环境
-     * 初始化mapper
-     * 初始化kafka bean组建
+     * 初始化 mapper
+     * 初始化 bean
+     * 初始化 kafka bean组建
      */
     @Before
     public void before() {
 //        mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
         customerInfoMapper = ctx.getBean(CustomerInfoMapper.class);
+        orderInfoMapper = ctx.getBean(OrderInfoMapper.class);
+
         kafkaTemplate = ctx.getBean(KafkaTemplate.class);
+
+        contractMoney = ctx.getBean(ContractMoney.class);
     }
 
     @Test
     public void testCompomet() throws Exception {
         //webMVC测试
-        mockMvc
-                .perform(MockMvcRequestBuilders.get("/emp") // 测试的相对地址
-//                    .accept(MediaType.APPLICATION_JSON_UTF8) // accept response content type
-                )
-                .andExpect(status().isOk()) // 期待返回状态吗码200
-                // JsonPath expression  https://github.com/jayway/JsonPath
-                .andExpect(jsonPath("$[1].name").exists()) // 这里是期待返回值是数组，并且第二个值的 name 存在
-                .andDo(print()); // 打印返回的 http response 信息
+//        mockMvc
+//                .perform(MockMvcRequestBuilders.get("/emp") // 测试的相对地址
+////                    .accept(MediaType.APPLICATION_JSON_UTF8) // accept response content type
+//                )
+//                .andExpect(status().isOk()) // 期待返回状态吗码200
+//                // JsonPath expression  https://github.com/jayway/JsonPath
+//                .andExpect(jsonPath("$[1].name").exists()) // 这里是期待返回值是数组，并且第二个值的 name 存在
+//                .andDo(print()); // 打印返回的 http response 信息
+//
+//        //Mapper测试
+//        System.out.println(customerInfoMapper.selectByPrimaryKey(1l));
 
-        //Mapper测试
-        System.out.println(customerInfoMapper.selectByPrimaryKey(1l));
-
+        OrderInfo orderInfo = orderInfoMapper.selectByOrderId("UO20181226OSppUdvH8nBdssQSh2d");
+        contractMoney.getContractMoney(orderInfo);
 
     }
 
