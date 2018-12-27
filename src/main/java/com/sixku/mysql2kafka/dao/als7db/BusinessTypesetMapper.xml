@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixku.mysql2kafka.dao.als7db.BusinessTypesetMapper">
+  <resultMap id="BaseResultMap" type="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypeset">
+    <id column="TERMNO" jdbcType="VARCHAR" property="termno" />
+    <result column="TERM" jdbcType="INTEGER" property="term" />
+    <result column="TERMUNIT" jdbcType="VARCHAR" property="termunit" />
+    <result column="TERMRATE" jdbcType="VARCHAR" property="termrate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="AHENDTERM" jdbcType="VARCHAR" property="ahendterm" />
+    <result column="AHENDRATE" jdbcType="VARCHAR" property="ahendrate" />
+    <result column="OVERRATE" jdbcType="VARCHAR" property="overrate" />
+    <result column="CONSULTRATE" jdbcType="VARCHAR" property="consultrate" />
+    <result column="CHECKRATE" jdbcType="VARCHAR" property="checkrate" />
+    <result column="TOTALRATE" jdbcType="VARCHAR" property="totalrate" />
+    <result column="TYPENO" jdbcType="VARCHAR" property="typeno" />
+    <result column="MANAGERATE" jdbcType="VARCHAR" property="managerate" />
+    <result column="SERVERRATE" jdbcType="VARCHAR" property="serverrate" />
+    <result column="INSURANCERATE" jdbcType="VARCHAR" property="insurancerate" />
+    <result column="SERVERFEE" jdbcType="VARCHAR" property="serverfee" />
+    <result column="AHEADFEE" jdbcType="VARCHAR" property="aheadfee" />
+    <result column="BONDRATE" jdbcType="VARCHAR" property="bondrate" />
+    <result column="SERRATE" jdbcType="VARCHAR" property="serrate" />
+    <result column="getcheckrate" jdbcType="VARCHAR" property="getcheckrate" />
+    <result column="consult_rate" jdbcType="DECIMAL" property="consultRate" />
+    <result column="payfeerate" jdbcType="DECIMAL" property="payfeerate" />
+    <result column="loanfeerate" jdbcType="DECIMAL" property="loanfeerate" />
+    <result column="servicefeerate" jdbcType="DECIMAL" property="servicefeerate" />
+    <result column="businessRate" jdbcType="DECIMAL" property="businessrate" />
+    <result column="updatetimestamp" jdbcType="TIMESTAMP" property="updatetimestamp" />
+    <result column="min_sale_share" jdbcType="INTEGER" property="minSaleShare" />
+    <result column="max_sale_share" jdbcType="INTEGER" property="maxSaleShare" />
+    <result column="inc_share" jdbcType="INTEGER" property="incShare" />
+    <result column="platform_rate_one" jdbcType="DECIMAL" property="platformRateOne" />
+    <result column="platform_rate_two" jdbcType="DECIMAL" property="platformRateTwo" />
+    <result column="fund_channel" jdbcType="INTEGER" property="fundChannel" />
+    <result column="overdue_rate_one" jdbcType="DECIMAL" property="overdueRateOne" />
+    <result column="overdue_rate_two" jdbcType="DECIMAL" property="overdueRateTwo" />
+    <result column="repayment_type" jdbcType="VARCHAR" property="repaymentType" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="SHOW_TYPE" jdbcType="INTEGER" property="showType" />
+    <result column="CAPACITY_PERIOD" jdbcType="INTEGER" property="capacityPeriod" />
+    <result column="CAN_BE_RENEW" jdbcType="INTEGER" property="canBeRenew" />
+    <result column="RENEW_TIMES" jdbcType="INTEGER" property="renewTimes" />
+    <result column="RENEW_PERIOD" jdbcType="VARCHAR" property="renewPeriod" />
+    <result column="RENEW_FEE" jdbcType="DECIMAL" property="renewFee" />
+    <result column="CREDIT_AUDIT_FEE" jdbcType="DECIMAL" property="creditAuditFee" />
+    <result column="CONSULTING_FEE" jdbcType="DECIMAL" property="consultingFee" />
+    <result column="LOAN_AMOUNT" jdbcType="DECIMAL" property="loanAmount" />
+    <result column="ARRIVAL_AMOUNT" jdbcType="DECIMAL" property="arrivalAmount" />
+    <result column="PRODUCT_NUMBER" jdbcType="VARCHAR" property="productNumber" />
+    <result column="RATE_GROUP_NUMBER" jdbcType="VARCHAR" property="rateGroupNumber" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TERMNO, TERM, TERMUNIT, TERMRATE, STATUS, AHENDTERM, AHENDRATE, OVERRATE, CONSULTRATE, 
+    CHECKRATE, TOTALRATE, TYPENO, MANAGERATE, SERVERRATE, INSURANCERATE, SERVERFEE, AHEADFEE, 
+    BONDRATE, SERRATE, getcheckrate, consult_rate, payfeerate, loanfeerate, servicefeerate, 
+    businessRate, updatetimestamp, min_sale_share, max_sale_share, inc_share, platform_rate_one, 
+    platform_rate_two, fund_channel, overdue_rate_one, overdue_rate_two, repayment_type, 
+    create_user, create_time, update_user, SHOW_TYPE, CAPACITY_PERIOD, CAN_BE_RENEW, 
+    RENEW_TIMES, RENEW_PERIOD, RENEW_FEE, CREDIT_AUDIT_FEE, CONSULTING_FEE, LOAN_AMOUNT, 
+    ARRIVAL_AMOUNT, PRODUCT_NUMBER, RATE_GROUP_NUMBER
+  </sql>
+  <select id="selectByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypesetExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from business_typeset
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from business_typeset
+    where TERMNO = #{termno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from business_typeset
+    where TERMNO = #{termno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypesetExample">
+    delete from business_typeset
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypeset">
+    insert into business_typeset (TERMNO, TERM, TERMUNIT, 
+      TERMRATE, STATUS, AHENDTERM, 
+      AHENDRATE, OVERRATE, CONSULTRATE, 
+      CHECKRATE, TOTALRATE, TYPENO, 
+      MANAGERATE, SERVERRATE, INSURANCERATE, 
+      SERVERFEE, AHEADFEE, BONDRATE, 
+      SERRATE, getcheckrate, consult_rate, 
+      payfeerate, loanfeerate, servicefeerate, 
+      businessRate, updatetimestamp, min_sale_share, 
+      max_sale_share, inc_share, platform_rate_one, 
+      platform_rate_two, fund_channel, overdue_rate_one, 
+      overdue_rate_two, repayment_type, create_user, 
+      create_time, update_user, SHOW_TYPE, 
+      CAPACITY_PERIOD, CAN_BE_RENEW, RENEW_TIMES, 
+      RENEW_PERIOD, RENEW_FEE, CREDIT_AUDIT_FEE, 
+      CONSULTING_FEE, LOAN_AMOUNT, ARRIVAL_AMOUNT, 
+      PRODUCT_NUMBER, RATE_GROUP_NUMBER)
+    values (#{termno,jdbcType=VARCHAR}, #{term,jdbcType=INTEGER}, #{termunit,jdbcType=VARCHAR}, 
+      #{termrate,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{ahendterm,jdbcType=VARCHAR}, 
+      #{ahendrate,jdbcType=VARCHAR}, #{overrate,jdbcType=VARCHAR}, #{consultrate,jdbcType=VARCHAR}, 
+      #{checkrate,jdbcType=VARCHAR}, #{totalrate,jdbcType=VARCHAR}, #{typeno,jdbcType=VARCHAR}, 
+      #{managerate,jdbcType=VARCHAR}, #{serverrate,jdbcType=VARCHAR}, #{insurancerate,jdbcType=VARCHAR}, 
+      #{serverfee,jdbcType=VARCHAR}, #{aheadfee,jdbcType=VARCHAR}, #{bondrate,jdbcType=VARCHAR}, 
+      #{serrate,jdbcType=VARCHAR}, #{getcheckrate,jdbcType=VARCHAR}, #{consultRate,jdbcType=DECIMAL}, 
+      #{payfeerate,jdbcType=DECIMAL}, #{loanfeerate,jdbcType=DECIMAL}, #{servicefeerate,jdbcType=DECIMAL}, 
+      #{businessrate,jdbcType=DECIMAL}, #{updatetimestamp,jdbcType=TIMESTAMP}, #{minSaleShare,jdbcType=INTEGER}, 
+      #{maxSaleShare,jdbcType=INTEGER}, #{incShare,jdbcType=INTEGER}, #{platformRateOne,jdbcType=DECIMAL}, 
+      #{platformRateTwo,jdbcType=DECIMAL}, #{fundChannel,jdbcType=INTEGER}, #{overdueRateOne,jdbcType=DECIMAL}, 
+      #{overdueRateTwo,jdbcType=DECIMAL}, #{repaymentType,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{showType,jdbcType=INTEGER}, 
+      #{capacityPeriod,jdbcType=INTEGER}, #{canBeRenew,jdbcType=INTEGER}, #{renewTimes,jdbcType=INTEGER}, 
+      #{renewPeriod,jdbcType=VARCHAR}, #{renewFee,jdbcType=DECIMAL}, #{creditAuditFee,jdbcType=DECIMAL}, 
+      #{consultingFee,jdbcType=DECIMAL}, #{loanAmount,jdbcType=DECIMAL}, #{arrivalAmount,jdbcType=DECIMAL}, 
+      #{productNumber,jdbcType=VARCHAR}, #{rateGroupNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypeset">
+    insert into business_typeset
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="termno != null">
+        TERMNO,
+      </if>
+      <if test="term != null">
+        TERM,
+      </if>
+      <if test="termunit != null">
+        TERMUNIT,
+      </if>
+      <if test="termrate != null">
+        TERMRATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="ahendterm != null">
+        AHENDTERM,
+      </if>
+      <if test="ahendrate != null">
+        AHENDRATE,
+      </if>
+      <if test="overrate != null">
+        OVERRATE,
+      </if>
+      <if test="consultrate != null">
+        CONSULTRATE,
+      </if>
+      <if test="checkrate != null">
+        CHECKRATE,
+      </if>
+      <if test="totalrate != null">
+        TOTALRATE,
+      </if>
+      <if test="typeno != null">
+        TYPENO,
+      </if>
+      <if test="managerate != null">
+        MANAGERATE,
+      </if>
+      <if test="serverrate != null">
+        SERVERRATE,
+      </if>
+      <if test="insurancerate != null">
+        INSURANCERATE,
+      </if>
+      <if test="serverfee != null">
+        SERVERFEE,
+      </if>
+      <if test="aheadfee != null">
+        AHEADFEE,
+      </if>
+      <if test="bondrate != null">
+        BONDRATE,
+      </if>
+      <if test="serrate != null">
+        SERRATE,
+      </if>
+      <if test="getcheckrate != null">
+        getcheckrate,
+      </if>
+      <if test="consultRate != null">
+        consult_rate,
+      </if>
+      <if test="payfeerate != null">
+        payfeerate,
+      </if>
+      <if test="loanfeerate != null">
+        loanfeerate,
+      </if>
+      <if test="servicefeerate != null">
+        servicefeerate,
+      </if>
+      <if test="businessrate != null">
+        businessRate,
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp,
+      </if>
+      <if test="minSaleShare != null">
+        min_sale_share,
+      </if>
+      <if test="maxSaleShare != null">
+        max_sale_share,
+      </if>
+      <if test="incShare != null">
+        inc_share,
+      </if>
+      <if test="platformRateOne != null">
+        platform_rate_one,
+      </if>
+      <if test="platformRateTwo != null">
+        platform_rate_two,
+      </if>
+      <if test="fundChannel != null">
+        fund_channel,
+      </if>
+      <if test="overdueRateOne != null">
+        overdue_rate_one,
+      </if>
+      <if test="overdueRateTwo != null">
+        overdue_rate_two,
+      </if>
+      <if test="repaymentType != null">
+        repayment_type,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="showType != null">
+        SHOW_TYPE,
+      </if>
+      <if test="capacityPeriod != null">
+        CAPACITY_PERIOD,
+      </if>
+      <if test="canBeRenew != null">
+        CAN_BE_RENEW,
+      </if>
+      <if test="renewTimes != null">
+        RENEW_TIMES,
+      </if>
+      <if test="renewPeriod != null">
+        RENEW_PERIOD,
+      </if>
+      <if test="renewFee != null">
+        RENEW_FEE,
+      </if>
+      <if test="creditAuditFee != null">
+        CREDIT_AUDIT_FEE,
+      </if>
+      <if test="consultingFee != null">
+        CONSULTING_FEE,
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT,
+      </if>
+      <if test="arrivalAmount != null">
+        ARRIVAL_AMOUNT,
+      </if>
+      <if test="productNumber != null">
+        PRODUCT_NUMBER,
+      </if>
+      <if test="rateGroupNumber != null">
+        RATE_GROUP_NUMBER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="termno != null">
+        #{termno,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null">
+        #{term,jdbcType=INTEGER},
+      </if>
+      <if test="termunit != null">
+        #{termunit,jdbcType=VARCHAR},
+      </if>
+      <if test="termrate != null">
+        #{termrate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="ahendterm != null">
+        #{ahendterm,jdbcType=VARCHAR},
+      </if>
+      <if test="ahendrate != null">
+        #{ahendrate,jdbcType=VARCHAR},
+      </if>
+      <if test="overrate != null">
+        #{overrate,jdbcType=VARCHAR},
+      </if>
+      <if test="consultrate != null">
+        #{consultrate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkrate != null">
+        #{checkrate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalrate != null">
+        #{totalrate,jdbcType=VARCHAR},
+      </if>
+      <if test="typeno != null">
+        #{typeno,jdbcType=VARCHAR},
+      </if>
+      <if test="managerate != null">
+        #{managerate,jdbcType=VARCHAR},
+      </if>
+      <if test="serverrate != null">
+        #{serverrate,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancerate != null">
+        #{insurancerate,jdbcType=VARCHAR},
+      </if>
+      <if test="serverfee != null">
+        #{serverfee,jdbcType=VARCHAR},
+      </if>
+      <if test="aheadfee != null">
+        #{aheadfee,jdbcType=VARCHAR},
+      </if>
+      <if test="bondrate != null">
+        #{bondrate,jdbcType=VARCHAR},
+      </if>
+      <if test="serrate != null">
+        #{serrate,jdbcType=VARCHAR},
+      </if>
+      <if test="getcheckrate != null">
+        #{getcheckrate,jdbcType=VARCHAR},
+      </if>
+      <if test="consultRate != null">
+        #{consultRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payfeerate != null">
+        #{payfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanfeerate != null">
+        #{loanfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="servicefeerate != null">
+        #{servicefeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="businessrate != null">
+        #{businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetimestamp != null">
+        #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="minSaleShare != null">
+        #{minSaleShare,jdbcType=INTEGER},
+      </if>
+      <if test="maxSaleShare != null">
+        #{maxSaleShare,jdbcType=INTEGER},
+      </if>
+      <if test="incShare != null">
+        #{incShare,jdbcType=INTEGER},
+      </if>
+      <if test="platformRateOne != null">
+        #{platformRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="platformRateTwo != null">
+        #{platformRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="fundChannel != null">
+        #{fundChannel,jdbcType=INTEGER},
+      </if>
+      <if test="overdueRateOne != null">
+        #{overdueRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRateTwo != null">
+        #{overdueRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentType != null">
+        #{repaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        #{showType,jdbcType=INTEGER},
+      </if>
+      <if test="capacityPeriod != null">
+        #{capacityPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="canBeRenew != null">
+        #{canBeRenew,jdbcType=INTEGER},
+      </if>
+      <if test="renewTimes != null">
+        #{renewTimes,jdbcType=INTEGER},
+      </if>
+      <if test="renewPeriod != null">
+        #{renewPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="renewFee != null">
+        #{renewFee,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAuditFee != null">
+        #{creditAuditFee,jdbcType=DECIMAL},
+      </if>
+      <if test="consultingFee != null">
+        #{consultingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        #{loanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="arrivalAmount != null">
+        #{arrivalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumber != null">
+        #{productNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rateGroupNumber != null">
+        #{rateGroupNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypesetExample" resultType="java.lang.Long">
+    select count(*) from business_typeset
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update business_typeset
+    <set>
+      <if test="record.termno != null">
+        TERMNO = #{record.termno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.term != null">
+        TERM = #{record.term,jdbcType=INTEGER},
+      </if>
+      <if test="record.termunit != null">
+        TERMUNIT = #{record.termunit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.termrate != null">
+        TERMRATE = #{record.termrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ahendterm != null">
+        AHENDTERM = #{record.ahendterm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ahendrate != null">
+        AHENDRATE = #{record.ahendrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overrate != null">
+        OVERRATE = #{record.overrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultrate != null">
+        CONSULTRATE = #{record.consultrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkrate != null">
+        CHECKRATE = #{record.checkrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalrate != null">
+        TOTALRATE = #{record.totalrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeno != null">
+        TYPENO = #{record.typeno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managerate != null">
+        MANAGERATE = #{record.managerate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serverrate != null">
+        SERVERRATE = #{record.serverrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurancerate != null">
+        INSURANCERATE = #{record.insurancerate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serverfee != null">
+        SERVERFEE = #{record.serverfee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aheadfee != null">
+        AHEADFEE = #{record.aheadfee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bondrate != null">
+        BONDRATE = #{record.bondrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serrate != null">
+        SERRATE = #{record.serrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.getcheckrate != null">
+        getcheckrate = #{record.getcheckrate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultRate != null">
+        consult_rate = #{record.consultRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payfeerate != null">
+        payfeerate = #{record.payfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.loanfeerate != null">
+        loanfeerate = #{record.loanfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.servicefeerate != null">
+        servicefeerate = #{record.servicefeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.businessrate != null">
+        businessRate = #{record.businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.updatetimestamp != null">
+        updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.minSaleShare != null">
+        min_sale_share = #{record.minSaleShare,jdbcType=INTEGER},
+      </if>
+      <if test="record.maxSaleShare != null">
+        max_sale_share = #{record.maxSaleShare,jdbcType=INTEGER},
+      </if>
+      <if test="record.incShare != null">
+        inc_share = #{record.incShare,jdbcType=INTEGER},
+      </if>
+      <if test="record.platformRateOne != null">
+        platform_rate_one = #{record.platformRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="record.platformRateTwo != null">
+        platform_rate_two = #{record.platformRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fundChannel != null">
+        fund_channel = #{record.fundChannel,jdbcType=INTEGER},
+      </if>
+      <if test="record.overdueRateOne != null">
+        overdue_rate_one = #{record.overdueRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="record.overdueRateTwo != null">
+        overdue_rate_two = #{record.overdueRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="record.repaymentType != null">
+        repayment_type = #{record.repaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createUser != null">
+        create_user = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUser != null">
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showType != null">
+        SHOW_TYPE = #{record.showType,jdbcType=INTEGER},
+      </if>
+      <if test="record.capacityPeriod != null">
+        CAPACITY_PERIOD = #{record.capacityPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.canBeRenew != null">
+        CAN_BE_RENEW = #{record.canBeRenew,jdbcType=INTEGER},
+      </if>
+      <if test="record.renewTimes != null">
+        RENEW_TIMES = #{record.renewTimes,jdbcType=INTEGER},
+      </if>
+      <if test="record.renewPeriod != null">
+        RENEW_PERIOD = #{record.renewPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.renewFee != null">
+        RENEW_FEE = #{record.renewFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.creditAuditFee != null">
+        CREDIT_AUDIT_FEE = #{record.creditAuditFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.consultingFee != null">
+        CONSULTING_FEE = #{record.consultingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="record.loanAmount != null">
+        LOAN_AMOUNT = #{record.loanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.arrivalAmount != null">
+        ARRIVAL_AMOUNT = #{record.arrivalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.productNumber != null">
+        PRODUCT_NUMBER = #{record.productNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rateGroupNumber != null">
+        RATE_GROUP_NUMBER = #{record.rateGroupNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update business_typeset
+    set TERMNO = #{record.termno,jdbcType=VARCHAR},
+      TERM = #{record.term,jdbcType=INTEGER},
+      TERMUNIT = #{record.termunit,jdbcType=VARCHAR},
+      TERMRATE = #{record.termrate,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      AHENDTERM = #{record.ahendterm,jdbcType=VARCHAR},
+      AHENDRATE = #{record.ahendrate,jdbcType=VARCHAR},
+      OVERRATE = #{record.overrate,jdbcType=VARCHAR},
+      CONSULTRATE = #{record.consultrate,jdbcType=VARCHAR},
+      CHECKRATE = #{record.checkrate,jdbcType=VARCHAR},
+      TOTALRATE = #{record.totalrate,jdbcType=VARCHAR},
+      TYPENO = #{record.typeno,jdbcType=VARCHAR},
+      MANAGERATE = #{record.managerate,jdbcType=VARCHAR},
+      SERVERRATE = #{record.serverrate,jdbcType=VARCHAR},
+      INSURANCERATE = #{record.insurancerate,jdbcType=VARCHAR},
+      SERVERFEE = #{record.serverfee,jdbcType=VARCHAR},
+      AHEADFEE = #{record.aheadfee,jdbcType=VARCHAR},
+      BONDRATE = #{record.bondrate,jdbcType=VARCHAR},
+      SERRATE = #{record.serrate,jdbcType=VARCHAR},
+      getcheckrate = #{record.getcheckrate,jdbcType=VARCHAR},
+      consult_rate = #{record.consultRate,jdbcType=DECIMAL},
+      payfeerate = #{record.payfeerate,jdbcType=DECIMAL},
+      loanfeerate = #{record.loanfeerate,jdbcType=DECIMAL},
+      servicefeerate = #{record.servicefeerate,jdbcType=DECIMAL},
+      businessRate = #{record.businessrate,jdbcType=DECIMAL},
+      updatetimestamp = #{record.updatetimestamp,jdbcType=TIMESTAMP},
+      min_sale_share = #{record.minSaleShare,jdbcType=INTEGER},
+      max_sale_share = #{record.maxSaleShare,jdbcType=INTEGER},
+      inc_share = #{record.incShare,jdbcType=INTEGER},
+      platform_rate_one = #{record.platformRateOne,jdbcType=DECIMAL},
+      platform_rate_two = #{record.platformRateTwo,jdbcType=DECIMAL},
+      fund_channel = #{record.fundChannel,jdbcType=INTEGER},
+      overdue_rate_one = #{record.overdueRateOne,jdbcType=DECIMAL},
+      overdue_rate_two = #{record.overdueRateTwo,jdbcType=DECIMAL},
+      repayment_type = #{record.repaymentType,jdbcType=VARCHAR},
+      create_user = #{record.createUser,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=VARCHAR},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      SHOW_TYPE = #{record.showType,jdbcType=INTEGER},
+      CAPACITY_PERIOD = #{record.capacityPeriod,jdbcType=INTEGER},
+      CAN_BE_RENEW = #{record.canBeRenew,jdbcType=INTEGER},
+      RENEW_TIMES = #{record.renewTimes,jdbcType=INTEGER},
+      RENEW_PERIOD = #{record.renewPeriod,jdbcType=VARCHAR},
+      RENEW_FEE = #{record.renewFee,jdbcType=DECIMAL},
+      CREDIT_AUDIT_FEE = #{record.creditAuditFee,jdbcType=DECIMAL},
+      CONSULTING_FEE = #{record.consultingFee,jdbcType=DECIMAL},
+      LOAN_AMOUNT = #{record.loanAmount,jdbcType=DECIMAL},
+      ARRIVAL_AMOUNT = #{record.arrivalAmount,jdbcType=DECIMAL},
+      PRODUCT_NUMBER = #{record.productNumber,jdbcType=VARCHAR},
+      RATE_GROUP_NUMBER = #{record.rateGroupNumber,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypeset">
+    update business_typeset
+    <set>
+      <if test="term != null">
+        TERM = #{term,jdbcType=INTEGER},
+      </if>
+      <if test="termunit != null">
+        TERMUNIT = #{termunit,jdbcType=VARCHAR},
+      </if>
+      <if test="termrate != null">
+        TERMRATE = #{termrate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="ahendterm != null">
+        AHENDTERM = #{ahendterm,jdbcType=VARCHAR},
+      </if>
+      <if test="ahendrate != null">
+        AHENDRATE = #{ahendrate,jdbcType=VARCHAR},
+      </if>
+      <if test="overrate != null">
+        OVERRATE = #{overrate,jdbcType=VARCHAR},
+      </if>
+      <if test="consultrate != null">
+        CONSULTRATE = #{consultrate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkrate != null">
+        CHECKRATE = #{checkrate,jdbcType=VARCHAR},
+      </if>
+      <if test="totalrate != null">
+        TOTALRATE = #{totalrate,jdbcType=VARCHAR},
+      </if>
+      <if test="typeno != null">
+        TYPENO = #{typeno,jdbcType=VARCHAR},
+      </if>
+      <if test="managerate != null">
+        MANAGERATE = #{managerate,jdbcType=VARCHAR},
+      </if>
+      <if test="serverrate != null">
+        SERVERRATE = #{serverrate,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancerate != null">
+        INSURANCERATE = #{insurancerate,jdbcType=VARCHAR},
+      </if>
+      <if test="serverfee != null">
+        SERVERFEE = #{serverfee,jdbcType=VARCHAR},
+      </if>
+      <if test="aheadfee != null">
+        AHEADFEE = #{aheadfee,jdbcType=VARCHAR},
+      </if>
+      <if test="bondrate != null">
+        BONDRATE = #{bondrate,jdbcType=VARCHAR},
+      </if>
+      <if test="serrate != null">
+        SERRATE = #{serrate,jdbcType=VARCHAR},
+      </if>
+      <if test="getcheckrate != null">
+        getcheckrate = #{getcheckrate,jdbcType=VARCHAR},
+      </if>
+      <if test="consultRate != null">
+        consult_rate = #{consultRate,jdbcType=DECIMAL},
+      </if>
+      <if test="payfeerate != null">
+        payfeerate = #{payfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="loanfeerate != null">
+        loanfeerate = #{loanfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="servicefeerate != null">
+        servicefeerate = #{servicefeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="businessrate != null">
+        businessRate = #{businessrate,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetimestamp != null">
+        updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="minSaleShare != null">
+        min_sale_share = #{minSaleShare,jdbcType=INTEGER},
+      </if>
+      <if test="maxSaleShare != null">
+        max_sale_share = #{maxSaleShare,jdbcType=INTEGER},
+      </if>
+      <if test="incShare != null">
+        inc_share = #{incShare,jdbcType=INTEGER},
+      </if>
+      <if test="platformRateOne != null">
+        platform_rate_one = #{platformRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="platformRateTwo != null">
+        platform_rate_two = #{platformRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="fundChannel != null">
+        fund_channel = #{fundChannel,jdbcType=INTEGER},
+      </if>
+      <if test="overdueRateOne != null">
+        overdue_rate_one = #{overdueRateOne,jdbcType=DECIMAL},
+      </if>
+      <if test="overdueRateTwo != null">
+        overdue_rate_two = #{overdueRateTwo,jdbcType=DECIMAL},
+      </if>
+      <if test="repaymentType != null">
+        repayment_type = #{repaymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        SHOW_TYPE = #{showType,jdbcType=INTEGER},
+      </if>
+      <if test="capacityPeriod != null">
+        CAPACITY_PERIOD = #{capacityPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="canBeRenew != null">
+        CAN_BE_RENEW = #{canBeRenew,jdbcType=INTEGER},
+      </if>
+      <if test="renewTimes != null">
+        RENEW_TIMES = #{renewTimes,jdbcType=INTEGER},
+      </if>
+      <if test="renewPeriod != null">
+        RENEW_PERIOD = #{renewPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="renewFee != null">
+        RENEW_FEE = #{renewFee,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAuditFee != null">
+        CREDIT_AUDIT_FEE = #{creditAuditFee,jdbcType=DECIMAL},
+      </if>
+      <if test="consultingFee != null">
+        CONSULTING_FEE = #{consultingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="loanAmount != null">
+        LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="arrivalAmount != null">
+        ARRIVAL_AMOUNT = #{arrivalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="productNumber != null">
+        PRODUCT_NUMBER = #{productNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="rateGroupNumber != null">
+        RATE_GROUP_NUMBER = #{rateGroupNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TERMNO = #{termno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sixku.mysql2kafka.dao.als7db.domain.BusinessTypeset">
+    update business_typeset
+    set TERM = #{term,jdbcType=INTEGER},
+      TERMUNIT = #{termunit,jdbcType=VARCHAR},
+      TERMRATE = #{termrate,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      AHENDTERM = #{ahendterm,jdbcType=VARCHAR},
+      AHENDRATE = #{ahendrate,jdbcType=VARCHAR},
+      OVERRATE = #{overrate,jdbcType=VARCHAR},
+      CONSULTRATE = #{consultrate,jdbcType=VARCHAR},
+      CHECKRATE = #{checkrate,jdbcType=VARCHAR},
+      TOTALRATE = #{totalrate,jdbcType=VARCHAR},
+      TYPENO = #{typeno,jdbcType=VARCHAR},
+      MANAGERATE = #{managerate,jdbcType=VARCHAR},
+      SERVERRATE = #{serverrate,jdbcType=VARCHAR},
+      INSURANCERATE = #{insurancerate,jdbcType=VARCHAR},
+      SERVERFEE = #{serverfee,jdbcType=VARCHAR},
+      AHEADFEE = #{aheadfee,jdbcType=VARCHAR},
+      BONDRATE = #{bondrate,jdbcType=VARCHAR},
+      SERRATE = #{serrate,jdbcType=VARCHAR},
+      getcheckrate = #{getcheckrate,jdbcType=VARCHAR},
+      consult_rate = #{consultRate,jdbcType=DECIMAL},
+      payfeerate = #{payfeerate,jdbcType=DECIMAL},
+      loanfeerate = #{loanfeerate,jdbcType=DECIMAL},
+      servicefeerate = #{servicefeerate,jdbcType=DECIMAL},
+      businessRate = #{businessrate,jdbcType=DECIMAL},
+      updatetimestamp = #{updatetimestamp,jdbcType=TIMESTAMP},
+      min_sale_share = #{minSaleShare,jdbcType=INTEGER},
+      max_sale_share = #{maxSaleShare,jdbcType=INTEGER},
+      inc_share = #{incShare,jdbcType=INTEGER},
+      platform_rate_one = #{platformRateOne,jdbcType=DECIMAL},
+      platform_rate_two = #{platformRateTwo,jdbcType=DECIMAL},
+      fund_channel = #{fundChannel,jdbcType=INTEGER},
+      overdue_rate_one = #{overdueRateOne,jdbcType=DECIMAL},
+      overdue_rate_two = #{overdueRateTwo,jdbcType=DECIMAL},
+      repayment_type = #{repaymentType,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      SHOW_TYPE = #{showType,jdbcType=INTEGER},
+      CAPACITY_PERIOD = #{capacityPeriod,jdbcType=INTEGER},
+      CAN_BE_RENEW = #{canBeRenew,jdbcType=INTEGER},
+      RENEW_TIMES = #{renewTimes,jdbcType=INTEGER},
+      RENEW_PERIOD = #{renewPeriod,jdbcType=VARCHAR},
+      RENEW_FEE = #{renewFee,jdbcType=DECIMAL},
+      CREDIT_AUDIT_FEE = #{creditAuditFee,jdbcType=DECIMAL},
+      CONSULTING_FEE = #{consultingFee,jdbcType=DECIMAL},
+      LOAN_AMOUNT = #{loanAmount,jdbcType=DECIMAL},
+      ARRIVAL_AMOUNT = #{arrivalAmount,jdbcType=DECIMAL},
+      PRODUCT_NUMBER = #{productNumber,jdbcType=VARCHAR},
+      RATE_GROUP_NUMBER = #{rateGroupNumber,jdbcType=VARCHAR}
+    where TERMNO = #{termno,jdbcType=VARCHAR}
+  </update>
+</mapper>
