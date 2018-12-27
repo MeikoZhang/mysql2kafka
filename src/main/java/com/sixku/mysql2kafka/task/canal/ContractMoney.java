@@ -43,7 +43,7 @@ public class ContractMoney {
         List<BusinessTypeset> btslist = businessTypesetMapper.selectByExample(businessTypesetExample);
 
         BusinessTypeset businessTypeset = btslist.get(0);
-        double dBusinessSum = orderInfo.getApplySum().doubleValue();	//申请金额
+        double dBusinessSum = orderInfo.getApproveSum().doubleValue();	//申请金额
         int approveterm = Integer.valueOf(orderInfo.getPeriods());		// 审批通过期限
         BigDecimal payfeerate = BigDecimal.ZERO;	//年化第三方支付费
         BigDecimal loanfeerate = BigDecimal.ZERO;	//年化平台费
@@ -109,4 +109,5 @@ public class ContractMoney {
         BigDecimal y = scale(dPutoutSum.subtract(n1).subtract(n2).subtract(n3),2);
         return y;
     }
+
 }
