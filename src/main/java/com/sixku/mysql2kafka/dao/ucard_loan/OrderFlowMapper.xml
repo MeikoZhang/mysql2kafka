@@ -328,4 +328,11 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where flow_id = #{flowId,jdbcType=BIGINT}
   </update>
+
+  <select id="selectContractFlow" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from order_flow
+    where order_id = #{orderId,jdbcType=VARCHAR} and end_status='20'
+  </select>
 </mapper>

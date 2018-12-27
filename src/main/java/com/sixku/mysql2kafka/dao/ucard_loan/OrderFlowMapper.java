@@ -28,4 +28,6 @@ public interface OrderFlowMapper {
     int updateByPrimaryKeySelective(OrderFlow record);
 
     int updateByPrimaryKey(OrderFlow record);
+
+    OrderFlow selectContractFlow(String orderId);
 }

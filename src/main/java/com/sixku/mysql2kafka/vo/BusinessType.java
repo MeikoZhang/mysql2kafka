@@ -12,6 +12,8 @@ public enum BusinessType {
     APPROVAL("udai_approval"),
     //签约
     CONTRACT("udai_contract"),
+    //签约金额
+    CONTRACT_MONEY("udai_contract_money"),
     //放款
     PUTOUT("udai_putout");
 

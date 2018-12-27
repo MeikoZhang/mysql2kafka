@@ -5,8 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.otter.canal.protocol.CanalEntry.*;
 import com.sixku.mysql2kafka.dao.als7db.IndInfoMapper;
 import com.sixku.mysql2kafka.dao.als7db.domain.IndInfo;
-import com.sixku.mysql2kafka.dao.als7db.domain.IndInfoExample;
 import com.sixku.mysql2kafka.dao.ucard_loan.CustomerInfoMapper;
+import com.sixku.mysql2kafka.dao.ucard_loan.OrderFlowMapper;
 import com.sixku.mysql2kafka.dao.ucard_loan.OrderInfoMapper;
 import com.sixku.mysql2kafka.dao.ucard_loan.domain.CustomerInfo;
 import com.sixku.mysql2kafka.dao.ucard_loan.domain.OrderFlow;
@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.List;
 
@@ -42,11 +43,18 @@ public class DataProcessor {
     @Autowired
     private CustomerInfoMapper customerInfoMapper;
 
+    @Autowired
+    private OrderFlowMapper orderFlowMapper;
+
+    @Autowired
+    ContractMoney contractMoney;
+
     public void process(List<Entry> entrys) throws Exception{
         for (Entry entry : entrys) {
             if (entry.getEntryType() == EntryType.TRANSACTIONBEGIN
                     || entry.getEntryType() == EntryType.TRANSACTIONEND) {
-                logger.debug("message is transaction ...");
+                //1 begin 3 end
+//                logger.info("message is transaction ..."+EntryType.TRANSACTIONBEGIN.getNumber());
                 continue;
             }
 
@@ -74,7 +82,9 @@ public class DataProcessor {
 //                    printColumn(rowData.getBeforeColumnsList());
 //                    logger.info("-------> after");
 //                    printColumn(rowData.getAfterColumnsList());
-//                    extractFromRowData(tableName, "update", rowData);
+//                    if("order_info".equals(tableName)) {
+//                        extractFromRowData(tableName, "update", rowData);
+//                    }
                 }else {
                     logger.debug("event type-------> "+ eventType);
                     logger.debug("-------> before");
@@ -101,6 +111,12 @@ public class DataProcessor {
 
     public static void printColumn(List<Column> columns) {
         logger.info(getPrintString(columns));
+    }
+
+    public static void logColumn(List<Column> columns) {
+        for (Column column : columns) {
+            logger.info(column.getName() + " : " + column.getValue() + "    update=" + column.getUpdated());
+        }
     }
 
     private static void errorColumn(List<Column> columns) {
@@ -184,8 +200,8 @@ public class DataProcessor {
 //                    OrderInfo afterOrderInfo = RowData2Bean.extract2Object(rowData, OrderInfo.class,"after");
 //                    System.out.println(JSON.toJSONString(beforeOrderInfo));
 //                    System.out.println(JSON.toJSONString(afterOrderInfo));
-                    OrderFlow orderFolow = RowData2Bean.extract2Object(rowData, OrderFlow.class, "after");
-                    OrderInfo orderInfo = orderInfoMapper.selectByOrderId(orderFolow.getOrderId());
+                    OrderFlow orderFlow = RowData2Bean.extract2Object(rowData, OrderFlow.class, "after");
+                    OrderInfo orderInfo = orderInfoMapper.selectByOrderId(orderFlow.getOrderId());
                     CustomerInfo customerInfo = customerInfoMapper.selectByCustomerId(orderInfo.getCustomerId());
 
                     kafkaBean.setBusinessChannel(customerInfo.getRegisterChannel());
@@ -194,12 +210,12 @@ public class DataProcessor {
                     //是否复贷
                     kafkaBean.setBusinessIsRepeat(getCusomerFromIndinfo(orderInfo.getCertId()));
 
-                    kafkaBean.setBusinessTime(orderFolow.getCreateTime());
-                    kafkaBean.setBusinessCreateTime(orderFolow.getCreateTime());
-                    kafkaBean.setBusinessUpdateTime(orderFolow.getUpdateTime());
+                    kafkaBean.setBusinessTime(orderFlow.getCreateTime());
+                    kafkaBean.setBusinessCreateTime(orderFlow.getCreateTime());
+                    kafkaBean.setBusinessUpdateTime(orderFlow.getUpdateTime());
 
                     //审批通过
-                    if("10".equals(orderFolow.getEndStatus())){
+                    if("10".equals(orderFlow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.APPROVAL.getName());
                         kafkaBean.setBusinessMoney(orderInfo.getApproveSum() == null
                                 ? "0" : String.valueOf(orderInfo.getApproveSum()));
@@ -209,7 +225,7 @@ public class DataProcessor {
                     }
 
                     //签约
-                    if("20".equals(orderFolow.getEndStatus())){
+                    if("20".equals(orderFlow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.CONTRACT.getName());
                         kafkaBean.setBusinessMoney(orderInfo.getPutoutSum() == null ?
                                 "0" : String.valueOf(orderInfo.getPutoutSum()));
@@ -219,13 +235,35 @@ public class DataProcessor {
                     }
 
                     //放款成功
-                    if("30,33".contains(orderFolow.getEndStatus())){
+                    if("30,33".contains(orderFlow.getEndStatus())){
                         kafkaBean.setBusinessType(BusinessType.PUTOUT.getName());
                         kafkaBean.setBusinessMoney(orderInfo.getApproveSum() == null ?
                                 "0" : String.valueOf(orderInfo.getApproveSum()));
                         kafkaTemplate.send(BusinessType.PUTOUT.getName(), JSON.toJSONString(kafkaBean));
                         logger.info("send kafka message ====> topic: {} message: {}",
                                 BusinessType.PUTOUT.getName(),JSON.toJSONString(kafkaBean));
+
+                        if("30".equals(orderFlow.getEndStatus())){
+                            //签约金额变化，取出签约时的时间
+                            OrderFlow orderFlowContract = orderFlowMapper.selectContractFlow(orderInfo.getOrderId());
+
+                            kafkaBean.setBusinessChannel(customerInfo.getRegisterChannel());
+                            kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
+                            kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
+                            //是否复贷
+                            kafkaBean.setBusinessIsRepeat(getCusomerFromIndinfo(orderInfo.getCertId()));
+
+                            kafkaBean.setBusinessTime(orderFlow.getCreateTime());
+                            //主要时间判定字段，放入金额变化时间
+                            kafkaBean.setBusinessCreateTime(orderFlowContract.getCreateTime());
+                            kafkaBean.setBusinessUpdateTime(orderFlow.getUpdateTime());
+                            kafkaBean.setBusinessType(BusinessType.CONTRACT_MONEY.getName());
+                            //插入试算金额
+                            kafkaBean.setBusinessMoney(contractMoney.getContractMoney(orderInfo));
+                            kafkaTemplate.send(BusinessType.CONTRACT_MONEY.getName(), JSON.toJSONString(kafkaBean));
+                            logger.info("send kafka message ====> topic: {} message: {}",
+                                    BusinessType.CONTRACT_MONEY.getName(),JSON.toJSONString(kafkaBean));
+                        }
                     }
                 }
                 break;
