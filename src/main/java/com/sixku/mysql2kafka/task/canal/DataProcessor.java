@@ -208,7 +208,12 @@ public class DataProcessor {
                     kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
                     kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
                     //是否复贷
-                    kafkaBean.setBusinessIsRepeat(getCusomerFromIndinfo(orderInfo.getCertId()));
+                    if("Y".equals(orderInfo.getIsRepeatLoan())){
+                        kafkaBean.setBusinessIsRepeat("1");
+                    }else{
+                        kafkaBean.setBusinessIsRepeat("0");
+                    }
+
 
                     kafkaBean.setBusinessTime(orderFlow.getCreateTime());
                     kafkaBean.setBusinessCreateTime(orderFlow.getCreateTime());
@@ -250,8 +255,6 @@ public class DataProcessor {
                             kafkaBean.setBusinessChannel(customerInfo.getRegisterChannel());
                             kafkaBean.setBusinessCustomerId(orderInfo.getCustomerId());
                             kafkaBean.setBusinessOrderId(orderInfo.getOrderId());
-                            //是否复贷
-                            kafkaBean.setBusinessIsRepeat(getCusomerFromIndinfo(orderInfo.getCertId()));
 
                             kafkaBean.setBusinessTime(orderFlow.getCreateTime());
                             //主要时间判定字段，放入金额变化时间
